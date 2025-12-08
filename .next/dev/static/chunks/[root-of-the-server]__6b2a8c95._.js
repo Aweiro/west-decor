@@ -579,6 +579,9 @@ async function getProducts(api) {
         return [];
     }
 }
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
 "[project]/src/app/services/productsApi.ts [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -1478,6 +1481,9 @@ var ButtonType = /*#__PURE__*/ function(ButtonType) {
     ButtonType["Minus"] = "minus";
     return ButtonType;
 }({});
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
 "[project]/src/modules/shared/layout/Footer/Footer.tsx [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";

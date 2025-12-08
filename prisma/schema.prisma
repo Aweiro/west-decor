@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+	shadowDatabaseUrl = "postgresql://aweiro:leonkenedy@localhost:5432/phone_catalog_shadow"
+}
+
+model Product {
+	id          Int @id @default(autoincrement())
+  category    String
+  itemId      String    @unique
+  name        String
+	fullPrice   Float
+  price       Float
+	screen      String
+	capacity    String
+	color       String
+	ram         String
+	year        Int
+  image       String
+  createdAt   DateTime        @default(now())
+}
+
+model ProductDetails {
+  id                Int      @id @default(autoincrement())
+	category          String
+	productId         String @unique
+  namespaceId       String?
+  name              String
+  capacityAvailable String[]
+  colorsAvailable   String[]
+  capacity          String
+  color             String
+  images            String[]
+  priceRegular      Float
+  priceDiscount     Float
+  description       Json
+  screen            String
+  resolution        String
+  processor         String
+  ram               String
+  camera            String
+	zoom              String
+  cell              String[]
+}

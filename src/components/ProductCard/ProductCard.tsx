@@ -11,9 +11,10 @@ import { usePathname, useSearchParams } from 'next/navigation';
 interface Props {
   product: Product;
   className?: string;
+	children?: any;
 }
 
-export const ProductCard: React.FC<Props> = React.memo(({ product, className }) => {
+export const ProductCard: React.FC<Props> = React.memo(({ product, className, children }) => {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -32,7 +33,7 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className }) 
 
     router
       .push(
-        `/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`,
+        `/prisma/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`,
       )
       .finally(() => {
         window.scrollTo({ top: 0 });
@@ -47,8 +48,6 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className }) 
     children: React.ReactNode;
     linkClassName: string;
   }) => {
-    // const pathname = usePathname();
-    // const params = useSearchParams();
     return (
       <Link
         href={`/${product.category}/${product.itemId}`}
@@ -60,11 +59,14 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className }) 
     );
   };
 
+  console.log(product);
+
   return (
     <div className={`${styles['product-card']} ${className ? className : ''}`}>
       <LinkDetails linkClassName={styles['product-card__img-container']}>
         <Image
-          src={'/' + product.image}
+          src={product?.image || '/img/category-phones.webp'}
+          // src={'/' + product?.image || "/img/category-phones.webp"}
           alt='product'
           width={100}
           height={100}
@@ -73,7 +75,7 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className }) 
       </LinkDetails>
 
       <LinkDetails linkClassName={`body-text ${styles['product-card__title']}`}>
-        {product.name}
+        {product?.name || 'unknown'}
       </LinkDetails>
 
       <div className={styles['product-card__price-row']}>
@@ -100,6 +102,7 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className }) 
       </div>
 
       <PaymentsButtons product={product.itemId} />
+      {children}
     </div>
   );
 });

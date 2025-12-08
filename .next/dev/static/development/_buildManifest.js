@@ -5,8 +5,8 @@ self.__BUILD_MANIFEST = {
   "/[category]": [
     "static/chunks/pages/[category].js"
   ],
-  "/[category]/[productId]": [
-    "static/chunks/pages/[category]/[productId].js"
+  "/prisma": [
+    "static/chunks/pages/prisma.js"
   ],
   "__rewrites": {
     "afterFiles": [],
@@ -17,9 +17,15 @@ self.__BUILD_MANIFEST = {
     "/",
     "/_app",
     "/_error",
+    "/api/products",
+    "/api/upload",
     "/cart",
     "/components/CategoriesBlock/CategoriesBlock",
     "/favorites",
+    "/prisma",
+    "/prisma/[category]/CatalogPage/CatalogPage",
+    "/prisma/[category]/ProductDetailsPage/ProductDetailsPage",
+    "/prisma/[category]/[productId]",
     "/[category]",
     "/[category]/CatalogPage/CatalogPage",
     "/[category]/ProductDetailsPage/ProductDetailsPage",

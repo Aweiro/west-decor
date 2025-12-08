@@ -1,0 +1,5 @@
+{
+  "/prisma/[category]": [
+    "static/chunks/pages/prisma/[category].js"
+  ]
+}
