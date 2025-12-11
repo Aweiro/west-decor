@@ -9,7 +9,8 @@ export async function getProducts(api: string): Promise<Product[]> {
   await wait(500);
 
   try {
-    const response = await fetch(`/api/${api}.json`);
+    // const response = await fetch(`/api/${api}.json`); 
+    const response = await fetch(`/api/products?category=${api}`);
 
     if (!response.ok) {
       console.error(`❌ File not found: /api/${api}.json (status ${response.status})`);

@@ -206,7 +206,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
         const from = `${pathname}${search}`; // це поточна сторінка, звідки відкрили
         const html = document.documentElement;
         html.style.scrollBehavior = 'smooth';
-        router.push(`/prisma/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`).finally(()=>{
+        router.push(`/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`).finally(()=>{
             window.scrollTo({
                 top: 0
             });

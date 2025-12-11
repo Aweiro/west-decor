@@ -1,12 +1,30 @@
 self.__BUILD_MANIFEST = {
+  "/": [
+    "static/chunks/pages/index.js"
+  ],
   "/[...all]": [
     "static/chunks/pages/[...all].js"
   ],
   "/[category]": [
     "static/chunks/pages/[category].js"
   ],
+  "/[category]/[productId]": [
+    "static/chunks/pages/[category]/[productId].js"
+  ],
+  "/_error": [
+    "static/chunks/pages/_error.js"
+  ],
+  "/cart": [
+    "static/chunks/pages/cart.js"
+  ],
+  "/favorites": [
+    "static/chunks/pages/favorites.js"
+  ],
   "/prisma": [
     "static/chunks/pages/prisma.js"
+  ],
+  "/prisma/[category]/[productId]": [
+    "static/chunks/pages/prisma/[category]/[productId].js"
   ],
   "__rewrites": {
     "afterFiles": [],
@@ -14,7 +32,6 @@ self.__BUILD_MANIFEST = {
     "fallback": []
   },
   "sortedPages": [
-    "/",
     "/_app",
     "/_error",
     "/api/products",
@@ -23,9 +40,6 @@ self.__BUILD_MANIFEST = {
     "/components/CategoriesBlock/CategoriesBlock",
     "/favorites",
     "/prisma",
-    "/prisma/[category]/CatalogPage/CatalogPage",
-    "/prisma/[category]/ProductDetailsPage/ProductDetailsPage",
-    "/prisma/[category]/[productId]",
     "/[category]",
     "/[category]/CatalogPage/CatalogPage",
     "/[category]/ProductDetailsPage/ProductDetailsPage",

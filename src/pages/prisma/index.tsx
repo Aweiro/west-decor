@@ -264,7 +264,7 @@ export const Prisma = () => {
   return (
     <div className='container'>
       <Breadcrumbs />
-      <div className={styles.productsGrid}>
+      <div className={styles.favorites}>
         {!loading && (
           <ProductsList products={products} onEdit={handleEdit} onDelete={handleDelete} />
         )}

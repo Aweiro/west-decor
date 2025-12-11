@@ -33,8 +33,10 @@ export const ProductDetailsPage = () => {
   } = useCategoriesRTK(ProductsType.Products);
 
   const product = useMemo(() => {
-    return products.find((el) => el.id === productId);
+    return products.find((el) => el.productId === productId);
   }, [products, productId]);
+
+	console.log(product);
 
   const [currentPhoto, setCurrentPhoto] = useState<string | undefined>(undefined);
 
@@ -156,7 +158,7 @@ export const ProductDetailsPage = () => {
           findItem.capacity === (key === VariantChangeType.VariantColor ? product.capacity : value),
       ) || product;
 
-    router.push(`/${category}/${currentProduct.id}`, undefined, { scroll: false });
+    router.push(`/${category}/${currentProduct.productId}`, undefined, { scroll: false });
   };
 
   const ChangeOptionsBlock = ({
@@ -244,7 +246,8 @@ export const ProductDetailsPage = () => {
       <section className={`section ${styles['product-details__main']}`}>
         <Image
           className={styles['product-details__photo-big']}
-          src={'/' + currentPhoto || ''}
+          // src={'/' + currentPhoto || ''}
+          src={currentPhoto || ''}
           width={500}
           height={500}
           alt='photo'
@@ -260,7 +263,8 @@ export const ProductDetailsPage = () => {
             >
               <Image
                 className={styles['product-details__photo-small']}
-                src={'/' + img}
+                // src={'/' + img}
+                src={img}
                 alt='small-photo'
                 width={80}
                 height={80}
@@ -282,7 +286,7 @@ export const ProductDetailsPage = () => {
               <h2>${product.priceDiscount}</h2>
               <p className={styles['product-details__price-old']}>${product.priceRegular}</p>
             </div>
-            <PaymentsButtons product={product.id} isPage={true} />
+            <PaymentsButtons product={product.productId} isPage={true} />
           </div>
           <InfoBlock isSmall={true} />
         </div>

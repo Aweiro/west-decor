@@ -1,8 +1,10 @@
 @use '../../styles/utils' as utils;
 
+
 .favorites {
+
  &__empty {
   text-align: center;
   font-weight: 300;
- }
+}
 }

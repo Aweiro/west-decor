@@ -284,7 +284,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
         const from = `${pathname}${search}`; // це поточна сторінка, звідки відкрили
         const html = document.documentElement;
         html.style.scrollBehavior = 'smooth';
-        router.push(`/prisma/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`).finally(()=>{
+        router.push(`/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`).finally(()=>{
             window.scrollTo({
                 top: 0
             });
@@ -834,7 +834,7 @@ const Prisma = ()=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$prisma$2f$FavoritesPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].productsGrid,
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$prisma$2f$FavoritesPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].favorites,
                 children: !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsList$2f$ProductsList$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsList"], {
                     products: products,
                     onEdit: handleEdit,

@@ -129,39 +129,6 @@ const mod = await __turbopack_context__.y("@reduxjs/toolkit/query/react");
 __turbopack_context__.n(mod);
 __turbopack_async_result__();
 } catch(e) { __turbopack_async_result__(e); } }, true);}),
-"[project]/src/utils/getProducts.tsx [ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
-
-// src/utils/getProducts.ts
-__turbopack_context__.s([
-    "getProducts",
-    ()=>getProducts
-]);
-function wait(delay) {
-    return new Promise((resolve)=>setTimeout(resolve, delay));
-}
-async function getProducts(api) {
-    await wait(500);
-    try {
-        // const response = await fetch(`/api/${api}.json`); 
-        const response = await fetch(`/api/products?category=${api}`);
-        if (!response.ok) {
-            console.error(`❌ File not found: /api/${api}.json (status ${response.status})`);
-            return [];
-        }
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-            console.error(`❌ Invalid content-type: ${contentType}`);
-            return [];
-        }
-        const data = await response.json();
-        return Array.isArray(data) ? data : [];
-    } catch (err) {
-        console.error('❌ Failed to parse JSON:', err);
-        return [];
-    }
-}
-}),
 "[project]/src/app/services/productsApi.ts [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -175,12 +142,10 @@ __turbopack_context__.s([
     ()=>useGetProductsByCategoryQuery
 ]);
 var __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit$2f$query$2f$react__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2f$query$2f$react$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/@reduxjs/toolkit/query/react [external] (@reduxjs/toolkit/query/react, esm_import)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$getProducts$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/getProducts.tsx [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit$2f$query$2f$react__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2f$query$2f$react$2c$__esm_import$29$__
 ]);
 [__TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit$2f$query$2f$react__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2f$query$2f$react$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
-;
 ;
 const productsApi = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$reduxjs$2f$toolkit$2f$query$2f$react__$5b$external$5d$__$2840$reduxjs$2f$toolkit$2f$query$2f$react$2c$__esm_import$29$__["createApi"])({
     reducerPath: 'productsApi',
@@ -195,7 +160,8 @@ const productsApi = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$redu
             getProductsByCategory: builder.query({
                 queryFn: async (category)=>{
                     try {
-                        const data = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$getProducts$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["getProducts"])(category);
+                        // const data = await getProducts(category);
+                        const data = await fetch(`/api/products?category=${category}`);
                         return {
                             data
                         };
@@ -1263,4 +1229,4 @@ __turbopack_async_result__();
 } catch(e) { __turbopack_async_result__(e); } }, false);}),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__25a649ee._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__0e759f03._.js.map

@@ -33,7 +33,7 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className, ch
 
     router
       .push(
-        `/prisma/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`,
+        `/${product.category}/${product.itemId}${!pathname?.startsWith(`/${product.category}`) ? `?from=${encodeURIComponent(from)}` : ''}`,
       )
       .finally(() => {
         window.scrollTo({ top: 0 });
