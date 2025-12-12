@@ -198,7 +198,6 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     };
-    console.log(product);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card']} ${className ? className : ''}`,
         children: [
@@ -213,12 +212,12 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__img']
                 }, void 0, false, {
                     fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                    lineNumber: 67,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 66,
+                lineNumber: 64,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(LinkDetails, {
@@ -226,7 +225,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                 children: product?.name || 'unknown'
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 77,
+                lineNumber: 75,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -240,7 +239,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 82,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
@@ -251,20 +250,20 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 84,
+                        lineNumber: 82,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 81,
+                lineNumber: 79,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("hr", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__line']
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 87,
+                lineNumber: 85,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -278,7 +277,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: "Screen"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 91,
+                                lineNumber: 89,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -286,13 +285,13 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: product.screen
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 92,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 90,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -303,7 +302,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: "Capacity"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 95,
+                                lineNumber: 93,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -311,13 +310,13 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: product.capacity
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 96,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 94,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -328,7 +327,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: "RAM"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 99,
+                                lineNumber: 97,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -336,33 +335,33 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: product.ram
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 100,
+                                lineNumber: 98,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 98,
+                        lineNumber: 96,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 89,
+                lineNumber: 87,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PaymentsButtons$2f$PaymentsButtons$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["PaymentsButtons"], {
                 product: product.itemId
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 104,
+                lineNumber: 102,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             children
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-        lineNumber: 65,
+        lineNumber: 63,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 });
@@ -404,44 +403,93 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 ;
-const ProductsList = ({ products, onEdit, onDelete })=>{
+const ProductsList = ({ isAdmin = false, products, onEdit, onDelete })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsList$2f$ProductsList$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['products-list'],
         children: products.map((product)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductCard"], {
                 product: product,
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsList$2f$ProductsList$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['products-list__card'],
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                        style: {
-                            alignSelf: 'center',
-                            width: '100%',
-                            backgroundColor: 'gray'
-                        },
-                        onClick: ()=>onEdit(product),
-                        children: "Edit"
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
-                        lineNumber: 15,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                        onClick: ()=>onDelete(product.itemId),
-                        className: "px-2 py-1 bg-red-600 text-white rounded",
-                        children: "Delete"
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
-                        lineNumber: 21,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, product.id, true, {
+                children: isAdmin && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "mt-2 flex gap-3",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                            onClick: ()=>onEdit(product),
+                            className: "flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm active:scale-95",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("svg", {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    className: "h-4 w-4",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("path", {
+                                        strokeLinecap: "round",
+                                        strokeLinejoin: "round",
+                                        strokeWidth: 2,
+                                        d: "M11 5H6a2 2 0 00-2 2v11a2 2 0 00 2 2h11a2 2 0 00 2-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                                        lineNumber: 32,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                                    lineNumber: 25,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                "Edit"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                            lineNumber: 21,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                            onClick: ()=>onDelete(product.itemId),
+                            className: "px-4 py-2 bg-red-50 text-red-600 border border-red-100 text-sm font-medium rounded-lg hover:bg-red-100 hover:border-red-200 transition-colors active:scale-95 flex items-center gap-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("svg", {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    className: "h-4 w-4",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("path", {
+                                        strokeLinecap: "round",
+                                        strokeLinejoin: "round",
+                                        strokeWidth: 2,
+                                        d: "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                                        lineNumber: 54,
+                                        columnNumber: 19
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                                    lineNumber: 47,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                "Delete"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                            lineNumber: 43,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
+                    lineNumber: 19,
+                    columnNumber: 13
+                }, ("TURBOPACK compile-time value", void 0))
+            }, product.id, false, {
                 fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
-                lineNumber: 14,
+                lineNumber: 17,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)))
     }, void 0, false, {
         fileName: "[project]/src/components/ProductsList/ProductsList.tsx",
-        lineNumber: 12,
+        lineNumber: 15,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

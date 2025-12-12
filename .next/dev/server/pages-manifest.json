@@ -10,6 +10,5 @@
   "/api/upload": "pages/api/upload.js",
   "/cart": "pages/cart.js",
   "/favorites": "pages/favorites.js",
-  "/prisma": "pages/prisma.js",
-  "/prisma/[category]/[productId]": "pages/prisma/[category]/[productId].js"
+  "/prisma": "pages/prisma.js"
 }

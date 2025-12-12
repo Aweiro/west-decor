@@ -1,4 +1,3 @@
-// src/app/services/productsApi.ts
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { Product } from '../../types/ProductType';
 import { ProductsType } from '../../types/ProductsType';
@@ -9,9 +8,6 @@ export const productsApi = createApi({
   // baseQuery: fetchBaseQuery({ baseUrl: '/' }), // базова URL
   baseQuery: async () => ({ data: null }),
   endpoints: builder => ({
-    // getProductsByCategory: builder.query<Product[], ProductsType>({
-    //   query: category => `api/${category}.json`, // твій шлях до json
-    // }),
     getProductsByCategory: builder.query<Product[], ProductsType>({
       queryFn: async (category: ProductsType) => {
         try {

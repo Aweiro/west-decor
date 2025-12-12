@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styles from './ProductCard.module.scss';
-import Link from 'next/link'; // заміна react-router-dom
+import Link from 'next/link';
 // import { usePathname } from 'next/navigation'; // заміна useLocation
 import { Product } from '../../types/ProductType';
 import { PaymentsButtons } from '../PaymentsButtons';
@@ -11,7 +11,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 interface Props {
   product: Product;
   className?: string;
-	children?: any;
+  children?: ReactNode;
 }
 
 export const ProductCard: React.FC<Props> = React.memo(({ product, className, children }) => {
@@ -58,8 +58,6 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className, ch
       </Link>
     );
   };
-
-  console.log(product);
 
   return (
     <div className={`${styles['product-card']} ${className ? className : ''}`}>

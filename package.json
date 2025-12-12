@@ -11,7 +11,9 @@
     "prepare": "husky install",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview",
-    "seed": "ts-node seed.ts"
+    "seed": "ts-node seed.ts",
+    "build:admin:css": "npx tailwindcss -c tailwind.config.admin.js -i ./src/pages/prisma/styles/admin.tailwind.css -o ./public/admin.css --minify",
+    "watch:admin:css": "npx tailwindcss -c tailwind.config.admin.js -i ./src/pages/prisma/styles/admin.tailwind.css -o ./public/admin.css --watch"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",
@@ -35,6 +37,7 @@
     "@types/react": "^19.2.4",
     "@types/react-dom": "^19.1.9",
     "@types/react-slick": "^0.23.13",
+    "autoprefixer": "^10.4.22",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
@@ -49,8 +52,10 @@
     "husky": "^8.0.0",
     "jiti": "^2.6.1",
     "lint-staged": "^16.2.6",
+    "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "prisma": "^6.19.0",
+    "tailwindcss": "^3.4.14",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3"
   },

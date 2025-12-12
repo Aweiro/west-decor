@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/app/services/prismaClient';
+import { Product } from '@/types/ProductType';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -19,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         year,
         category,
         itemId,
-        description,
+        // description,
         details,
       } = req.body;
 
@@ -100,7 +101,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const allColors = new Set<string>();
 
             for (const item of all) {
-              item.colorsAvailable.filter((c) => c.trim() !== '').forEach((c) => allColors.add(c));
+              item.colorsAvailable
+                .filter((c: string) => c.trim() !== '')
+                .forEach((c: string) => allColors.add(c));
             }
 
             // додаємо новий колір
@@ -116,11 +119,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               },
             });
           }
-        } catch (err: any) {
+        } catch (err: unknown) {
           console.error('ProductDetails creation error:', err);
+          let message = 'Unknown server error';
+
+          if (err instanceof Error) {
+            message = err.message;
+          }
+
           return res.status(500).json({
             error: 'Failed to create ProductDetails',
-            message: err.message,
+            message,
           });
         }
 
@@ -272,7 +281,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             });
 
             // 2) collect unique colors
-            const colors = [...new Set(all.map((i) => i.color).filter(Boolean))];
+            const colors = [...new Set(all.map((i: Product) => i.color).filter(Boolean))];
 
             // 3) update all their colorsAvailable
             await prisma.productDetails.updateMany({
@@ -295,7 +304,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             });
 
             // 2. збираємо унікальні обʼєми
-            const capacities = [...new Set(all.map((i) => i.capacity).filter(Boolean))];
+            const capacities = [...new Set(all.map((i: Product) => i.capacity).filter(Boolean))];
 
             // 3. оновлюємо у всіх details
             await prisma.productDetails.updateMany({
@@ -402,7 +411,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           select: { capacity: true },
         });
 
-        const uniqueCaps = [...new Set(allCaps.map((i) => i.capacity).filter(Boolean))];
+        const uniqueCaps = [...new Set(allCaps.map((i: Product) => i.capacity).filter(Boolean))];
 
         await prisma.productDetails.updateMany({
           where: { namespaceId: namespace },
@@ -420,12 +429,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
       return res.status(405).end(`Method ${req.method} Not Allowed`);
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('API ERROR FULL:', error);
+
+    let message = 'Unknown error';
+    let stack = undefined;
+
+    if (error instanceof Error) {
+      message = error.message;
+      stack = error.stack;
+    }
+
     return res.status(500).json({
       error: 'Server error',
-      message: error.message,
-      stack: error.stack,
+      message,
+      stack,
     });
   }
 }

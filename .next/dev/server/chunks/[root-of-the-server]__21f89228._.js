@@ -45,7 +45,8 @@ async function handler(req, res) {
         // ---------------------- CREATE PRODUCT ----------------------
         //
         if (req.method === 'POST') {
-            const { name, screen, price, fullPrice, capacity, color, ram, image, year, category, itemId, description, details } = req.body;
+            const { name, screen, price, fullPrice, capacity, color, ram, image, year, category, itemId, // description,
+            details } = req.body;
             if (!itemId) {
                 return res.status(400).json({
                     error: 'itemId is required'
@@ -142,9 +143,13 @@ async function handler(req, res) {
                     }
                 } catch (err) {
                     console.error('ProductDetails creation error:', err);
+                    let message = 'Unknown server error';
+                    if (err instanceof Error) {
+                        message = err.message;
+                    }
                     return res.status(500).json({
                         error: 'Failed to create ProductDetails',
-                        message: err.message
+                        message
                     });
                 }
                 // ---- SYNC CAPACITIES ACROSS SAME NAMESPACE ----
@@ -469,10 +474,16 @@ async function handler(req, res) {
         }
     } catch (error) {
         console.error('API ERROR FULL:', error);
+        let message = 'Unknown error';
+        let stack = undefined;
+        if (error instanceof Error) {
+            message = error.message;
+            stack = error.stack;
+        }
         return res.status(500).json({
             error: 'Server error',
-            message: error.message,
-            stack: error.stack
+            message,
+            stack
         });
     }
 }

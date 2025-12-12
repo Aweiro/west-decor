@@ -19,7 +19,7 @@ export const PaymentsButtons = ({
   const { items: cart } = useAppSelector((state) => state.cart);
   const isActiveCart = cart.some((item) => item.id === product);
 
-  return (
+	return (
     <div
       className={classNames(styles.payments__buttons, {
         [styles.page]: isPage,

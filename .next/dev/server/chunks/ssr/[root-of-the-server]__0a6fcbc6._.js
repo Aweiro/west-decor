@@ -167,7 +167,6 @@ async function getProducts(api) {
 
 return __turbopack_context__.a(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
 
-// src/app/services/productsApi.ts
 __turbopack_context__.s([
     "productsApi",
     ()=>productsApi,
@@ -189,9 +188,6 @@ const productsApi = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$redu
             data: null
         }),
     endpoints: (builder)=>({
-            // getProductsByCategory: builder.query<Product[], ProductsType>({
-            //   query: category => `api/${category}.json`, // твій шлях до json
-            // }),
             getProductsByCategory: builder.query({
                 queryFn: async (category)=>{
                     try {

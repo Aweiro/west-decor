@@ -60,7 +60,7 @@ const __TURBOPACK__default__export__ = {
     height: 630,
     blurWidth: 8,
     blurHeight: 4,
-    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAAEAAgDAREAAhEBAxEB/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYpNCkhIjBBMTQ5Oz4+PiUuRElDPEg3PT47/9sAQwEKCwsODQ4cEBAcOygiKDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmZNKsf+ELDi2QSfZBJvx827Gc5ryPaz+sWv1Pa9lD6te3Q//Z"
+    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAAEAAgDAREAAhEBAxEB/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYpNCkhIjBBMTQ5Oz4+PiUuRElDPEg3PT47/9sAQwEKCwsODQ4cEBAcOygiKDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmpNJsf+EMDi2QSfZBJvx827Gc5ryfaz+sWv1Pa9lD6te3Q//Z"
 };
 }),
 "[project]/src/assets/img/slider/slider-image-3.jpg (static in ecmascript, tag client)", ((__turbopack_context__) => {
@@ -81,7 +81,7 @@ const __TURBOPACK__default__export__ = {
     height: 675,
     blurWidth: 8,
     blurHeight: 5,
-    blurDataURL: "data:image/webp;base64,UklGRu0AAABXRUJQVlA4TOEAAAAvBwABAM1VICICHgiACQMAAAA9DBAAAAAAFDgAgANAAAK4AAAABAAAAKAAcAgA4iC/A8ZDEECoDAAAgAcCYMIAAABw/srWBBE6QQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQgQkI6bfNAAEwYAAAAzv8dCo8QDkAAgAAAAAAAAAAAAAAAAAAAAAAAAAAQAASJAMpebZ1WZJ12iZi6OXybHC4PsSK9gf5BiHalY+LSBaFTB0c/zufy19zdPcKLm/N/vX54QyHgzFmUKLWwIdvdl6PzTSegYzIxqFT22o6vWiYA"
+    blurDataURL: "data:image/webp;base64,UklGRvAAAABXRUJQVlA4TOMAAAAvBwABAM1VICICHgiADQIAAAA2DBAAAAAAdBAAgAAgAAFcAAAADgAAAOAB4BAAnIN7DhiDIIDQbgAAADwQgBQGAACA80/1nSDCRhAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBhECLBlPl/DwQghQEAAOD8KygshsEAAgAIAAAAAAAAAAAAAAAAAAAAAAAAAAOAENoAXtr7E32Rz7iGWNWFfoBu5MM4mHGE+UPYzfyd14yC8eEngpC0rf1J5c3sb15aj7kjR4szQUubapn1he7fvVKA/zlI33Ld8+Oub2m03nQwAAA="
 };
 }),
 "[externals]/react-slick [external] (react-slick, cjs)", ((__turbopack_context__, module, exports) => {
@@ -381,7 +381,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/react/jsx-dev-runtime [external] (react/jsx-dev-runtime, cjs)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/react [external] (react, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/src/components/ProductCard/ProductCard.module.scss [ssr] (css module)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [ssr] (ecmascript)"); // заміна react-router-dom
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PaymentsButtons$2f$index$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/src/components/PaymentsButtons/index.tsx [ssr] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PaymentsButtons$2f$PaymentsButtons$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/PaymentsButtons/PaymentsButtons.tsx [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [ssr] (ecmascript)");
@@ -431,7 +431,6 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     };
-    console.log(product);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card']} ${className ? className : ''}`,
         children: [
@@ -446,12 +445,12 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__img']
                 }, void 0, false, {
                     fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                    lineNumber: 67,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 66,
+                lineNumber: 64,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(LinkDetails, {
@@ -459,7 +458,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                 children: product?.name || 'unknown'
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 77,
+                lineNumber: 75,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -473,7 +472,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 82,
+                        lineNumber: 80,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
@@ -484,20 +483,20 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 84,
+                        lineNumber: 82,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 81,
+                lineNumber: 79,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("hr", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__line']
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 87,
+                lineNumber: 85,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -511,7 +510,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: "Screen"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 91,
+                                lineNumber: 89,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -519,13 +518,13 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: product.screen
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 92,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 90,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -536,7 +535,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: "Capacity"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 95,
+                                lineNumber: 93,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -544,13 +543,13 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: product.capacity
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 96,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 94,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -561,7 +560,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: "RAM"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 99,
+                                lineNumber: 97,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -569,33 +568,33 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                                 children: product.ram
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                                lineNumber: 100,
+                                lineNumber: 98,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                        lineNumber: 98,
+                        lineNumber: 96,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 89,
+                lineNumber: 87,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PaymentsButtons$2f$PaymentsButtons$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["PaymentsButtons"], {
                 product: product.itemId
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-                lineNumber: 104,
+                lineNumber: 102,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             children
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
-        lineNumber: 65,
+        lineNumber: 63,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 });
@@ -1039,7 +1038,6 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useCategoriesRTK$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__
 ]);
 [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsSlider$2f$index$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsSlider$2f$ProductsSlider$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useCategoriesRTK$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
-'use client';
 ;
 ;
 ;
@@ -1089,9 +1087,6 @@ function HomePage() {
     }, [
         products
     ]);
-    const [isClient, setIsClient] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
-    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>setIsClient(true), []);
-    if (!isClient) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
@@ -1099,7 +1094,7 @@ function HomePage() {
                 children: "Product Catalog"
             }, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 68,
+                lineNumber: 69,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -1112,23 +1107,23 @@ function HomePage() {
                             children: "Welcome to Nice Gadgets store!"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/index.tsx",
-                            lineNumber: 72,
+                            lineNumber: 73,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 71,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$BannerSlider$2f$BannerSlider$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["BannerSlider"], {}, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 74,
+                        lineNumber: 77,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 70,
+                lineNumber: 71,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -1137,24 +1132,24 @@ function HomePage() {
                     className: "container",
                     children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 80,
+                        lineNumber: 83,
                         columnNumber: 13
                     }, this) : error ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsSlider$2f$ProductsSlider$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsSlider"], {
                         title: 'Brand new models',
                         products: productsNewModels
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 84,
+                        lineNumber: 87,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/pages/index.tsx",
-                    lineNumber: 78,
+                    lineNumber: 81,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 77,
+                lineNumber: 80,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -1165,34 +1160,8 @@ function HomePage() {
                         categories: allCategories
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 91,
+                        lineNumber: 97,
                         columnNumber: 11
-                    }, this)
-                }, void 0, false, {
-                    fileName: "[project]/src/pages/index.tsx",
-                    lineNumber: 90,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 89,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
-                className: `section ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$HomePage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['hot-prices']}`,
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "container",
-                    children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
-                        fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 98,
-                        columnNumber: 13
-                    }, this) : error ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsSlider$2f$ProductsSlider$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsSlider"], {
-                        title: 'Hot prices',
-                        products: productsHotPrices
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 102,
-                        columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/pages/index.tsx",
@@ -1202,6 +1171,32 @@ function HomePage() {
             }, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
                 lineNumber: 95,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
+                className: `section ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$HomePage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['hot-prices']}`,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "container",
+                    children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
+                        fileName: "[project]/src/pages/index.tsx",
+                        lineNumber: 104,
+                        columnNumber: 13
+                    }, this) : error ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsSlider$2f$ProductsSlider$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsSlider"], {
+                        title: 'Hot prices',
+                        products: productsHotPrices
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/index.tsx",
+                        lineNumber: 108,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/index.tsx",
+                    lineNumber: 102,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/pages/index.tsx",
+                lineNumber: 101,
                 columnNumber: 7
             }, this)
         ]

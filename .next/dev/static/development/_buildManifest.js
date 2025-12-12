@@ -23,15 +23,16 @@ self.__BUILD_MANIFEST = {
   "/prisma": [
     "static/chunks/pages/prisma.js"
   ],
-  "/prisma/[category]/[productId]": [
-    "static/chunks/pages/prisma/[category]/[productId].js"
-  ],
   "__rewrites": {
     "afterFiles": [],
     "beforeFiles": [],
     "fallback": []
   },
   "sortedPages": [
+    "/",
+    "/HomePage/HomePage",
+    "/HomePage/components/CategoriesBlock",
+    "/HomePage/components/CategoriesBlock/CategoriesBlock",
     "/_app",
     "/_error",
     "/api/products",

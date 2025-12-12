@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -6,7 +7,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Only POST allowed' });
@@ -24,8 +25,9 @@ export default async function handler(req, res) {
     });
 
     return res.status(200).json({ url: uploaded.secure_url });
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
-    res.status(500).json({ error: 'Upload failed', message: err.message });
+    const message = err instanceof Error ? err.message : String(err);
+    res.status(500).json({ error: 'Upload failed', message });
   }
 }

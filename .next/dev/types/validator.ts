@@ -40,6 +40,33 @@ type ApiRouteConfig = {
 
 
 
+// Validate ../../../src/pages/HomePage/HomePage.tsx
+{
+  type __IsExpected<Specific extends PagesPageConfig> = Specific
+  const handler = {} as typeof import("../../../src/pages/HomePage/HomePage.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/pages/HomePage/components/CategoriesBlock/CategoriesBlock.tsx
+{
+  type __IsExpected<Specific extends PagesPageConfig> = Specific
+  const handler = {} as typeof import("../../../src/pages/HomePage/components/CategoriesBlock/CategoriesBlock.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/pages/HomePage/components/CategoriesBlock/index.ts
+{
+  type __IsExpected<Specific extends PagesPageConfig> = Specific
+  const handler = {} as typeof import("../../../src/pages/HomePage/components/CategoriesBlock/index.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/pages/[...all].tsx
 {
   type __IsExpected<Specific extends PagesPageConfig> = Specific
@@ -116,6 +143,15 @@ type ApiRouteConfig = {
 {
   type __IsExpected<Specific extends PagesPageConfig> = Specific
   const handler = {} as typeof import("../../../src/pages/favorites/index.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/pages/index.tsx
+{
+  type __IsExpected<Specific extends PagesPageConfig> = Specific
+  const handler = {} as typeof import("../../../src/pages/index.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
