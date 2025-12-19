@@ -21,7 +21,8 @@ model Product {
 	ram         String
 	year        Int
   image       String
-  createdAt   DateTime        @default(now())
+  createdAt   DateTime   @default(now())
+	isActive    Boolean    @default(true)
 }
 
 model ProductDetails {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Product } from '@/types/ProductType';
 import { ProductsList } from '@/components/ProductsList';
@@ -20,6 +20,7 @@ const btnDanger =
   'p-2 text-red-400 hover:text-red-300 hover:bg-red-900/20 rounded transition-colors';
 
 const startForm = {
+  isActive: true,
   category: '',
   itemId: '',
   price: '',
@@ -53,40 +54,43 @@ export const Prisma = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   // 2. Логіка фільтрації (шукає по назві, ID та категорії)
-  const filteredProducts = products.filter((product) => {
-    const term = searchTerm.toLowerCase();
-    return (
-      product.name?.toLowerCase().includes(term) ||
-      product.itemId?.toString().toLowerCase().includes(term) ||
-      product.category?.toLowerCase().includes(term) ||
-      product.namespaceId?.toLowerCase().includes(term)
-    );
-  });
+  const filteredProducts = products
+    .filter((p): p is Product => Boolean(p))
+    .filter((product) => {
+      const term = searchTerm.toLowerCase();
 
-  useEffect(() => {
+      return (
+        product.name?.toLowerCase().includes(term) ||
+        product.itemId?.toString().toLowerCase().includes(term) ||
+        product.category?.toLowerCase().includes(term) ||
+        product.namespaceId?.toLowerCase().includes(term)
+      );
+    });
+
+  const fetchProducts = useCallback(async () => {
     setLoading(true);
 
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch(`/api/products?category=${category}`);
-        const data = await res.json();
+    try {
+      const res = await fetch(`/api/products?category=${category}&admin=true`);
+      const data = await res.json();
 
-        if (!res.ok) {
-          console.error('Server response:', data);
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-
-        setProducts(Array.isArray(data) ? data : []);
-      } catch (err) {
-        console.error('Fetch error:', err);
-        setProducts([]);
-      } finally {
-        setLoading(false);
+      if (!res.ok) {
+        console.error('Server response:', data);
+        throw new Error(`HTTP error! status: ${res.status}`);
       }
-    };
 
-    fetchProducts();
+      setProducts(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setProducts([]);
+    } finally {
+      setLoading(false);
+    }
   }, [category]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [category, fetchProducts]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -110,6 +114,7 @@ export const Prisma = () => {
     }
 
     const payload: ProductPayload = {
+      isActive: form.isActive,
       itemId: form.itemId,
       category: form.category,
       name: form.name,
@@ -119,7 +124,7 @@ export const Prisma = () => {
       capacity: form.capacity || '',
       color: form.color || '',
       ram: form.ram || '',
-      year: Number(form.year) || 2000,
+      year: Number(form.year) || 0,
       image: imageUrls[0] || form.image, // ← якщо не міняли, беремо старе
     };
 
@@ -170,24 +175,14 @@ export const Prisma = () => {
       }
 
       if (isEdit) {
-        // update
-        setProducts((prev) =>
-          prev.map((p) =>
-            p.itemId === editingId
-              ? {
-                  ...p,
-                  ...payload,
-                  year: Number(payload.year),
-                }
-              : p,
-          ),
-        );
-
         setEditingId(null);
-      } else {
-        // create
-        setProducts((prev) => [data.product, ...prev]);
       }
+
+      // create
+      await fetchProducts();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      alert('Товар успішно збережено ✅');
 
       setForm({ ...startForm });
       setSelectedFile(null);
@@ -210,6 +205,7 @@ export const Prisma = () => {
 
     // 3) Сетимо форму
     setForm({
+      isActive: product.isActive || true,
       category: product.category || '',
       itemId: product.itemId || '',
       price: product.price?.toString() || '',
@@ -257,7 +253,8 @@ export const Prisma = () => {
       }
 
       // Якщо все ок — онови список
-      setProducts((prev) => prev.filter((p) => p.itemId !== itemId));
+      // setProducts((prev) => prev.filter((p) => p.itemId !== itemId));
+      await fetchProducts();
 
       alert('Товар успішно видалено');
     } catch (err: unknown) {
@@ -304,6 +301,22 @@ export const Prisma = () => {
 
     return urls;
   }
+
+  const handleToggleActive = async (itemId: string, isActive: boolean) => {
+    try {
+      const res = await fetch('/api/products', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId, isActive }),
+      });
+
+      if (!res.ok) throw new Error('Failed to toggle');
+
+      setProducts((prev) => prev.map((p) => (p.itemId === itemId ? { ...p, isActive } : p)));
+    } catch {
+      alert('Не вдалося змінити статус');
+    }
+  };
 
   return (
     <>
@@ -385,6 +398,7 @@ export const Prisma = () => {
                 products={filteredProducts}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
+                onToggleActive={handleToggleActive}
               />
             ) : (
               // --- БЛОК "НІЧОГО НЕ ЗНАЙДЕНО" ---
@@ -427,6 +441,7 @@ export const Prisma = () => {
         <section className='section'>
           <form id='admin-form' onSubmit={handleSubmit} className='space-y-6 text-gray-200 py-10'>
             {/* --- Основна інформація --- */}
+
             <div className={sectionClass}>
               <h3 className='text-lg font-semibold mb-4 border-b border-[#2E3345] pb-2 text-white'>
                 Основна інформація
@@ -501,6 +516,20 @@ export const Prisma = () => {
                     className={inputClass}
                   />
                 </div>
+
+                <div>
+                  <label className={labelClass}>Рік</label>
+                  <input
+                    name='year'
+                    placeholder='2024'
+                    type='number'
+                    min={2000}
+                    max={2100}
+                    value={form.year}
+                    onChange={handleChange}
+                    className={inputClass}
+                  />
+                </div>
               </div>
 
               <div>
@@ -510,7 +539,6 @@ export const Prisma = () => {
                   multiple
                   accept='image/*'
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    console.log(e.target.files);
                     setSelectedFile(e.target.files);
                   }}
                   className='block w-full text-sm text-gray-400

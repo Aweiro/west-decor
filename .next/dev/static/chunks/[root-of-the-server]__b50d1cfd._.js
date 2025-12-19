@@ -814,7 +814,7 @@ async function getProducts(api) {
         // const response = await fetch(`/api/${api}.json`); 
         const response = await fetch(`/api/products?category=${api}`);
         if (!response.ok) {
-            console.error(`❌ File not found: /api/${api}.json (status ${response.status})`);
+            console.error(`❌ File not found: /api/${api} (status ${response.status})`);
             return [];
         }
         const contentType = response.headers.get('content-type');
@@ -836,7 +836,6 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/src/app/services/productsApi.ts [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/app/services/productsApi.ts
 __turbopack_context__.s([
     "productsApi",
     ()=>productsApi,
@@ -854,9 +853,6 @@ const productsApi = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
             data: null
         }),
     endpoints: (builder)=>({
-            // getProductsByCategory: builder.query<Product[], ProductsType>({
-            //   query: category => `api/${category}.json`, // твій шлях до json
-            // }),
             getProductsByCategory: builder.query({
                 queryFn: async (category)=>{
                     try {

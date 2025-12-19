@@ -53,9 +53,10 @@ async function handler(req, res) {
         });
     } catch (err) {
         console.error(err);
+        const message = err instanceof Error ? err.message : String(err);
         res.status(500).json({
             error: 'Upload failed',
-            message: err.message
+            message
         });
     }
 }

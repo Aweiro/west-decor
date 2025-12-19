@@ -146,7 +146,7 @@ async function getProducts(api) {
         // const response = await fetch(`/api/${api}.json`); 
         const response = await fetch(`/api/products?category=${api}`);
         if (!response.ok) {
-            console.error(`❌ File not found: /api/${api}.json (status ${response.status})`);
+            console.error(`❌ File not found: /api/${api} (status ${response.status})`);
             return [];
         }
         const contentType = response.headers.get('content-type');
@@ -1089,7 +1089,9 @@ const Footer = ()=>{
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].footer__nav,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/",
+                                href: "https://github.com/Aweiro/",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
                                 className: `uppercase-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].footer__link}`,
                                 children: "Github"
                             }, void 0, false, {
@@ -1098,12 +1100,13 @@ const Footer = ()=>{
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/",
+                                href: "https://www.linkedin.com/in/arsen-bogak/",
+                                target: "_blank",
                                 className: `uppercase-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].footer__link}`,
                                 children: "Contacts"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
-                                lineNumber: 21,
+                                lineNumber: 26,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1112,7 +1115,7 @@ const Footer = ()=>{
                                 children: "Rights"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
-                                lineNumber: 24,
+                                lineNumber: 33,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
@@ -1129,7 +1132,7 @@ const Footer = ()=>{
                                 children: "Back to top"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
-                                lineNumber: 30,
+                                lineNumber: 39,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1141,13 +1144,13 @@ const Footer = ()=>{
                                     })
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
-                                lineNumber: 31,
+                                lineNumber: 40,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
-                        lineNumber: 29,
+                        lineNumber: 38,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]

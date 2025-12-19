@@ -10,22 +10,15 @@ import { Product } from '../types/ProductType';
 import { useSortedProducts } from '../hooks/useSortedProducts';
 import { useCategoriesRTK } from '../hooks/useCategoriesRTK';
 
-export default function HomePage () {
-  const {
-    categorie: products,
-    loading,
-    error,
-  } = useCategoriesRTK(ProductsType.Products);
+export default function HomePage() {
+  const { categorie: products, loading, error } = useCategoriesRTK(ProductsType.Products);
 
   const sortByBiggestDiscount = useCallback(
     (a: Product, b: Product) => b.fullPrice - b.price - (a.fullPrice - a.price),
     [],
   );
 
-  const sortByNewModels = useCallback(
-    (a: Product, b: Product) => b.year - a.year,
-    [],
-  );
+  const sortByNewModels = useCallback((a: Product, b: Product) => b.year - a.year, []);
 
   const productsNewModels = useSortedProducts(products, sortByNewModels);
   const productsHotPrices = useSortedProducts(products, sortByBiggestDiscount);
@@ -55,7 +48,7 @@ export default function HomePage () {
       },
     };
 
-    products.forEach(product => {
+    products.forEach((product) => {
       if (categoryMap[product.category]) {
         categoryMap[product.category].count += 1;
       }
@@ -66,40 +59,35 @@ export default function HomePage () {
 
   return (
     <>
-      <h1 className="hidden-title">Product Catalog</h1>
+      <h1 className='hidden-title'>Product Catalog</h1>
 
       <section className={`section ${styles.welcome}`}>
-        <div className="container">
-          <h1 className={styles.welcome__title}>
-            Welcome to Nice Gadgets store!
-          </h1>
+        <div className='container'>
+          <h1 className={styles.welcome__title}>Welcome to Nice Gadgets store!</h1>
         </div>
         <BannerSlider />
       </section>
 
       <section className={`section ${styles['new-models']}`}>
-        <div className="container">
+        <div className='container'>
           {loading ? (
             <Loader />
           ) : error ? (
             'error'
           ) : (
-            <ProductsSlider
-              title={'Brand new models'}
-              products={productsNewModels}
-            />
+            <ProductsSlider title={'Brand new models'} products={productsNewModels} />
           )}
         </div>
       </section>
 
       <section className={`section ${styles['categories-block']}`}>
-        <div className="container">
+        <div className='container'>
           <CategoriesBlock categories={allCategories} />
         </div>
       </section>
 
       <section className={`section ${styles['hot-prices']}`}>
-        <div className="container">
+        <div className='container'>
           {loading ? (
             <Loader />
           ) : error ? (
@@ -111,4 +99,4 @@ export default function HomePage () {
       </section>
     </>
   );
-};
+}

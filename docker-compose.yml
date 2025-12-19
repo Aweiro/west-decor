@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: aweiro
+      POSTGRES_PASSWORD: leonkenedy
+      POSTGRES_DB: phone_catalog
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: next_app
+    environment:
+      - DATABASE_URL
+    env_file:
+      - .env
+    ports:
+      - '3001:3000'
+    depends_on:
+      - db
+
+volumes:
+  db_data:

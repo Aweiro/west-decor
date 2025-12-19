@@ -13,7 +13,7 @@ export async function getProducts(api: string): Promise<Product[]> {
     const response = await fetch(`/api/products?category=${api}`);
 
     if (!response.ok) {
-      console.error(`❌ File not found: /api/${api}.json (status ${response.status})`);
+      console.error(`❌ File not found: /api/${api} (status ${response.status})`);
       return [];
     }
 

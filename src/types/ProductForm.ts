@@ -1,4 +1,5 @@
 export type ProductForm = {
+	isActive: boolean;
   category: string;
   itemId: string;
   price: string;

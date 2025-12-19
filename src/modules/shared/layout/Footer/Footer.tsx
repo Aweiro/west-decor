@@ -15,10 +15,19 @@ export const Footer = () => {
           </Link>
 
           <div className={styles.footer__nav}>
-            <Link href='/' className={`uppercase-text ${styles.footer__link}`}>
+            <Link
+              href='https://github.com/Aweiro/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className={`uppercase-text ${styles.footer__link}`}
+            >
               Github
             </Link>
-            <Link href='/' className={`uppercase-text ${styles.footer__link}`}>
+            <Link
+              href='https://www.linkedin.com/in/arsen-bogak/'
+              target='_blank'
+              className={`uppercase-text ${styles.footer__link}`}
+            >
               Contacts
             </Link>
             <Link href='/' className={`uppercase-text ${styles.footer__link}`}>

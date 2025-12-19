@@ -25,6 +25,7 @@ export interface Product {
   camera: string;
   zoom: string;
   cell: string[];
+	isActive: boolean;
 
   image: string;
   price: number;

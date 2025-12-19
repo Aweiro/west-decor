@@ -46,7 +46,7 @@ async function handler(req, res) {
         //
         if (req.method === 'POST') {
             const { name, screen, price, fullPrice, capacity, color, ram, image, year, category, itemId, // description,
-            details } = req.body;
+            details, isActive } = req.body;
             if (!itemId) {
                 return res.status(400).json({
                     error: 'itemId is required'
@@ -76,7 +76,8 @@ async function handler(req, res) {
                     color: color || '',
                     ram: ram || '',
                     year: Number(year) || 0,
-                    image: image || ''
+                    image: image || '',
+                    isActive: isActive ?? true
                 }
             });
             //
@@ -189,10 +190,13 @@ async function handler(req, res) {
         // ---------------------- GET DATA ----------------------
         //
         if (req.method === 'GET') {
-            const { category } = req.query;
+            const { category, admin } = req.query;
             // Return all products
             if (!category || category === 'products') {
                 const products = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].product.findMany({
+                    where: admin === 'true' ? {} : {
+                        isActive: true
+                    },
                     orderBy: {
                         id: 'desc'
                     }
@@ -211,7 +215,7 @@ async function handler(req, res) {
         // ---------------------- UPDATE PRODUCT ----------------------
         //
         if (req.method === 'PUT') {
-            const { name, screen, price, fullPrice, capacity, color, ram, image, year, category, itemId, details } = req.body;
+            const { name, screen, price, fullPrice, capacity, color, ram, image, year, category, itemId, details, isActive } = req.body;
             if (!itemId) return res.status(400).json({
                 error: 'itemId is required for update'
             });
@@ -237,7 +241,8 @@ async function handler(req, res) {
                     color,
                     ram,
                     year: Number(year),
-                    image: image || existing.image
+                    image: image || existing.image,
+                    isActive: Boolean(isActive)
                 }
             });
             let updatedDetails = null;
@@ -345,7 +350,7 @@ async function handler(req, res) {
                             cell: details.cell || [],
                             zoom: details.zoom,
                             color,
-                            capacityAvailable: existingDetails.capacityAvailable,
+                            // capacityAvailable: existingDetails.capacityAvailable,
                             // colorsAvailable: details.colorsAvailable || [],
                             namespaceId: details.namespaceId,
                             description: details.description,
@@ -455,6 +460,25 @@ async function handler(req, res) {
                 message: 'Product deleted successfully'
             });
         }
+        if (req.method === 'PATCH') {
+            const { itemId, isActive } = req.body;
+            if (!itemId || typeof isActive !== 'boolean') {
+                return res.status(400).json({
+                    error: 'itemId and isActive required'
+                });
+            }
+            const product = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].product.update({
+                where: {
+                    itemId
+                },
+                data: {
+                    isActive
+                }
+            });
+            return res.status(200).json({
+                product
+            });
+        }
         //
         // -------- METHOD NOT ALLOWED --------
         //
@@ -462,12 +486,14 @@ async function handler(req, res) {
             'GET',
             'POST',
             'PUT',
+            'PATCH',
             'DELETE'
         ].includes(req.method)) {
             res.setHeader('Allow', [
                 'GET',
                 'POST',
                 'PUT',
+                'PATCH',
                 'DELETE'
             ]);
             return res.status(405).end(`Method ${req.method} Not Allowed`);

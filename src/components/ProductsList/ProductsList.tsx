@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from 'next/link'; // 1. Імпортуємо Link
+import Link from 'next/link';
 import styles from './ProductsList.module.scss';
 import { Product } from '../../types/ProductType';
 import { ProductCard } from '../ProductCard';
@@ -7,21 +6,19 @@ import { ProductCard } from '../ProductCard';
 interface Props {
   products: Product[];
   onEdit?: (product: Product) => void;
-  onDelete?: (product: Product['itemId']) => void;
+  onDelete?: (id: Product['itemId']) => void;
   isAdmin?: boolean;
+  onToggleActive?: (itemId: string, isActive: boolean) => void;
 }
 
-const AdminProductRow = ({
-  product,
-  onEdit,
-  onDelete,
-}: {
+interface AdminProps {
   product: Product;
   onEdit?: (product: Product) => void;
   onDelete?: (id: string) => void;
-}) => {
-  // Генеруємо посилання на сторінку товару
-  // Змініть '/product/' на ваш реальний шлях, наприклад `/catalog/${product.itemId}`
+  onToggleActive?: (itemId: string, isActive: boolean) => void;
+}
+
+const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive }: AdminProps) => {
   const productLink = `/${product.category}/${product.itemId}`;
 
   return (
@@ -73,6 +70,32 @@ const AdminProductRow = ({
 
       {/* 3. Кнопки дій */}
       <div className='flex items-center gap-3 shrink-0 opacity-100 sm:opacity-90 sm:group-hover:opacity-100 transition-opacity'>
+        {/* ACTIVE SWITCH */}
+        <label className='flex items-center gap-2 text-sm cursor-pointer'>
+          <span className={product.isActive ? 'text-green-400' : 'text-gray-500'}>
+            {product.isActive ? 'Active' : 'Hidden'}
+          </span>
+
+          <input
+            type='checkbox'
+            checked={product.isActive}
+            onChange={(e) => onToggleActive?.(product.itemId, e.target.checked)}
+            className='sr-only'
+          />
+
+          <div
+            className={`w-10 h-5 rounded-full relative transition-colors ${
+              product.isActive ? 'bg-green-500' : 'bg-gray-600'
+            }`}
+          >
+            <div
+              className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform ${
+                product.isActive ? 'translate-x-5' : ''
+              }`}
+            />
+          </div>
+        </label>
+
         {/* EDIT */}
         <button
           onClick={() => onEdit?.(product)}
@@ -123,7 +146,13 @@ const AdminProductRow = ({
   );
 };
 
-export const ProductsList = ({ isAdmin = false, products, onEdit, onDelete }: Props) => {
+export const ProductsList = ({
+  isAdmin = false,
+  onToggleActive,
+  products,
+  onEdit,
+  onDelete,
+}: Props) => {
   if (isAdmin) {
     return (
       <div className='flex flex-col gap-3'>
@@ -133,6 +162,7 @@ export const ProductsList = ({ isAdmin = false, products, onEdit, onDelete }: Pr
             product={product}
             onEdit={onEdit}
             onDelete={onDelete}
+            onToggleActive={onToggleActive}
           />
         ))}
       </div>

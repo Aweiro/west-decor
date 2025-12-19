@@ -11,14 +11,8 @@ self.__BUILD_MANIFEST = {
   "/[category]/[productId]": [
     "static/chunks/pages/[category]/[productId].js"
   ],
-  "/_error": [
-    "static/chunks/pages/_error.js"
-  ],
   "/cart": [
     "static/chunks/pages/cart.js"
-  ],
-  "/favorites": [
-    "static/chunks/pages/favorites.js"
   ],
   "/prisma": [
     "static/chunks/pages/prisma.js"
@@ -30,14 +24,12 @@ self.__BUILD_MANIFEST = {
   },
   "sortedPages": [
     "/",
-    "/HomePage/HomePage",
-    "/HomePage/components/CategoriesBlock",
-    "/HomePage/components/CategoriesBlock/CategoriesBlock",
     "/_app",
     "/_error",
     "/api/products",
     "/api/upload",
     "/cart",
+    "/components/CategoriesBlock",
     "/components/CategoriesBlock/CategoriesBlock",
     "/favorites",
     "/prisma",

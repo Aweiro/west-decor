@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/app/services/prismaClient';
-import { Product } from '@/types/ProductType';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -22,6 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         itemId,
         // description,
         details,
+        isActive,
       } = req.body;
 
       if (!itemId) {
@@ -51,6 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           ram: ram || '',
           year: Number(year) || 0,
           image: image || '',
+          isActive: isActive ?? true,
         },
       });
 
@@ -170,11 +171,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // ---------------------- GET DATA ----------------------
     //
     if (req.method === 'GET') {
-      const { category } = req.query;
+      const { category, admin } = req.query;
 
       // Return all products
       if (!category || category === 'products') {
         const products = await prisma.product.findMany({
+          where: admin === 'true' ? {} : { isActive: true },
           orderBy: { id: 'desc' },
         });
         return res.status(200).json(products);
@@ -207,6 +209,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         category,
         itemId,
         details,
+        isActive,
       } = req.body;
 
       if (!itemId) return res.status(400).json({ error: 'itemId is required for update' });
@@ -227,6 +230,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           ram,
           year: Number(year),
           image: image || existing.image,
+          isActive: Boolean(isActive),
         },
       });
 
@@ -281,7 +285,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             });
 
             // 2) collect unique colors
-            const colors = [...new Set(all.map((i: Product) => i.color).filter(Boolean))];
+            const colors = [...new Set(all.map((i: { color: string }) => i.color).filter(Boolean))];
 
             // 3) update all their colorsAvailable
             await prisma.productDetails.updateMany({
@@ -304,7 +308,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             });
 
             // 2. збираємо унікальні обʼєми
-            const capacities = [...new Set(all.map((i: Product) => i.capacity).filter(Boolean))];
+            const capacities = [
+              ...new Set(all.map((i: { capacity: string }) => i.capacity).filter(Boolean)),
+            ];
 
             // 3. оновлюємо у всіх details
             await prisma.productDetails.updateMany({
@@ -329,7 +335,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               cell: details.cell || [],
               zoom: details.zoom,
               color,
-              capacityAvailable: existingDetails.capacityAvailable,
+              // capacityAvailable: existingDetails.capacityAvailable,
               // colorsAvailable: details.colorsAvailable || [],
               namespaceId: details.namespaceId,
               description: details.description,
@@ -411,7 +417,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           select: { capacity: true },
         });
 
-        const uniqueCaps = [...new Set(allCaps.map((i: Product) => i.capacity).filter(Boolean))];
+        const uniqueCaps = [
+          ...new Set(allCaps.map((i: { capacity: string }) => i.capacity).filter(Boolean)),
+        ];
 
         await prisma.productDetails.updateMany({
           where: { namespaceId: namespace },
@@ -422,11 +430,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(200).json({ message: 'Product deleted successfully' });
     }
 
+    if (req.method === 'PATCH') {
+      const { itemId, isActive } = req.body;
+
+      if (!itemId || typeof isActive !== 'boolean') {
+        return res.status(400).json({ error: 'itemId and isActive required' });
+      }
+
+      const product = await prisma.product.update({
+        where: { itemId },
+        data: { isActive },
+      });
+
+      return res.status(200).json({ product });
+    }
+
     //
     // -------- METHOD NOT ALLOWED --------
     //
-    if (!['GET', 'POST', 'PUT', 'DELETE'].includes(req.method as string)) {
-      res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
+    if (!['GET', 'POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method as string)) {
+      res.setHeader('Allow', ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']);
       return res.status(405).end(`Method ${req.method} Not Allowed`);
     }
   } catch (error: unknown) {

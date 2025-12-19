@@ -120,7 +120,7 @@ export const ProductDetailsPage = () => {
     return (
       <div className={styles['product-details__info']}>
         {normalizedItems.map(({ title, value }) => {
-          if (!value) {
+          if (!value || value === 'unknown') {
             return;
           }
 
@@ -246,7 +246,6 @@ export const ProductDetailsPage = () => {
       <section className={`section ${styles['product-details__main']}`}>
         <Image
           className={styles['product-details__photo-big']}
-          // src={'/' + currentPhoto || ''}
           src={currentPhoto || ''}
           width={500}
           height={500}
@@ -263,7 +262,6 @@ export const ProductDetailsPage = () => {
             >
               <Image
                 className={styles['product-details__photo-small']}
-                // src={'/' + img}
                 src={img}
                 alt='small-photo'
                 width={80}

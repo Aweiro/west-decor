@@ -145,11 +145,10 @@
 
 .CartPage-module-scss-module__8MX3ba__cart__total-checkout {
   width: 100%;
-  height: 48px;
+  min-height: 48px;
 }
 
 .CartPage-module-scss-module__8MX3ba__cart-modal {
-  background-color: #fff;
   gap: 32px;
   padding: 32px;
 }

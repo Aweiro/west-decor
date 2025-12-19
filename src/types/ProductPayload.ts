@@ -13,6 +13,7 @@ export type ProductPayload = Pick<
   | 'ram'
   | 'year'
   | 'image'
+  | 'isActive'
 > & {
   details?: Pick<
     Product,
