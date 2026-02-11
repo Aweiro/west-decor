@@ -16,19 +16,6 @@
       "static/chunks/src_pages_index_2da965e7._.js",
       "static/chunks/turbopack-src_pages_index_e562a528._.js"
     ],
-    "/[...all]": [
-      "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_fe7e72ad._.js",
-      "static/chunks/node_modules_next_dist_client_9b1b49db._.js",
-      "static/chunks/node_modules_next_dist_6024eba3._.js",
-      "static/chunks/node_modules_next_933cec8d._.js",
-      "static/chunks/node_modules_react-dom_4411d9bd._.js",
-      "static/chunks/node_modules_f1be3ba2._.js",
-      "static/chunks/[root-of-the-server]__b4649c50._.js",
-      "static/chunks/src_modules_NotFoundPage_NotFoundPage_module_scss_module_2fb3eeb3.css",
-      "static/chunks/src_pages_[___all]_2da965e7._.js",
-      "static/chunks/turbopack-src_pages_[___all]_dc93e3bd._.js"
-    ],
     "/[category]": [
       "static/chunks/[root-of-the-server]__a5dbcd24._.js",
       "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
@@ -43,21 +30,6 @@
       "static/chunks/src_pages_[category]_index_tsx_2da965e7._.js",
       "static/chunks/turbopack-src_pages_[category]_index_tsx_bab7edf5._.js"
     ],
-    "/[category]/[productId]": [
-      "static/chunks/[root-of-the-server]__f4dd403b._.js",
-      "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_07db62dc._.js",
-      "static/chunks/node_modules_next_dist_client_789b7d3e._.js",
-      "static/chunks/node_modules_next_dist_ec0ff3d3._.js",
-      "static/chunks/node_modules_next_0a4e844c._.js",
-      "static/chunks/node_modules_react-dom_4411d9bd._.js",
-      "static/chunks/node_modules_@reduxjs_toolkit_dist_07271a13._.js",
-      "static/chunks/node_modules_swiper_01770fa5._.js",
-      "static/chunks/node_modules_648a3d7d._.js",
-      "static/chunks/_9cd6152c._.css",
-      "static/chunks/src_pages_[category]_[productId]_tsx_2da965e7._.js",
-      "static/chunks/turbopack-src_pages_[category]_[productId]_tsx_f51f73dc._.js"
-    ],
     "/_app": [
       "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
       "static/chunks/node_modules_next_dist_shared_lib_07db62dc._.js",
@@ -71,33 +43,6 @@
       "static/chunks/src_569fddb5._.css",
       "static/chunks/src_pages__app_2da965e7._.js",
       "static/chunks/turbopack-src_pages__app_de04feac._.js"
-    ],
-    "/cart": [
-      "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_4677c81f._.js",
-      "static/chunks/node_modules_next_dist_client_9ad483b7._.js",
-      "static/chunks/node_modules_next_dist_ec0ff3d3._.js",
-      "static/chunks/node_modules_next_eb5b9d22._.js",
-      "static/chunks/node_modules_react-dom_4411d9bd._.js",
-      "static/chunks/node_modules_@reduxjs_toolkit_dist_07271a13._.js",
-      "static/chunks/node_modules_6a34a125._.js",
-      "static/chunks/[root-of-the-server]__b50d1cfd._.js",
-      "static/chunks/src_1c1356e6._.css",
-      "static/chunks/src_pages_cart_index_tsx_2da965e7._.js",
-      "static/chunks/turbopack-src_pages_cart_index_tsx_3a06627d._.js"
-    ],
-    "/prisma": [
-      "static/chunks/[root-of-the-server]__bece9358._.js",
-      "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_07db62dc._.js",
-      "static/chunks/node_modules_next_dist_client_789b7d3e._.js",
-      "static/chunks/node_modules_next_dist_ec0ff3d3._.js",
-      "static/chunks/node_modules_next_ff8a01a6._.js",
-      "static/chunks/node_modules_react-dom_4411d9bd._.js",
-      "static/chunks/node_modules_96924add._.js",
-      "static/chunks/src_components_df5a6a78._.css",
-      "static/chunks/src_pages_prisma_index_tsx_2da965e7._.js",
-      "static/chunks/turbopack-src_pages_prisma_index_tsx_288abbc0._.js"
     ]
   },
   "devFiles": [],
