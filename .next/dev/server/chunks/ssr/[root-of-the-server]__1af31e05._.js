@@ -37,10 +37,10 @@ __turbopack_context__.s([
     ()=>ProductsType
 ]);
 var ProductsType = /*#__PURE__*/ function(ProductsType) {
-    ProductsType["Phones"] = "phones";
+    ProductsType["Phones"] = "decors";
     ProductsType["Accessories"] = "accessories";
     ProductsType["Products"] = "products";
-    ProductsType["Tablets"] = "tablets";
+    ProductsType["Tablets"] = "materials";
     return ProductsType;
 }({});
 }),
@@ -301,7 +301,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "Screen"
+                                children: "Час роботи"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 89,
@@ -326,7 +326,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "Capacity"
+                                children: "Фасування"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 93,
@@ -351,7 +351,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "RAM"
+                                children: "Витрата"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 97,
@@ -1173,6 +1173,11 @@ const Breadcrumbs = ({ lastTitle })=>{
         '/',
         ...pathname.split('/').filter((el)=>el)
     ];
+    const categoryLabels = {
+        decors: 'Decors',
+        materials: 'Materials',
+        accessories: 'Accessoires'
+    };
     if (lastTitle) {
         pathnameArr.pop();
         pathnameArr.push(lastTitle);
@@ -1181,14 +1186,14 @@ const Breadcrumbs = ({ lastTitle })=>{
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].breadcrumbs,
         children: pathnameArr.map((path, i)=>{
             const isHome = path === '/';
-            const normalizePath = path.charAt(0).toUpperCase() + path.slice(1);
+            const normalizePath = categoryLabels[path] || path.charAt(0).toUpperCase() + path.slice(1);
             if (i === pathnameArr.length - 1) {
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].breadcrumbs__item} ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].active}`,
                     children: normalizePath
                 }, i, false, {
                     fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                    lineNumber: 30,
+                    lineNumber: 36,
                     columnNumber: 13
                 }, ("TURBOPACK compile-time value", void 0));
             }
@@ -1204,26 +1209,26 @@ const Breadcrumbs = ({ lastTitle })=>{
                         children: !isHome && normalizePath
                     }, void 0, false, {
                         fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                        lineNumber: 42,
+                        lineNumber: 48,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                         className: `icon icon--arrow-right ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].breadcrumbs__arrow}`
                     }, void 0, false, {
                         fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                        lineNumber: 50,
+                        lineNumber: 56,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, i, true, {
                 fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                lineNumber: 41,
+                lineNumber: 47,
                 columnNumber: 11
             }, ("TURBOPACK compile-time value", void 0));
         })
     }, void 0, false, {
         fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-        lineNumber: 23,
+        lineNumber: 28,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1496,11 +1501,16 @@ const CatalogPage = ()=>{
         activePage,
         sortParams
     ]);
+    const categoryTitles = {
+        [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Phones]: 'Decors',
+        [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Tablets]: 'Materials',
+        [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Accessories]: 'Accessoires'
+    };
     const categoryParam = Array.isArray(category) ? category[0] : category;
     if (!categoryParam || !Object.values(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"]).includes(categoryParam)) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$NotFoundPage$2f$NotFoundPage$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["NotFoundPage"], {}, void 0, false, {
             fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-            lineNumber: 67,
+            lineNumber: 73,
             columnNumber: 12
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -1511,15 +1521,15 @@ const CatalogPage = ()=>{
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Breadcrumbs"], {}, void 0, false, {
                     fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                    lineNumber: 73,
+                    lineNumber: 79,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PageInfo$2f$PageInfo$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["PageInfo"], {
-                    title: "Mobile phones",
+                    title: categoryTitles[categoryParam] ?? 'Каталог',
                     count: filteredProducts.length
                 }, void 0, false, {
                     fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                    lineNumber: 74,
+                    lineNumber: 80,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1533,7 +1543,7 @@ const CatalogPage = ()=>{
                             searchLabel: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$SearchLabelsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["SearchLabelsType"].Sort
                         }, void 0, false, {
                             fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                            lineNumber: 76,
+                            lineNumber: 82,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Dropdown$2f$Dropdown$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Dropdown"], {
@@ -1544,31 +1554,31 @@ const CatalogPage = ()=>{
                             searchLabel: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$SearchLabelsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["SearchLabelsType"].ItemsPerPage
                         }, void 0, false, {
                             fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                            lineNumber: 84,
+                            lineNumber: 90,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                    lineNumber: 75,
+                    lineNumber: 81,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$CatalogPage$2f$CatalogPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].catalog__cards,
                     children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                         fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                        lineNumber: 93,
+                        lineNumber: 99,
                         columnNumber: 22
                     }, ("TURBOPACK compile-time value", void 0)) : error ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsList$2f$ProductsList$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsList"], {
                         products: currentProducts
                     }, void 0, false, {
                         fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                        lineNumber: 93,
+                        lineNumber: 99,
                         columnNumber: 53
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                    lineNumber: 92,
+                    lineNumber: 98,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 !loading && visibleItems !== 'All' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1580,23 +1590,23 @@ const CatalogPage = ()=>{
                         searchLabel: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$SearchLabelsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["SearchLabelsType"].PageCatalog
                     }, void 0, false, {
                         fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                        lineNumber: 98,
+                        lineNumber: 104,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-                    lineNumber: 97,
+                    lineNumber: 103,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-            lineNumber: 72,
+            lineNumber: 78,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/pages/[category]/CatalogPage/CatalogPage.tsx",
-        lineNumber: 71,
+        lineNumber: 77,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

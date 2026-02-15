@@ -23,7 +23,7 @@ __turbopack_context__.v({
 }),
 "[project]/src/assets/img/slider/slider-image-1.jpg (static in ecmascript, tag client)", ((__turbopack_context__) => {
 
-__turbopack_context__.v("/_next/static/media/slider-image-1.acbbc1b0.jpg");}),
+__turbopack_context__.v("/_next/static/media/slider-image-1.0a93f50d.jpg");}),
 "[project]/src/assets/img/slider/slider-image-1.jpg.mjs { IMAGE => \"[project]/src/assets/img/slider/slider-image-1.jpg (static in ecmascript, tag client)\" } [ssr] (structured image object with data url, ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -35,16 +35,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$img$2f$slid
 ;
 const __TURBOPACK__default__export__ = {
     src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$img$2f$slider$2f$slider$2d$image$2d$1$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$29$__["default"],
-    width: 1200,
-    height: 630,
+    width: 2121,
+    height: 1500,
     blurWidth: 8,
-    blurHeight: 4,
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAIAAAA8r+mnAAAAb0lEQVR42gFkAJv/AP////////79/v36+f37+vz8/PT09f7+/gD+/v759vbd2+Kuqr3Yvbjd29+0srP4+PgA6+70mqPAmpisnaa+v7rBuqywuKak8e/xAPn6+97j7N/h5/Dv8PP09+7s7e3p6Pv6+spKVEMBB7LHAAAAAElFTkSuQmCC"
+    blurHeight: 6,
+    blurDataURL: "data:image/webp;base64,UklGRuoAAABXRUJQVlA4TN0AAAAvB0ABAM1VICICHgiACQMAAAAAQvacbkA4AHAABwAAAAAAAIAAAAAADgAAABBAAjhI4SQH/nr/nUsAAAB4IBg3EAAAAOef+64FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg+hYPBC2FAQAA4PzfmyYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC1y/UjNbiKRZYckPA1J+ZTaEYyeycjBJBLcnxItBeMXRyAYkUINdzg68Su9t1f4X/3RM2W3ctpPWubn/Yu+xme9Rn02XHdGZ+hGgA="
 };
 }),
 "[project]/src/assets/img/slider/slider-image-2.jpg (static in ecmascript, tag client)", ((__turbopack_context__) => {
 
-__turbopack_context__.v("/_next/static/media/slider-image-2.eb5c36c2.jpg");}),
+__turbopack_context__.v("/_next/static/media/slider-image-2.0c76e39a.jpg");}),
 "[project]/src/assets/img/slider/slider-image-2.jpg.mjs { IMAGE => \"[project]/src/assets/img/slider/slider-image-2.jpg (static in ecmascript, tag client)\" } [ssr] (structured image object with data url, ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -56,16 +56,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$img$2f$slid
 ;
 const __TURBOPACK__default__export__ = {
     src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$img$2f$slider$2f$slider$2d$image$2d$2$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$29$__["default"],
-    width: 1200,
-    height: 630,
+    width: 1894,
+    height: 930,
     blurWidth: 8,
     blurHeight: 4,
-    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAAEAAgDAREAAhEBAxEB/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYpNCkhIjBBMTQ5Oz4+PiUuRElDPEg3PT47/9sAQwEKCwsODQ4cEBAcOygiKDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmpNJsf+EMDi2QSfZBJvx827Gc5ryfaz+sWv1Pa9lD6te3Q//Z"
+    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAAEAAgDAREAAhEBAxEB/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYpNCkhIjBBMTQ5Oz4+PiUuRElDPEg3PT47/9sAQwEKCwsODQ4cEBAcOygiKDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDr5YPtQleaR2JwT09PpWiZDP/Z"
 };
 }),
 "[project]/src/assets/img/slider/slider-image-3.jpg (static in ecmascript, tag client)", ((__turbopack_context__) => {
 
-__turbopack_context__.v("/_next/static/media/slider-image-3.348d81c9.jpg");}),
+__turbopack_context__.v("/_next/static/media/slider-image-3.f25ccfef.jpg");}),
 "[project]/src/assets/img/slider/slider-image-3.jpg.mjs { IMAGE => \"[project]/src/assets/img/slider/slider-image-3.jpg (static in ecmascript, tag client)\" } [ssr] (structured image object with data url, ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -77,11 +77,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$img$2f$slid
 ;
 const __TURBOPACK__default__export__ = {
     src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$img$2f$slider$2f$slider$2d$image$2d$3$2e$jpg__$28$static__in__ecmascript$2c$__tag__client$29$__["default"],
-    width: 1200,
-    height: 675,
+    width: 1040,
+    height: 671,
     blurWidth: 8,
     blurHeight: 5,
-    blurDataURL: "data:image/webp;base64,UklGRvAAAABXRUJQVlA4TOMAAAAvBwABAM1VICICHgiADQIAAAA2DBAAAAAAdBAAgAAgAAFcAAAADgAAAOAB4BAAnIN7DhiDIIDQbgAAADwQgBQGAACA80/1nSDCRhAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBhECLBlPl/DwQghQEAAOD8KygshsEAAgAIAAAAAAAAAAAAAAAAAAAAAAAAAAOAENoAXtr7E32Rz7iGWNWFfoBu5MM4mHGE+UPYzfyd14yC8eEngpC0rf1J5c3sb15aj7kjR4szQUubapn1he7fvVKA/zlI33Ld8+Oub2m03nQwAAA="
+    blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAAFAAgDAREAAhEBAxEB/9sAQwAKBwcIBwYKCAgICwoKCw4YEA4NDQ4dFRYRGCMfJSQiHyIhJis3LyYpNCkhIjBBMTQ5Oz4+PiUuRElDPEg3PT47/9sAQwEKCwsODQ4cEBAcOygiKDs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwC7MsculJGgaPpk7sjOR0GOKm5Ssf/Z"
 };
 }),
 "[externals]/react-slick [external] (react-slick, cjs)", ((__turbopack_context__, module, exports) => {
@@ -507,7 +507,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "Screen"
+                                children: "Час роботи"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 89,
@@ -532,7 +532,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "Capacity"
+                                children: "Фасування"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 93,
@@ -557,7 +557,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "RAM"
+                                children: "Витрата"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 97,
@@ -794,10 +794,10 @@ __turbopack_context__.s([
     ()=>ProductsType
 ]);
 var ProductsType = /*#__PURE__*/ function(ProductsType) {
-    ProductsType["Phones"] = "phones";
+    ProductsType["Phones"] = "decors";
     ProductsType["Accessories"] = "accessories";
     ProductsType["Products"] = "products";
-    ProductsType["Tablets"] = "tablets";
+    ProductsType["Tablets"] = "materials";
     return ProductsType;
 }({});
 }),
@@ -1058,23 +1058,23 @@ function HomePage() {
         const categoryMap = {
             [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Phones]: {
                 count: 0,
-                url: '/phones',
-                title: 'Mobile phones',
-                photo: 'img/category-phones.webp',
+                url: '/decors',
+                title: 'Decors',
+                photo: 'img/category-phones.jpg',
                 bgColor: '#6D6474'
             },
             [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Tablets]: {
                 count: 0,
-                url: '/tablets',
-                title: 'Tablets',
-                photo: 'img/category-tablets.webp',
+                url: '/materials',
+                title: 'Materials',
+                photo: 'img/category-tablets.jpg',
                 bgColor: '#8D8D92'
             },
             [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Accessories]: {
                 count: 0,
                 url: '/accessories',
-                title: 'Accessories',
-                photo: 'img/category-accessories.png',
+                title: 'Accessoires',
+                photo: 'img/category-accessories.jpg',
                 bgColor: '#D53C51'
             }
         };
@@ -1104,7 +1104,7 @@ function HomePage() {
                         className: "container",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$HomePage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].welcome__title,
-                            children: "Welcome to Nice Gadgets store!"
+                            children: "Welcome to West Decor!"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/index.tsx",
                             lineNumber: 66,

@@ -27,23 +27,23 @@ export default function HomePage() {
     const categoryMap: Record<string, CategoryType> = {
       [ProductsType.Phones]: {
         count: 0,
-        url: '/phones',
-        title: 'Mobile phones',
-        photo: 'img/category-phones.webp',
+        url: '/decors',
+        title: 'Decors',
+        photo: 'img/category-phones.jpg',
         bgColor: '#6D6474',
       },
       [ProductsType.Tablets]: {
         count: 0,
-        url: '/tablets',
-        title: 'Tablets',
-        photo: 'img/category-tablets.webp',
+        url: '/materials',
+        title: 'Materials',
+        photo: 'img/category-tablets.jpg',
         bgColor: '#8D8D92',
       },
       [ProductsType.Accessories]: {
         count: 0,
         url: '/accessories',
-        title: 'Accessories',
-        photo: 'img/category-accessories.png',
+        title: 'Accessoires',
+        photo: 'img/category-accessories.jpg',
         bgColor: '#D53C51',
       },
     };
@@ -63,7 +63,7 @@ export default function HomePage() {
 
       <section className={`section ${styles.welcome}`}>
         <div className='container'>
-          <h1 className={styles.welcome__title}>Welcome to Nice Gadgets store!</h1>
+          <h1 className={styles.welcome__title}>Welcome to West Decor!</h1>
         </div>
         <BannerSlider />
       </section>

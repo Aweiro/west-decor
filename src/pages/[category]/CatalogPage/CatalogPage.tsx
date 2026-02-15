@@ -62,6 +62,12 @@ export const CatalogPage = () => {
     return sortedProducts.slice(start, end);
   }, [filteredProducts, visibleItems, activePage, sortParams]);
 
+  const categoryTitles: Record<string, string> = {
+    [ProductsType.Phones]: 'Decors',
+    [ProductsType.Tablets]: 'Materials',
+    [ProductsType.Accessories]: 'Accessoires',
+  };
+
   const categoryParam = Array.isArray(category) ? category[0] : category;
   if (!categoryParam || !(Object.values(ProductsType) as string[]).includes(categoryParam)) {
     return <NotFoundPage />;
@@ -71,7 +77,7 @@ export const CatalogPage = () => {
     <section className={`section ${styles.catalog}`}>
       <div className='container'>
         <Breadcrumbs />
-        <PageInfo title='Mobile phones' count={filteredProducts.length} />
+        <PageInfo title={categoryTitles[categoryParam] ?? 'Каталог'} count={filteredProducts.length} />
         <div className={styles.catalog__dropdowns}>
           <Dropdown
             className={styles['catalog__dropdowns-sort-by']}

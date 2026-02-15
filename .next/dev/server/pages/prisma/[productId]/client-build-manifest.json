@@ -1,5 +1,0 @@
-{
-  "/prisma/[productId]": [
-    "static/chunks/pages/prisma/[productId].js"
-  ]
-}

@@ -642,16 +642,19 @@ body {
 }
 
 .TopBar-module-scss-module__kXPwza__top-bar__logo {
+  align-items: center;
+  padding-inline: 10px;
   display: flex;
 }
 
-@media (min-width: 1135px) {
-  .TopBar-module-scss-module__kXPwza__top-bar__logo {
-    height: 28px;
-  }
+.TopBar-module-scss-module__kXPwza__top-bar__logo img {
+  width: auto;
+  height: 34px;
+}
 
+@media (min-width: 1135px) {
   .TopBar-module-scss-module__kXPwza__top-bar__logo img {
-    width: 80px;
+    height: 38px;
   }
 }
 
@@ -748,13 +751,13 @@ body {
 }
 
 .Footer-module-scss-module__dmy2Ea__footer__logo-img {
-  width: 89px;
-  height: 32px;
+  width: auto;
+  height: 48px;
 }
 
 @media (min-width: 640px) {
   .Footer-module-scss-module__dmy2Ea__footer__logo-img {
-    height: auto;
+    height: 48px;
   }
 }
 

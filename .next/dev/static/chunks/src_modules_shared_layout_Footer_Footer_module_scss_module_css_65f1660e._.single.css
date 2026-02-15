@@ -51,13 +51,13 @@
 }
 
 .Footer-module-scss-module__dmy2Ea__footer__logo-img {
-  width: 89px;
-  height: 32px;
+  width: auto;
+  height: 48px;
 }
 
 @media (min-width: 640px) {
   .Footer-module-scss-module__dmy2Ea__footer__logo-img {
-    height: auto;
+    height: 48px;
   }
 }
 

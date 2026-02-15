@@ -5,7 +5,7 @@ import styles from './TopBar.module.scss';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { HeaderContext } from '../Header/context/HeaderContext';
-import logo from '../../../../assets/img/Logo.svg';
+import logo from '../../../../assets/img/Logo.png';
 import Image from 'next/image';
 
 export const TopBar = () => {
@@ -15,8 +15,8 @@ export const TopBar = () => {
     <div className={styles['top-bar']}>
       <div className={styles['top-bar__wrapper']}>
         <div className={styles['top-bar__left-block']}>
-          <Link href="/" className={styles['top-bar__logo']}>
-            <Image src={logo} alt="logo" />
+          <Link href='/' className={styles['top-bar__logo']}>
+            <Image src={logo} alt='Logo' width={5295} height={3680} />
           </Link>
         </div>
 

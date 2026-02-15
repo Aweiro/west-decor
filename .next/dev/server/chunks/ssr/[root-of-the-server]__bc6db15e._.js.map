@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":["file:///Users/arsenbogak/projects/Portfolio_Project/test_repo/src/pages/prisma/%5Bcategory%5D/%5BproductId%5D.tsx"],"sourcesContent":["import React from 'react';\nimport { useRouter } from 'next/router';\nimport { ProductDetailsPage } from './ProductDetailsPage/ProductDetailsPage';\n\nconst ProductPage = () => {\n\tconst router = useRouter();\n\tconst { category } = router.query;\n\n\tif (!category) return null;\n\n\t// return <ProductDetailsPage />;\n\treturn <div> adada</div>;\n};\n\nexport default ProductPage;\n"],"names":[],"mappings":";;;;;AACA;;;AAGA,MAAM,cAAc;IACnB,MAAM,SAAS,IAAA,oIAAS;IACxB,MAAM,EAAE,QAAQ,EAAE,GAAG,OAAO,KAAK;IAEjC,IAAI,CAAC,UAAU,OAAO;IAEtB,iCAAiC;IACjC,qBAAO,qKAAC;kBAAI;;;;;;AACb;uCAEe","debugId":null}}]
-}

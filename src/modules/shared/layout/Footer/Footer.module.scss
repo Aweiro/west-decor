@@ -31,11 +31,11 @@
     flex: 1;
 
     &-img {
-      height: 32px;
-      width: 89px;
+      height: 48px;
+      width: auto;
 
       @include utils.on-tablet {
-        height: auto;
+        height: 48px;
       }
     }
   }

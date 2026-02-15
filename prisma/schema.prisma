@@ -47,3 +47,14 @@ model ProductDetails {
 	zoom              String
   cell              String[]
 }
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  comment   String?
+  items     Json
+  total     Float
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}

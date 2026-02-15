@@ -86,15 +86,15 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className, ch
 
       <div className={styles['product-card__info']}>
         <div className={styles['product-card__info-row']}>
-          <p className={`small-text ${styles['product-card__info-name']}`}>Screen</p>
+          <p className={`small-text ${styles['product-card__info-name']}`}>Час роботи</p>
           <p className={`small-text ${styles['product-card__info-value']}`}>{product.screen}</p>
         </div>
         <div className={styles['product-card__info-row']}>
-          <p className={`small-text ${styles['product-card__info-name']}`}>Capacity</p>
+          <p className={`small-text ${styles['product-card__info-name']}`}>Фасування</p>
           <p className={`small-text ${styles['product-card__info-value']}`}>{product.capacity}</p>
         </div>
         <div className={styles['product-card__info-row']}>
-          <p className={`small-text ${styles['product-card__info-name']}`}>RAM</p>
+          <p className={`small-text ${styles['product-card__info-name']}`}>Витрата</p>
           <p className={`small-text ${styles['product-card__info-value']}`}>{product.ram}</p>
         </div>
       </div>

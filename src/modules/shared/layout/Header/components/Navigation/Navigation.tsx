@@ -23,8 +23,8 @@ export const Navigation = () => {
     <nav className={styles.nav}>
       <ul className={styles.nav__links}>
         <NavItem to='/'>Home</NavItem>
-        <NavItem to='/phones'>Phones</NavItem>
-        <NavItem to='/tablets'>Tablets</NavItem>
+        <NavItem to='/decors'>Decors</NavItem>
+        <NavItem to='/materials'>Materials</NavItem>
         <NavItem to='/accessories'>Accessoires</NavItem>
       </ul>
       <ul className={styles.nav__buttons}>

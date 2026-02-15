@@ -13,6 +13,11 @@ interface Props {
 export const Breadcrumbs = ({ lastTitle }: Props) => {
   const pathname = usePathname() || '/';
   const pathnameArr = ['/', ...pathname.split('/').filter((el) => el)];
+  const categoryLabels: Record<string, string> = {
+    decors: 'Decors',
+    materials: 'Materials',
+    accessories: 'Accessoires',
+  };
 
   if (lastTitle) {
     pathnameArr.pop();
@@ -23,7 +28,8 @@ export const Breadcrumbs = ({ lastTitle }: Props) => {
     <div className={styles.breadcrumbs}>
       {pathnameArr.map((path, i) => {
         const isHome = path === '/';
-        const normalizePath = path.charAt(0).toUpperCase() + path.slice(1);
+        const normalizePath =
+          categoryLabels[path] || path.charAt(0).toUpperCase() + path.slice(1);
 
         if (i === pathnameArr.length - 1) {
           return (

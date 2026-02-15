@@ -2,7 +2,7 @@ import styles from './Footer.module.scss';
 import Link from 'next/link';
 import { Button } from '../../../../components/Button';
 import { ButtonType } from '../../../../types/ButtonType';
-import logo from '../../../../assets/img/Logo.svg';
+import logo from '../../../../assets/img/Logo.png';
 import Image from 'next/image';
 
 export const Footer = () => {
@@ -11,7 +11,13 @@ export const Footer = () => {
       <div className='container'>
         <div className={styles.footer__wrapper}>
           <Link href='/' className={styles.footer__logo}>
-            <Image className={styles['footer__logo-img']} src={logo} alt='Logo' />
+            <Image
+              className={styles['footer__logo-img']}
+              src={logo}
+              alt='Logo'
+              width={5295}
+              height={3680}
+            />
           </Link>
 
           <div className={styles.footer__nav}>

@@ -22,6 +22,7 @@ export const Button = ({
   icon,
   iconActive,
   disabled = false,
+  type,
   isDisabled = false,
   isRatio = false,
   isSelected = false,
@@ -37,7 +38,7 @@ export const Button = ({
 
   return (
     <button
-      type="button"
+      type={type ?? 'button'}
       disabled={disabled}
       className={classNames(className, styles.button, {
         [styles.button__disabled]: isDisabled || (isFavorite && isSelected),

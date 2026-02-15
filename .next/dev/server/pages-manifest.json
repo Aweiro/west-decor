@@ -1,7 +1,10 @@
 {
   "/": "pages/index.js",
   "/[category]": "pages/[category].js",
+  "/[category]/[productId]": "pages/[category]/[productId].js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/api/products": "pages/api/products.js"
+  "/api/products": "pages/api/products.js",
+  "/cart": "pages/cart.js",
+  "/favorites": "pages/favorites.js"
 }

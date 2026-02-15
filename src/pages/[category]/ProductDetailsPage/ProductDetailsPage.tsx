@@ -98,20 +98,20 @@ export const ProductDetailsPage = () => {
           width={100}
           height={100}
         />
-        <h3 className={styles['product-details__not-found-title']}>Product was not found</h3>
+        <h3 className={styles['product-details__not-found-title']}>Товар не знайдено</h3>
       </div>
     );
   }
 
   const descriptionItems = [
-    { title: 'Screen', value: product.screen },
-    { title: 'Resolution', value: product.resolution },
-    { title: 'Processor', value: product.processor },
-    { title: 'RAM', value: product.ram },
-    { title: 'Built in memory', value: product.capacity },
-    { title: 'Camera', value: product.camera },
-    { title: 'Zoom', value: product.zoom },
-    { title: 'Cell', value: product.cell.join(', ') },
+    { title: 'Час роботи', value: product.screen },
+    { title: 'Фракція', value: product.resolution },
+    { title: 'Країна виробник', value: product.processor },
+    { title: 'Витрата', value: product.ram },
+    { title: 'Фасування', value: product.capacity },
+    { title: 'Фактура', value: product.camera },
+    { title: 'Застосування', value: product.zoom },
+    { title: 'Рекомендовані поверхні', value: product.cell.join(', ') },
   ];
 
   const InfoBlock = ({ isSmall = false }: { isSmall?: boolean }) => {
@@ -179,6 +179,10 @@ export const ProductDetailsPage = () => {
         break;
       default:
         return;
+    }
+
+    if (normalizedItems.length === 0) {
+      return null;
     }
 
     return (
@@ -272,11 +276,11 @@ export const ProductDetailsPage = () => {
         </div>
         <div className={styles['product-details__controls']}>
           <ChangeOptionsBlock
-            title={'Available colors'}
+            title={'Доступні кольори'}
             variantChange={VariantChangeType.VariantColor}
           />
           <ChangeOptionsBlock
-            title={'Select capacity'}
+            title={'Оберіть фасування'}
             variantChange={VariantChangeType.VariantCapacity}
           />
           <div className={styles['product-details__payment']}>

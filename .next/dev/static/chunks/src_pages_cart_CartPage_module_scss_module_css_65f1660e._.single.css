@@ -153,6 +153,35 @@
   padding: 32px;
 }
 
+.CartPage-module-scss-module__8MX3ba__cart-modal__form {
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  display: flex;
+}
+
+.CartPage-module-scss-module__8MX3ba__cart-modal__field {
+  flex-direction: column;
+  gap: 6px;
+  display: flex;
+}
+
+.CartPage-module-scss-module__8MX3ba__cart-modal__input, .CartPage-module-scss-module__8MX3ba__cart-modal__textarea {
+  color: #f1f2f9;
+  background-color: #161827;
+  border: 1px solid #3b3e4a;
+  padding: 10px 12px;
+}
+
+.CartPage-module-scss-module__8MX3ba__cart-modal__textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
+.CartPage-module-scss-module__8MX3ba__cart-modal__error {
+  color: #eb5757;
+}
+
 .CartPage-module-scss-module__8MX3ba__cart-modal__buttons {
   flex-direction: column;
   gap: 16px;

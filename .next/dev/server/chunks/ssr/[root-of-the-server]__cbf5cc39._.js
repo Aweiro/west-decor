@@ -5,6 +5,11 @@ __turbopack_context__.v({
   "cart-modal": "CartPage-module-scss-module__8MX3ba__cart-modal",
   "cart-modal__button": "CartPage-module-scss-module__8MX3ba__cart-modal__button",
   "cart-modal__buttons": "CartPage-module-scss-module__8MX3ba__cart-modal__buttons",
+  "cart-modal__error": "CartPage-module-scss-module__8MX3ba__cart-modal__error",
+  "cart-modal__field": "CartPage-module-scss-module__8MX3ba__cart-modal__field",
+  "cart-modal__form": "CartPage-module-scss-module__8MX3ba__cart-modal__form",
+  "cart-modal__input": "CartPage-module-scss-module__8MX3ba__cart-modal__input",
+  "cart-modal__textarea": "CartPage-module-scss-module__8MX3ba__cart-modal__textarea",
   "cart__block": "CartPage-module-scss-module__8MX3ba__cart__block",
   "cart__info": "CartPage-module-scss-module__8MX3ba__cart__info",
   "cart__item": "CartPage-module-scss-module__8MX3ba__cart__item",
@@ -91,10 +96,10 @@ __turbopack_context__.s([
     ()=>ProductsType
 ]);
 var ProductsType = /*#__PURE__*/ function(ProductsType) {
-    ProductsType["Phones"] = "phones";
+    ProductsType["Phones"] = "decors";
     ProductsType["Accessories"] = "accessories";
     ProductsType["Products"] = "products";
-    ProductsType["Tablets"] = "tablets";
+    ProductsType["Tablets"] = "materials";
     return ProductsType;
 }({});
 }),
@@ -274,6 +279,13 @@ function CartPage() {
     const cartQuantity = (id)=>cartIds.find((unit)=>unit.id === id)?.quantity ?? 0;
     const { categorie: products, loading, error } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useCategoriesRTK$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["useCategoriesRTK"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$ProductsType$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsType"].Products);
     const [showModalCheckout, setShowModalCheckout] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
+    const [checkoutForm, setCheckoutForm] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])({
+        name: '',
+        phone: '',
+        comment: ''
+    });
+    const [submitError, setSubmitError] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])('');
+    const [submitting, setSubmitting] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const currentProducts = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useMemo"])(()=>products.filter((el)=>cartIds.some((item)=>item.id === el.itemId)), [
         cartIds,
         products
@@ -288,7 +300,7 @@ function CartPage() {
                     onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$cart$2f$cartSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["toggleCart"])(product.itemId))
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cart/index.tsx",
-                    lineNumber: 51,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -299,12 +311,12 @@ function CartPage() {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart__item-img']
                     }, void 0, false, {
                         fileName: "[project]/src/pages/cart/index.tsx",
-                        lineNumber: 56,
+                        lineNumber: 59,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cart/index.tsx",
-                    lineNumber: 55,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -312,7 +324,7 @@ function CartPage() {
                     children: product.name
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cart/index.tsx",
-                    lineNumber: 58,
+                    lineNumber: 61,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -327,7 +339,7 @@ function CartPage() {
                                 }))
                         }, void 0, false, {
                             fileName: "[project]/src/pages/cart/index.tsx",
-                            lineNumber: 60,
+                            lineNumber: 63,
                             columnNumber: 11
                         }, this),
                         product.quantity,
@@ -340,13 +352,13 @@ function CartPage() {
                                 }))
                         }, void 0, false, {
                             fileName: "[project]/src/pages/cart/index.tsx",
-                            lineNumber: 66,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/cart/index.tsx",
-                    lineNumber: 59,
+                    lineNumber: 62,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
@@ -356,13 +368,13 @@ function CartPage() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/cart/index.tsx",
-                    lineNumber: 72,
+                    lineNumber: 75,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/pages/cart/index.tsx",
-            lineNumber: 50,
+            lineNumber: 53,
             columnNumber: 7
         }, this);
     };
@@ -372,6 +384,62 @@ function CartPage() {
             quantity: cartQuantity(el.itemId)
         }));
     const allPrice = visibleProducts.reduce((accumulator, currentValue)=>accumulator + currentValue.sum, 0);
+    const handleCheckoutSubmit = async (event)=>{
+        event.preventDefault();
+        setSubmitError('');
+        const name = checkoutForm.name.trim();
+        const phone = checkoutForm.phone.trim();
+        const comment = checkoutForm.comment.trim();
+        if (!name || !phone) {
+            setSubmitError("Ім'я та номер телефону обов'язкові.");
+            return;
+        }
+        if (!visibleProducts.length) {
+            setSubmitError('Кошик порожній.');
+            return;
+        }
+        const items = visibleProducts.map((product)=>({
+                itemId: product.itemId,
+                name: product.name,
+                image: product.image,
+                category: product.category,
+                price: product.price,
+                quantity: product.quantity,
+                sum: product.sum
+            }));
+        setSubmitting(true);
+        try {
+            const response = await fetch('/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name,
+                    phone,
+                    comment: comment || null,
+                    items,
+                    total: allPrice
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data?.error || 'Не вдалося оформити замовлення.');
+            }
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$cart$2f$cartSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["clearCart"])());
+            setCheckoutForm({
+                name: '',
+                phone: '',
+                comment: ''
+            });
+            setShowModalCheckout(false);
+        } catch (error) {
+            const message = error instanceof Error ? error.message : 'Сталася помилка.';
+            setSubmitError(message);
+        } finally{
+            setSubmitting(false);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: "container",
         children: [
@@ -380,20 +448,20 @@ function CartPage() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$BackLink$2f$BackLink$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["BackLink"], {}, void 0, false, {
                         fileName: "[project]/src/pages/cart/index.tsx",
-                        lineNumber: 91,
+                        lineNumber: 154,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
                         children: "Cart"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/cart/index.tsx",
-                        lineNumber: 92,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/cart/index.tsx",
-                lineNumber: 90,
+                lineNumber: 153,
                 columnNumber: 7
             }, this),
             cartIds.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -404,16 +472,16 @@ function CartPage() {
                     alt: "empty-cart"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cart/index.tsx",
-                    lineNumber: 97,
+                    lineNumber: 160,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/pages/cart/index.tsx",
-                lineNumber: 96,
+                lineNumber: 159,
                 columnNumber: 9
             }, this) : loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                 fileName: "[project]/src/pages/cart/index.tsx",
-                lineNumber: 100,
+                lineNumber: 163,
                 columnNumber: 9
             }, this) : error ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                 children: [
@@ -426,12 +494,12 @@ function CartPage() {
                                         product: product
                                     }, product.id, false, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 108,
+                                        lineNumber: 171,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/cart/index.tsx",
-                                lineNumber: 106,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -444,7 +512,7 @@ function CartPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 112,
+                                        lineNumber: 175,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -456,14 +524,14 @@ function CartPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 176,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("hr", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart__total-line']
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 179,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -472,19 +540,19 @@ function CartPage() {
                                         children: "Checkout"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 180,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/cart/index.tsx",
-                                lineNumber: 111,
+                                lineNumber: 174,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/cart/index.tsx",
-                        lineNumber: 105,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this),
                     showModalCheckout && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Modal$2f$Modal$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Modal"], {
@@ -492,44 +560,133 @@ function CartPage() {
                         onCloseModal: setShowModalCheckout,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                children: "Checkout is not implemented yet. Do you want to clear the Cart?"
+                                children: "Оформлення замовлення"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/cart/index.tsx",
-                                lineNumber: 127,
+                                lineNumber: 190,
                                 columnNumber: 15
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__buttons'],
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__form'],
+                                onSubmit: handleCheckoutSubmit,
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__button'],
-                                        isSelected: true,
-                                        onClick: ()=>setShowModalCheckout(false),
-                                        children: "Cancel"
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__field'],
+                                        children: [
+                                            "Ім'я",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__input'],
+                                                type: "text",
+                                                value: checkoutForm.name,
+                                                onChange: (event)=>setCheckoutForm((prev)=>({
+                                                            ...prev,
+                                                            name: event.target.value
+                                                        })),
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/cart/index.tsx",
+                                                lineNumber: 194,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 129,
+                                        lineNumber: 192,
                                         columnNumber: 17
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
-                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__button'],
-                                        onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$cart$2f$cartSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["clearCart"])()),
-                                        children: "Confirm"
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__field'],
+                                        children: [
+                                            "Номер телефону",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__input'],
+                                                type: "tel",
+                                                value: checkoutForm.phone,
+                                                onChange: (event)=>setCheckoutForm((prev)=>({
+                                                            ...prev,
+                                                            phone: event.target.value
+                                                        })),
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/cart/index.tsx",
+                                                lineNumber: 206,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/pages/cart/index.tsx",
+                                        lineNumber: 204,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("label", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__field'],
+                                        children: [
+                                            "Коментар (необов'язково)",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("textarea", {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__textarea'],
+                                                value: checkoutForm.comment,
+                                                onChange: (event)=>setCheckoutForm((prev)=>({
+                                                            ...prev,
+                                                            comment: event.target.value
+                                                        }))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/cart/index.tsx",
+                                                lineNumber: 218,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/pages/cart/index.tsx",
+                                        lineNumber: 216,
+                                        columnNumber: 17
+                                    }, this),
+                                    submitError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                        className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__error']}`,
+                                        children: submitError
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
-                                        lineNumber: 136,
+                                        lineNumber: 227,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__buttons'],
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__button'],
+                                                isSelected: true,
+                                                onClick: ()=>setShowModalCheckout(false),
+                                                type: "button",
+                                                children: "Скасувати"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/cart/index.tsx",
+                                                lineNumber: 230,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart-modal__button'],
+                                                type: "submit",
+                                                children: submitting ? 'Надсилання...' : 'Підтвердити'
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/cart/index.tsx",
+                                                lineNumber: 238,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/pages/cart/index.tsx",
+                                        lineNumber: 229,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/cart/index.tsx",
-                                lineNumber: 128,
+                                lineNumber: 191,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/cart/index.tsx",
-                        lineNumber: 126,
+                        lineNumber: 189,
                         columnNumber: 13
                     }, this)
                 ]
@@ -537,7 +694,7 @@ function CartPage() {
         ]
     }, void 0, true, {
         fileName: "[project]/src/pages/cart/index.tsx",
-        lineNumber: 89,
+        lineNumber: 152,
         columnNumber: 5
     }, this);
 }

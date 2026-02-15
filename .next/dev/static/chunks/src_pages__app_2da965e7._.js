@@ -9,7 +9,7 @@
   "static/chunks/node_modules_react-dom_4411d9bd._.js",
   "static/chunks/node_modules_@reduxjs_toolkit_dist_07271a13._.js",
   "static/chunks/node_modules_9a405424._.js",
-  "static/chunks/[root-of-the-server]__6b2a8c95._.js",
+  "static/chunks/[root-of-the-server]__faf86fe9._.js",
   "static/chunks/src_569fddb5._.css"
 ],
     source: "entry"

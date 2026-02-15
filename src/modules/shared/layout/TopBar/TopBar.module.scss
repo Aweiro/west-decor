@@ -62,14 +62,15 @@
 
   &__logo {
     display: flex;
-
-    @include utils.on-desktop {
-      height: 28px;
-    }
+    align-items: center;
+		padding-inline: 10px;
 
     img {
+      height: 34px;
+      width: auto;
+
       @include utils.on-desktop {
-        width: 80px;
+        height: 38px;
       }
     }
   }

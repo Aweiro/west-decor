@@ -37,6 +37,9 @@ export default function CartPage() {
   const { categorie: products, loading, error } = useCategoriesRTK(ProductsType.Products);
 
   const [showModalCheckout, setShowModalCheckout] = useState(false);
+  const [checkoutForm, setCheckoutForm] = useState({ name: '', phone: '', comment: '' });
+  const [submitError, setSubmitError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const currentProducts = useMemo(
     () => products.filter((el) => cartIds.some((item) => item.id === el.itemId)),
@@ -85,6 +88,66 @@ export default function CartPage() {
     0,
   );
 
+  const handleCheckoutSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitError('');
+
+    const name = checkoutForm.name.trim();
+    const phone = checkoutForm.phone.trim();
+    const comment = checkoutForm.comment.trim();
+
+    if (!name || !phone) {
+      setSubmitError("Ім'я та номер телефону обов'язкові.");
+      return;
+    }
+
+    if (!visibleProducts.length) {
+      setSubmitError('Кошик порожній.');
+      return;
+    }
+
+    const items = visibleProducts.map((product) => ({
+      itemId: product.itemId,
+      name: product.name,
+      image: product.image,
+      category: product.category,
+      price: product.price,
+      quantity: product.quantity,
+      sum: product.sum,
+    }));
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone,
+          comment: comment || null,
+          items,
+          total: allPrice,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.error || 'Не вдалося оформити замовлення.');
+      }
+
+      dispatch(clearCart());
+      setCheckoutForm({ name: '', phone: '', comment: '' });
+      setShowModalCheckout(false);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Сталася помилка.';
+      setSubmitError(message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <div className='container'>
       <div className={styles.cart__info}>
@@ -124,19 +187,59 @@ export default function CartPage() {
           </section>
           {showModalCheckout && (
             <Modal className={styles['cart-modal']} onCloseModal={setShowModalCheckout}>
-              <h3>Checkout is not implemented yet. Do you want to clear the Cart?</h3>
-              <div className={styles['cart-modal__buttons']}>
-                <Button
-                  className={styles['cart-modal__button']}
-                  isSelected
-                  onClick={() => setShowModalCheckout(false)}
-                >
-                  Cancel
-                </Button>
-                <Button className={styles['cart-modal__button']} onClick={() => dispatch(clearCart())}>
-                  Confirm
-                </Button>
-              </div>
+              <h3>Оформлення замовлення</h3>
+              <form className={styles['cart-modal__form']} onSubmit={handleCheckoutSubmit}>
+                <label className={styles['cart-modal__field']}>
+                  Ім'я
+                  <input
+                    className={styles['cart-modal__input']}
+                    type='text'
+                    value={checkoutForm.name}
+                    onChange={(event) =>
+                      setCheckoutForm((prev) => ({ ...prev, name: event.target.value }))
+                    }
+                    required
+                  />
+                </label>
+                <label className={styles['cart-modal__field']}>
+                  Номер телефону
+                  <input
+                    className={styles['cart-modal__input']}
+                    type='tel'
+                    value={checkoutForm.phone}
+                    onChange={(event) =>
+                      setCheckoutForm((prev) => ({ ...prev, phone: event.target.value }))
+                    }
+                    required
+                  />
+                </label>
+                <label className={styles['cart-modal__field']}>
+                  Коментар (необов'язково)
+                  <textarea
+                    className={styles['cart-modal__textarea']}
+                    value={checkoutForm.comment}
+                    onChange={(event) =>
+                      setCheckoutForm((prev) => ({ ...prev, comment: event.target.value }))
+                    }
+                  />
+                </label>
+                {submitError && (
+                  <p className={`small-text ${styles['cart-modal__error']}`}>{submitError}</p>
+                )}
+                <div className={styles['cart-modal__buttons']}>
+                  <Button
+                    className={styles['cart-modal__button']}
+                    isSelected
+                    onClick={() => setShowModalCheckout(false)}
+                    type='button'
+                  >
+                    Скасувати
+                  </Button>
+                  <Button className={styles['cart-modal__button']} type='submit'>
+                    {submitting ? 'Надсилання...' : 'Підтвердити'}
+                  </Button>
+                </div>
+              </form>
             </Modal>
           )}
         </>

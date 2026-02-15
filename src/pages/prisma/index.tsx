@@ -44,7 +44,7 @@ const startForm = {
 
 export const Prisma = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [category] = useState<'products' | 'phones' | 'tablets'>('products');
+  const [category] = useState<'products' | 'decors' | 'materials'>('products');
   const [selectedFile, setSelectedFile] = useState<FileList | null>();
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -326,6 +326,21 @@ export const Prisma = () => {
       <div className='container' id='admin-root'>
         <Breadcrumbs />
 
+        <div className='mb-6 flex flex-wrap gap-3'>
+          <a
+            href='/prisma'
+            className='px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors text-sm font-medium border border-blue-500'
+          >
+            Товари
+          </a>
+          <a
+            href='/prisma/orders'
+            className='px-4 py-2 bg-[#2A2F3E] text-white rounded-lg hover:bg-[#3E455B] transition-colors text-sm font-medium border border-[#3E455B]'
+          >
+            Замовлення
+          </a>
+        </div>
+
         <div className='mb-8'>
           {/* --- БЛОК ПОШУКУ ТА ЗАГОЛОВКА (Dark Style) --- */}
           <div className='flex flex-col md:flex-row justify-between items-center gap-4 mb-6 p-5 rounded-xl shadow-lg'>
@@ -463,7 +478,7 @@ export const Prisma = () => {
                   <label className={labelClass}>Namespace ID</label>
                   <input
                     name='namespaceId'
-                    placeholder='ex. phones'
+                    placeholder='ex. decors'
                     value={form.namespaceId}
                     onChange={handleChange}
                     required
@@ -510,7 +525,7 @@ export const Prisma = () => {
                   <label className={labelClass}>Категорія</label>
                   <input
                     name='category'
-                    placeholder='smartphones'
+                    placeholder='decors'
                     value={form.category}
                     onChange={handleChange}
                     className={inputClass}
@@ -558,23 +573,21 @@ export const Prisma = () => {
               </h3>
               <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                 {[
-                  'screen',
-                  'resolution',
-                  'processor',
-                  'ram',
-                  'camera',
-                  'zoom',
-                  'capacity',
-                  'color',
-                ].map((field) => (
-                  <div key={field}>
-                    <label className={labelClass}>
-                      {field === 'ram' ? 'RAM' : field.charAt(0).toUpperCase() + field.slice(1)}
-                    </label>
+                  { key: 'screen', label: 'Час роботи', placeholder: 'Напр., 60 хв' },
+                  { key: 'resolution', label: 'Фракція', placeholder: 'Напр., 1.0 мм' },
+                  { key: 'processor', label: 'Країна виробник', placeholder: 'Напр., Італія' },
+                  { key: 'ram', label: 'Витрата', placeholder: 'Напр., 1.5 кг/м²' },
+                  { key: 'camera', label: 'Фактура', placeholder: 'Напр., камінцева' },
+                  { key: 'zoom', label: 'Застосування', placeholder: 'Внутрішні/зовнішні' },
+                  { key: 'capacity', label: 'Фасування', placeholder: 'Напр., 15 кг' },
+                  { key: 'color', label: 'Колір', placeholder: 'Напр., білий' },
+                ].map(({ key, label, placeholder }) => (
+                  <div key={key}>
+                    <label className={labelClass}>{label}</label>
                     <input
-                      name={field}
-                      placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                      value={form[field as keyof typeof form] as string}
+                      name={key}
+                      placeholder={placeholder}
+                      value={form[key as keyof typeof form] as string}
                       onChange={handleChange}
                       className={inputClass}
                     />
@@ -586,31 +599,31 @@ export const Prisma = () => {
             {/* --- Мережі --- */}
             <div className={sectionClass}>
               <div className='flex justify-between items-center mb-4'>
-                <h3 className='text-lg font-semibold text-white'>Мережі (Network Bands)</h3>
+                <h3 className='text-lg font-semibold text-white'>Рекомендовані поверхні</h3>
                 <button
                   type='button'
                   className={btnSecondary}
                   onClick={() => setForm({ ...form, cell: [...(form.cell ?? []), ''] })}
                 >
-                  + Add cell
+                  + Додати поверхню
                 </button>
               </div>
 
               {/* Контейнер списку - темніший фон (#0B0E14) */}
               <div className='space-y-3 bg-[#0B0E14] p-4 rounded-lg border border-[#2E3345]'>
                 {(form.cell ?? []).length === 0 && (
-                  <p className='text-gray-500 text-sm text-center'>Немає доданих мереж</p>
+                  <p className='text-gray-500 text-sm text-center'>Немає доданих поверхонь</p>
                 )}
                 {(form.cell ?? []).map((value, index) => (
                   <div key={index} className='flex items-end gap-2'>
                     <span className='text-gray-500 text-sm w-6 text-center mb-3'>{index + 1}.</span>
 
                     <div className='flex-1'>
-                      <label className={labelClass}>Назва мережі (Band)</label>
+                      <label className={labelClass}>Назва поверхні</label>
                       <input
                         type='text'
                         value={value}
-                        placeholder='Band name...'
+                        placeholder='Поверхня...'
                         onChange={(e) => {
                           const newCells = [...form.cell];
                           newCells[index] = e.target.value;
@@ -751,7 +764,7 @@ export const Prisma = () => {
                 type='submit'
                 className='px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 shadow-lg shadow-blue-900/30 transition-all transform hover:-translate-y-0.5'
               >
-                Add Product
+                Додати товар
               </button>
             </div>
           </form>

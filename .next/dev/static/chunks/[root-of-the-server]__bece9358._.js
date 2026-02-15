@@ -500,6 +500,11 @@ const Breadcrumbs = ({ lastTitle })=>{
         '/',
         ...pathname.split('/').filter((el)=>el)
     ];
+    const categoryLabels = {
+        decors: 'Decors',
+        materials: 'Materials',
+        accessories: 'Accessoires'
+    };
     if (lastTitle) {
         pathnameArr.pop();
         pathnameArr.push(lastTitle);
@@ -508,14 +513,14 @@ const Breadcrumbs = ({ lastTitle })=>{
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"].breadcrumbs,
         children: pathnameArr.map((path, i)=>{
             const isHome = path === '/';
-            const normalizePath = path.charAt(0).toUpperCase() + path.slice(1);
+            const normalizePath = categoryLabels[path] || path.charAt(0).toUpperCase() + path.slice(1);
             if (i === pathnameArr.length - 1) {
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"].breadcrumbs__item} ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"].active}`,
                     children: normalizePath
                 }, i, false, {
                     fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                    lineNumber: 30,
+                    lineNumber: 36,
                     columnNumber: 13
                 }, ("TURBOPACK compile-time value", void 0));
             }
@@ -531,26 +536,26 @@ const Breadcrumbs = ({ lastTitle })=>{
                         children: !isHome && normalizePath
                     }, void 0, false, {
                         fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                        lineNumber: 42,
+                        lineNumber: 48,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: `icon icon--arrow-right ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"].breadcrumbs__arrow}`
                     }, void 0, false, {
                         fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                        lineNumber: 50,
+                        lineNumber: 56,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, i, true, {
                 fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-                lineNumber: 41,
+                lineNumber: 47,
                 columnNumber: 11
             }, ("TURBOPACK compile-time value", void 0));
         })
     }, void 0, false, {
         fileName: "[project]/src/components/Breadcrumbs/Breadcrumbs.tsx",
-        lineNumber: 23,
+        lineNumber: 28,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -637,10 +642,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$classnames$2
 ;
 ;
 ;
-const Button = ({ icon, iconActive, disabled = false, isDisabled = false, isRatio = false, isSelected = false, isFavorite = false, isPage = false, isCircle = false, isCapacity = false, className = '', children, ...props })=>{
+const Button = ({ icon, iconActive, disabled = false, type, isDisabled = false, isRatio = false, isSelected = false, isFavorite = false, isPage = false, isCircle = false, isCapacity = false, className = '', children, ...props })=>{
     const currentIcon = isSelected && iconActive ? iconActive : icon;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-        type: "button",
+        type: type ?? 'button',
         disabled: disabled,
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$classnames$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"])(className, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"].button, {
             [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"].button__disabled]: isDisabled || isFavorite && isSelected,
@@ -658,12 +663,12 @@ const Button = ({ icon, iconActive, disabled = false, isDisabled = false, isRati
             className: `icon icon--${currentIcon}`
         }, void 0, false, {
             fileName: "[project]/src/components/Button/Button.tsx",
-            lineNumber: 56,
+            lineNumber: 57,
             columnNumber: 15
         }, ("TURBOPACK compile-time value", void 0)) : children
     }, void 0, false, {
         fileName: "[project]/src/components/Button/Button.tsx",
-        lineNumber: 39,
+        lineNumber: 40,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1044,7 +1049,7 @@ const ProductCard = /*#__PURE__*/ _s(__TURBOPACK__imported__module__$5b$project$
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "Screen"
+                                children: "Час роботи"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 89,
@@ -1069,7 +1074,7 @@ const ProductCard = /*#__PURE__*/ _s(__TURBOPACK__imported__module__$5b$project$
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "Capacity"
+                                children: "Фасування"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 93,
@@ -1094,7 +1099,7 @@ const ProductCard = /*#__PURE__*/ _s(__TURBOPACK__imported__module__$5b$project$
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"]['product-card__info-name']}`,
-                                children: "RAM"
+                                children: "Витрата"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                                 lineNumber: 97,
@@ -1879,6 +1884,33 @@ const Prisma = ()=>{
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-6 flex flex-wrap gap-3",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                href: "/prisma",
+                                className: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors text-sm font-medium border border-blue-500",
+                                children: "Товари"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/prisma/index.tsx",
+                                lineNumber: 330,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                href: "/prisma/orders",
+                                className: "px-4 py-2 bg-[#2A2F3E] text-white rounded-lg hover:bg-[#3E455B] transition-colors text-sm font-medium border border-[#3E455B]",
+                                children: "Замовлення"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/prisma/index.tsx",
+                                lineNumber: 336,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/pages/prisma/index.tsx",
+                        lineNumber: 329,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mb-8",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1893,13 +1925,13 @@ const Prisma = ()=>{
                                                 children: filteredProducts.length
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                lineNumber: 335,
+                                                lineNumber: 350,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                        lineNumber: 333,
+                                        lineNumber: 348,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1918,17 +1950,17 @@ const Prisma = ()=>{
                                                         clipRule: "evenodd"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                        lineNumber: 349,
+                                                        lineNumber: 364,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 343,
+                                                    lineNumber: 358,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                lineNumber: 342,
+                                                lineNumber: 357,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1939,7 +1971,7 @@ const Prisma = ()=>{
                                                 className: "block w-full pl-10 pr-10 py-2.5  bg-[#0B0E14] border border-[#2E3345] rounded-lg  text-white placeholder-gray-500  focus:outline-none focus:border-[#9353d3] focus:ring-1 focus:ring-[#9353d3]  transition-all duration-200 sm:text-sm shadow-inner border-solid"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                lineNumber: 357,
+                                                lineNumber: 372,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             searchTerm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1956,35 +1988,35 @@ const Prisma = ()=>{
                                                         clipRule: "evenodd"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                        lineNumber: 380,
+                                                        lineNumber: 395,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 374,
+                                                    lineNumber: 389,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                lineNumber: 370,
+                                                lineNumber: 385,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                        lineNumber: 341,
+                                        lineNumber: 356,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                lineNumber: 331,
+                                lineNumber: 346,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 394,
+                                    lineNumber: 409,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)) : filteredProducts.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsList$2f$ProductsList$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["ProductsList"], {
                                     isAdmin: true,
@@ -1994,7 +2026,7 @@ const Prisma = ()=>{
                                     onToggleActive: handleToggleActive
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 396,
+                                    lineNumber: 411,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)) : // --- БЛОК "НІЧОГО НЕ ЗНАЙДЕНО" ---
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2012,12 +2044,12 @@ const Prisma = ()=>{
                                                 d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                lineNumber: 413,
+                                                lineNumber: 428,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 407,
+                                            lineNumber: 422,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2025,7 +2057,7 @@ const Prisma = ()=>{
                                             children: "Нічого не знайдено"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 422,
+                                            lineNumber: 437,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2042,14 +2074,14 @@ const Prisma = ()=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 425,
+                                                    lineNumber: 440,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 ". Спробуйте змінити ключові слова."
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 423,
+                                            lineNumber: 438,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2058,24 +2090,24 @@ const Prisma = ()=>{
                                             children: "Очистити пошук"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 430,
+                                            lineNumber: 445,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 405,
+                                    lineNumber: 420,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                lineNumber: 392,
+                                lineNumber: 407,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/prisma/index.tsx",
-                        lineNumber: 329,
+                        lineNumber: 344,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2093,7 +2125,7 @@ const Prisma = ()=>{
                                             children: "Основна інформація"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 446,
+                                            lineNumber: 461,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2106,7 +2138,7 @@ const Prisma = ()=>{
                                                             children: "Item ID"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 452,
+                                                            lineNumber: 467,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2118,13 +2150,13 @@ const Prisma = ()=>{
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 453,
+                                                            lineNumber: 468,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 451,
+                                                    lineNumber: 466,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2134,31 +2166,31 @@ const Prisma = ()=>{
                                                             children: "Namespace ID"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 463,
+                                                            lineNumber: 478,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                             name: "namespaceId",
-                                                            placeholder: "ex. phones",
+                                                            placeholder: "ex. decors",
                                                             value: form.namespaceId,
                                                             onChange: handleChange,
                                                             required: true,
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 464,
+                                                            lineNumber: 479,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 462,
+                                                    lineNumber: 477,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 450,
+                                            lineNumber: 465,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2169,7 +2201,7 @@ const Prisma = ()=>{
                                                     children: "Назва товару"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 476,
+                                                    lineNumber: 491,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2180,13 +2212,13 @@ const Prisma = ()=>{
                                                     className: inputClass
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 477,
+                                                    lineNumber: 492,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 475,
+                                            lineNumber: 490,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2199,7 +2231,7 @@ const Prisma = ()=>{
                                                             children: "Ціна"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 488,
+                                                            lineNumber: 503,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2211,13 +2243,13 @@ const Prisma = ()=>{
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 489,
+                                                            lineNumber: 504,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 487,
+                                                    lineNumber: 502,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2227,7 +2259,7 @@ const Prisma = ()=>{
                                                             children: "Повна ціна"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 499,
+                                                            lineNumber: 514,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2239,13 +2271,13 @@ const Prisma = ()=>{
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 500,
+                                                            lineNumber: 515,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 498,
+                                                    lineNumber: 513,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2255,24 +2287,24 @@ const Prisma = ()=>{
                                                             children: "Категорія"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 510,
+                                                            lineNumber: 525,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                             name: "category",
-                                                            placeholder: "smartphones",
+                                                            placeholder: "decors",
                                                             value: form.category,
                                                             onChange: handleChange,
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 511,
+                                                            lineNumber: 526,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 509,
+                                                    lineNumber: 524,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2282,7 +2314,7 @@ const Prisma = ()=>{
                                                             children: "Рік"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 521,
+                                                            lineNumber: 536,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2296,19 +2328,19 @@ const Prisma = ()=>{
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 522,
+                                                            lineNumber: 537,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 520,
+                                                    lineNumber: 535,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 486,
+                                            lineNumber: 501,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2318,7 +2350,7 @@ const Prisma = ()=>{
                                                     children: "Зображення"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 536,
+                                                    lineNumber: 551,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2331,19 +2363,19 @@ const Prisma = ()=>{
                                                     className: "block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#2A2F3E] file:text-white hover:file:bg-[#3E455B] cursor-pointer"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 537,
+                                                    lineNumber: 552,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 535,
+                                            lineNumber: 550,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 445,
+                                    lineNumber: 460,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2354,56 +2386,88 @@ const Prisma = ()=>{
                                             children: "Характеристики"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 556,
+                                            lineNumber: 571,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "grid grid-cols-2 md:grid-cols-4 gap-4",
                                             children: [
-                                                'screen',
-                                                'resolution',
-                                                'processor',
-                                                'ram',
-                                                'camera',
-                                                'zoom',
-                                                'capacity',
-                                                'color'
-                                            ].map((field)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                {
+                                                    key: 'screen',
+                                                    label: 'Час роботи',
+                                                    placeholder: 'Напр., 60 хв'
+                                                },
+                                                {
+                                                    key: 'resolution',
+                                                    label: 'Фракція',
+                                                    placeholder: 'Напр., 1.0 мм'
+                                                },
+                                                {
+                                                    key: 'processor',
+                                                    label: 'Країна виробник',
+                                                    placeholder: 'Напр., Італія'
+                                                },
+                                                {
+                                                    key: 'ram',
+                                                    label: 'Витрата',
+                                                    placeholder: 'Напр., 1.5 кг/м²'
+                                                },
+                                                {
+                                                    key: 'camera',
+                                                    label: 'Фактура',
+                                                    placeholder: 'Напр., камінцева'
+                                                },
+                                                {
+                                                    key: 'zoom',
+                                                    label: 'Застосування',
+                                                    placeholder: 'Внутрішні/зовнішні'
+                                                },
+                                                {
+                                                    key: 'capacity',
+                                                    label: 'Фасування',
+                                                    placeholder: 'Напр., 15 кг'
+                                                },
+                                                {
+                                                    key: 'color',
+                                                    label: 'Колір',
+                                                    placeholder: 'Напр., білий'
+                                                }
+                                            ].map(({ key, label, placeholder })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                             className: labelClass,
-                                                            children: field === 'ram' ? 'RAM' : field.charAt(0).toUpperCase() + field.slice(1)
+                                                            children: label
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 571,
+                                                            lineNumber: 586,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                            name: field,
-                                                            placeholder: field.charAt(0).toUpperCase() + field.slice(1),
-                                                            value: form[field],
+                                                            name: key,
+                                                            placeholder: placeholder,
+                                                            value: form[key],
                                                             onChange: handleChange,
                                                             className: inputClass
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 574,
+                                                            lineNumber: 587,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
-                                                }, field, true, {
+                                                }, key, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 570,
+                                                    lineNumber: 585,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)))
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 559,
+                                            lineNumber: 574,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 555,
+                                    lineNumber: 570,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2414,10 +2478,10 @@ const Prisma = ()=>{
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                                     className: "text-lg font-semibold text-white",
-                                                    children: "Мережі (Network Bands)"
+                                                    children: "Рекомендовані поверхні"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 589,
+                                                    lineNumber: 602,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2430,16 +2494,16 @@ const Prisma = ()=>{
                                                                 ''
                                                             ]
                                                         }),
-                                                    children: "+ Add cell"
+                                                    children: "+ Додати поверхню"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 590,
+                                                    lineNumber: 603,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 588,
+                                            lineNumber: 601,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2447,10 +2511,10 @@ const Prisma = ()=>{
                                             children: [
                                                 (form.cell ?? []).length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-gray-500 text-sm text-center",
-                                                    children: "Немає доданих мереж"
+                                                    children: "Немає доданих поверхонь"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 602,
+                                                    lineNumber: 615,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 (form.cell ?? []).map((value, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2464,7 +2528,7 @@ const Prisma = ()=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                lineNumber: 606,
+                                                                lineNumber: 619,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2472,16 +2536,16 @@ const Prisma = ()=>{
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                                         className: labelClass,
-                                                                        children: "Назва мережі (Band)"
+                                                                        children: "Назва поверхні"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                        lineNumber: 609,
+                                                                        lineNumber: 622,
                                                                         columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                         type: "text",
                                                                         value: value,
-                                                                        placeholder: "Band name...",
+                                                                        placeholder: "Поверхня...",
                                                                         onChange: (e)=>{
                                                                             const newCells = [
                                                                                 ...form.cell
@@ -2495,13 +2559,13 @@ const Prisma = ()=>{
                                                                         className: inputClass
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                        lineNumber: 610,
+                                                                        lineNumber: 623,
                                                                         columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                lineNumber: 608,
+                                                                lineNumber: 621,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2514,25 +2578,25 @@ const Prisma = ()=>{
                                                                 children: "✕"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                lineNumber: 623,
+                                                                lineNumber: 636,
                                                                 columnNumber: 21
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, index, true, {
                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                        lineNumber: 605,
+                                                        lineNumber: 618,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 600,
+                                            lineNumber: 613,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 587,
+                                    lineNumber: 600,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2546,7 +2610,7 @@ const Prisma = ()=>{
                                                     children: "Блоки опису"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 640,
+                                                    lineNumber: 653,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2567,13 +2631,13 @@ const Prisma = ()=>{
                                                     children: "+ Add block"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 641,
+                                                    lineNumber: 654,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 639,
+                                            lineNumber: 652,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2592,7 +2656,7 @@ const Prisma = ()=>{
                                                             children: "Delete Block"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 662,
+                                                            lineNumber: 675,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2603,7 +2667,7 @@ const Prisma = ()=>{
                                                                     children: "Block Title"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                    lineNumber: 676,
+                                                                    lineNumber: 689,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2623,13 +2687,13 @@ const Prisma = ()=>{
                                                                     className: `${inputClass} font-bold`
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                    lineNumber: 677,
+                                                                    lineNumber: 690,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 675,
+                                                            lineNumber: 688,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2649,7 +2713,7 @@ const Prisma = ()=>{
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                                        lineNumber: 694,
+                                                                                        lineNumber: 707,
                                                                                         columnNumber: 29
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2669,13 +2733,13 @@ const Prisma = ()=>{
                                                                                         className: `${inputClass} text-sm`
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                                        lineNumber: 695,
+                                                                                        lineNumber: 708,
                                                                                         columnNumber: 29
                                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                                lineNumber: 693,
+                                                                                lineNumber: 706,
                                                                                 columnNumber: 27
                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2694,13 +2758,13 @@ const Prisma = ()=>{
                                                                                 children: "✕"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                                lineNumber: 707,
+                                                                                lineNumber: 720,
                                                                                 columnNumber: 27
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         ]
                                                                     }, textIndex, true, {
                                                                         fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                        lineNumber: 692,
+                                                                        lineNumber: 705,
                                                                         columnNumber: 25
                                                                     }, ("TURBOPACK compile-time value", void 0))),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2721,37 +2785,37 @@ const Prisma = ()=>{
                                                                             children: "+"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                            lineNumber: 731,
+                                                                            lineNumber: 744,
                                                                             columnNumber: 25
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         " Add text row"
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                                    lineNumber: 722,
+                                                                    lineNumber: 735,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                                            lineNumber: 690,
+                                                            lineNumber: 703,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, blockIndex, true, {
                                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                                    lineNumber: 657,
+                                                    lineNumber: 670,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)))
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 655,
+                                            lineNumber: 668,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 638,
+                                    lineNumber: 651,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2766,33 +2830,33 @@ const Prisma = ()=>{
                                             children: "Cancel"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 741,
+                                            lineNumber: 754,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             type: "submit",
                                             className: "px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 shadow-lg shadow-blue-900/30 transition-all transform hover:-translate-y-0.5",
-                                            children: "Add Product"
+                                            children: "Додати товар"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/prisma/index.tsx",
-                                            lineNumber: 750,
+                                            lineNumber: 763,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/prisma/index.tsx",
-                                    lineNumber: 740,
+                                    lineNumber: 753,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/prisma/index.tsx",
-                            lineNumber: 442,
+                            lineNumber: 457,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/pages/prisma/index.tsx",
-                        lineNumber: 441,
+                        lineNumber: 456,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
