@@ -920,8 +920,8 @@ const ProductCard = /*#__PURE__*/ _s(__TURBOPACK__imported__module__$5b$project$
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"]['product-card__price-current'],
                         children: [
-                            "$",
-                            product.price
+                            product.price,
+                            " грн"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
@@ -931,8 +931,8 @@ const ProductCard = /*#__PURE__*/ _s(__TURBOPACK__imported__module__$5b$project$
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$client$5d$__$28$css__module$29$__["default"]['product-card__price-prev'],
                         children: [
-                            "$",
-                            product.fullPrice
+                            product.fullPrice,
+                            " грн"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
@@ -1187,13 +1187,13 @@ const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive })=>{
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "text-gray-400 text-sm mt-0.5",
                         children: [
-                            "$",
                             product.price,
+                            " грн",
                             product.fullPrice > product.price && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-gray-600 line-through ml-2 text-xs",
                                 children: [
-                                    "$",
-                                    product.fullPrice
+                                    product.fullPrice,
+                                    " грн"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ProductsList/ProductsList.tsx",

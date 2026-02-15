@@ -15,6 +15,7 @@ const allowedStatuses = ['new', 'in_progress', 'done', 'canceled'] as const;
 type OrderStatus = (typeof allowedStatuses)[number];
 
 const formatOrderMessage = (payload: {
+  id: number;
   name: string;
   phone: string;
   comment?: string | null;
@@ -22,7 +23,7 @@ const formatOrderMessage = (payload: {
   total: number;
 }) => {
   const lines = [
-    'Нове замовлення',
+    `Нове замовлення #${payload.id}`,
     '',
     `Ім'я: ${payload.name}`,
     `Телефон: ${payload.phone}`,
@@ -38,7 +39,7 @@ const formatOrderMessage = (payload: {
       `${index + 1}. ${item.name} (${item.itemId}) x${item.quantity} = ${item.sum}`,
     );
   });
-  lines.push('', `Сума: ${payload.total}`);
+  lines.push('', `Сума: ${payload.total} грн`);
 
   return lines.join('\n');
 };
@@ -92,13 +93,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       try {
-        const message = formatOrderMessage({
-          name,
-          phone,
-          comment,
-          items,
-          total: Number(total) || 0,
-        });
+      const message = formatOrderMessage({
+        id: order.id,
+        name,
+        phone,
+        comment,
+        items,
+        total: Number(total) || 0,
+      });
         await sendTelegramMessage(message);
       } catch (error) {
         console.error('Failed to send Telegram message:', error);

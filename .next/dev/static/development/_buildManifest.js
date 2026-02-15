@@ -14,6 +14,12 @@ self.__BUILD_MANIFEST = {
   "/favorites": [
     "static/chunks/pages/favorites.js"
   ],
+  "/prisma": [
+    "static/chunks/pages/prisma.js"
+  ],
+  "/prisma/orders": [
+    "static/chunks/pages/prisma/orders.js"
+  ],
   "__rewrites": {
     "afterFiles": [],
     "beforeFiles": [],

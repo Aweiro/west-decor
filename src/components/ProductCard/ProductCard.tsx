@@ -77,9 +77,9 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className, ch
       </LinkDetails>
 
       <div className={styles['product-card__price-row']}>
-        <h3 className={styles['product-card__price-current']}>${product.price}</h3>
+        <h3 className={styles['product-card__price-current']}>{product.price} грн</h3>
 
-        <h3 className={styles['product-card__price-prev']}>${product.fullPrice}</h3>
+        <h3 className={styles['product-card__price-prev']}>{product.fullPrice} грн</h3>
       </div>
 
       <hr className={styles['product-card__line']} />

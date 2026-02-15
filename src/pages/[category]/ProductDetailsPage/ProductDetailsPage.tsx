@@ -98,20 +98,20 @@ export const ProductDetailsPage = () => {
           width={100}
           height={100}
         />
-        <h3 className={styles['product-details__not-found-title']}>Товар не знайдено</h3>
+        <h3 className={styles['product-details__not-found-title']}>Product was not found</h3>
       </div>
     );
   }
 
   const descriptionItems = [
-    { title: 'Час роботи', value: product.screen },
-    { title: 'Фракція', value: product.resolution },
-    { title: 'Країна виробник', value: product.processor },
-    { title: 'Витрата', value: product.ram },
-    { title: 'Фасування', value: product.capacity },
-    { title: 'Фактура', value: product.camera },
-    { title: 'Застосування', value: product.zoom },
-    { title: 'Рекомендовані поверхні', value: product.cell.join(', ') },
+    { title: 'Screen', value: product.screen },
+    { title: 'Resolution', value: product.resolution },
+    { title: 'Processor', value: product.processor },
+    { title: 'RAM', value: product.ram },
+    { title: 'Built in memory', value: product.capacity },
+    { title: 'Camera', value: product.camera },
+    { title: 'Zoom', value: product.zoom },
+    { title: 'Cell', value: product.cell.join(', ') },
   ];
 
   const InfoBlock = ({ isSmall = false }: { isSmall?: boolean }) => {
@@ -179,10 +179,6 @@ export const ProductDetailsPage = () => {
         break;
       default:
         return;
-    }
-
-    if (normalizedItems.length === 0) {
-      return null;
     }
 
     return (
@@ -276,17 +272,17 @@ export const ProductDetailsPage = () => {
         </div>
         <div className={styles['product-details__controls']}>
           <ChangeOptionsBlock
-            title={'Доступні кольори'}
+            title={'Available colors'}
             variantChange={VariantChangeType.VariantColor}
           />
           <ChangeOptionsBlock
-            title={'Оберіть фасування'}
+            title={'Select capacity'}
             variantChange={VariantChangeType.VariantCapacity}
           />
           <div className={styles['product-details__payment']}>
             <div className={styles['product-details__price']}>
-              <h2>${product.priceDiscount}</h2>
-              <p className={styles['product-details__price-old']}>${product.priceRegular}</p>
+              <h2>{product.priceDiscount} грн</h2>
+              <p className={styles['product-details__price-old']}>{product.priceRegular} грн</p>
             </div>
             <PaymentsButtons product={product.productId} isPage={true} />
           </div>

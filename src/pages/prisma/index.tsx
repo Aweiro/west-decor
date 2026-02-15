@@ -49,6 +49,9 @@ export const Prisma = () => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<ProductForm>({ ...startForm });
+  const [namespaceMode, setNamespaceMode] = useState<'existing' | 'new'>('existing');
+  const [namespaceOptions, setNamespaceOptions] = useState<string[]>([]);
+  const [namespaceLoading, setNamespaceLoading] = useState(false);
 
   // 1. Стан для пошукового запиту
   const [searchTerm, setSearchTerm] = useState('');
@@ -91,6 +94,32 @@ export const Prisma = () => {
   useEffect(() => {
     fetchProducts();
   }, [category, fetchProducts]);
+
+  useEffect(() => {
+    const loadNamespaces = async () => {
+      setNamespaceLoading(true);
+      try {
+        const categories = ['decors', 'materials', 'accessories'];
+        const responses = await Promise.all(
+          categories.map((cat) =>
+            fetch(`/api/products?category=${cat}`).then((res) => res.json()),
+          ),
+        );
+        const namespaces = responses
+          .flat()
+          .map((detail: Product) => detail.namespaceId)
+          .filter((value): value is string => Boolean(value));
+        setNamespaceOptions(Array.from(new Set(namespaces)));
+      } catch (error) {
+        console.error('Failed to load namespaces:', error);
+        setNamespaceOptions([]);
+      } finally {
+        setNamespaceLoading(false);
+      }
+    };
+
+    loadNamespaces();
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -476,14 +505,49 @@ export const Prisma = () => {
                 </div>
                 <div>
                   <label className={labelClass}>Namespace ID</label>
-                  <input
-                    name='namespaceId'
-                    placeholder='ex. decors'
-                    value={form.namespaceId}
-                    onChange={handleChange}
-                    required
-                    className={inputClass}
-                  />
+                  <div className='flex gap-2 mb-2'>
+                    <button
+                      type='button'
+                      className={`${btnSecondary} ${namespaceMode === 'existing' ? 'ring-1 ring-blue-500' : ''}`}
+                      onClick={() => setNamespaceMode('existing')}
+                    >
+                      Існуючий
+                    </button>
+                    <button
+                      type='button'
+                      className={`${btnSecondary} ${namespaceMode === 'new' ? 'ring-1 ring-blue-500' : ''}`}
+                      onClick={() => setNamespaceMode('new')}
+                    >
+                      Новий
+                    </button>
+                  </div>
+                  {namespaceMode === 'existing' ? (
+                    <select
+                      name='namespaceId'
+                      value={form.namespaceId}
+                      onChange={handleChange}
+                      className={inputClass}
+                    >
+                      <option value=''>
+                        {namespaceLoading ? 'Завантаження...' : 'Оберіть namespace'}
+                      </option>
+                      {!namespaceLoading &&
+                        namespaceOptions.map((namespace) => (
+                          <option key={namespace} value={namespace}>
+                            {namespace}
+                          </option>
+                        ))}
+                    </select>
+                  ) : (
+                    <input
+                      name='namespaceId'
+                      placeholder='ex. decors'
+                      value={form.namespaceId}
+                      onChange={handleChange}
+                      required
+                      className={inputClass}
+                    />
+                  )}
                 </div>
               </div>
 
@@ -523,13 +587,19 @@ export const Prisma = () => {
                 </div>
                 <div>
                   <label className={labelClass}>Категорія</label>
-                  <input
+                  <select
                     name='category'
-                    placeholder='decors'
                     value={form.category}
                     onChange={handleChange}
                     className={inputClass}
-                  />
+                  >
+                    <option value='' disabled>
+                      Оберіть категорію
+                    </option>
+                    <option value='decors'>Decors</option>
+                    <option value='materials'>Materials</option>
+                    <option value='accessories'>Accessoires</option>
+                  </select>
                 </div>
 
                 <div>

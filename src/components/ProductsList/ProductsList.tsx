@@ -61,9 +61,9 @@ const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive }: AdminPro
         </Link>
 
         <div className='text-gray-400 text-sm mt-0.5'>
-          ${product.price}
+          {product.price} грн
           {product.fullPrice > product.price && (
-            <span className='text-gray-600 line-through ml-2 text-xs'>${product.fullPrice}</span>
+            <span className='text-gray-600 line-through ml-2 text-xs'>{product.fullPrice} грн</span>
           )}
         </div>
       </div>

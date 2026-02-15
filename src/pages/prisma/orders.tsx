@@ -306,9 +306,9 @@ export const OrdersPage = () => {
                           </div>
                           <div className='text-right min-w-[120px]'>
                             <div className='text-gray-300'>
-                              {item.quantity} x {item.price}
+                              {item.quantity} x {item.price} грн
                             </div>
-                            <div className='text-white font-semibold'>{item.sum}</div>
+                            <div className='text-white font-semibold'>{item.sum} грн</div>
                           </div>
                         </a>
                       );
