@@ -8,14 +8,11 @@ self.__BUILD_MANIFEST = {
   "/[category]/[productId]": [
     "static/chunks/pages/[category]/[productId].js"
   ],
-  "/cart": [
-    "static/chunks/pages/cart.js"
-  ],
-  "/favorites": [
-    "static/chunks/pages/favorites.js"
-  ],
   "/prisma": [
     "static/chunks/pages/prisma.js"
+  ],
+  "/prisma/login": [
+    "static/chunks/pages/prisma/login.js"
   ],
   "/prisma/orders": [
     "static/chunks/pages/prisma/orders.js"
@@ -29,6 +26,9 @@ self.__BUILD_MANIFEST = {
     "/",
     "/_app",
     "/_error",
+    "/api/admin/login",
+    "/api/admin/logout",
+    "/api/admin/session",
     "/api/orders",
     "/api/products",
     "/api/upload",
@@ -37,6 +37,7 @@ self.__BUILD_MANIFEST = {
     "/components/CategoriesBlock/CategoriesBlock",
     "/favorites",
     "/prisma",
+    "/prisma/login",
     "/prisma/orders",
     "/[category]",
     "/[category]/CatalogPage/CatalogPage",

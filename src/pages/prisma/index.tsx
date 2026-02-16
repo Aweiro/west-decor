@@ -1,6 +1,8 @@
+/* eslint-disable react-refresh/only-export-components */
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
+import type { GetServerSideProps } from 'next';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Product } from '@/types/ProductType';
 import { ProductsList } from '@/components/ProductsList';
@@ -8,12 +10,13 @@ import Head from 'next/head';
 import { Loader } from '@/components/Loader';
 import { ProductPayload } from '@/types/ProductPayload';
 import { ProductForm } from '@/types/ProductForm';
+import { isAdminAuthenticated } from '@/lib/adminAuth';
 // import './styles/admin.css';
 
-const sectionClass = 'bg-[#151925] p-6 rounded-xl shadow-lg border border-[#2E3345]';
-const inputClass =
-  'w-full px-4 py-2.5 bg-[#0B0E14] border border-solid border-[#2E3345] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#9353d3] focus:ring-1 focus:ring-[#9353d3] transition-all';
-const labelClass = 'block text-sm font-medium text-gray-300 mb-1.5';
+const sectionClass =
+  'admin-panel p-6 lg:p-7';
+const inputClass = 'admin-input';
+const labelClass = 'admin-label';
 const btnSecondary =
   'px-4 py-2 bg-[#2A2F3E] text-white rounded-lg hover:bg-[#3E455B] transition-colors text-sm font-medium border border-[#3E455B]';
 const btnDanger =
@@ -42,6 +45,11 @@ const startForm = {
   zoom: '',
 };
 
+type NamespaceVariants = {
+  capacities: string[];
+  colors: string[];
+};
+
 export const Prisma = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [category] = useState<'products' | 'decors' | 'materials'>('products');
@@ -52,9 +60,15 @@ export const Prisma = () => {
   const [namespaceMode, setNamespaceMode] = useState<'existing' | 'new'>('existing');
   const [namespaceOptions, setNamespaceOptions] = useState<string[]>([]);
   const [namespaceLoading, setNamespaceLoading] = useState(false);
+  const [namespaceVariants, setNamespaceVariants] = useState<Record<string, NamespaceVariants>>(
+    {},
+  );
+  const [capacityMode, setCapacityMode] = useState<'existing' | 'new'>('new');
+  const [colorMode, setColorMode] = useState<'existing' | 'new'>('new');
 
   // 1. Стан для пошукового запиту
   const [searchTerm, setSearchTerm] = useState('');
+  const [visibleProductsCount, setVisibleProductsCount] = useState(5);
 
   // 2. Логіка фільтрації (шукає по назві, ID та категорії)
   const filteredProducts = products
@@ -69,6 +83,13 @@ export const Prisma = () => {
         product.namespaceId?.toLowerCase().includes(term)
       );
     });
+
+  const visibleProducts = filteredProducts.slice(0, visibleProductsCount);
+  const hasMoreProducts = filteredProducts.length > visibleProductsCount;
+
+  useEffect(() => {
+    setVisibleProductsCount(5);
+  }, [searchTerm, products.length]);
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
@@ -110,9 +131,54 @@ export const Prisma = () => {
           .map((detail: Product) => detail.namespaceId)
           .filter((value): value is string => Boolean(value));
         setNamespaceOptions(Array.from(new Set(namespaces)));
+
+        const variantsMap: Record<
+          string,
+          { capacities: Set<string>; colors: Set<string> }
+        > = {};
+
+        responses.flat().forEach((detail: Product) => {
+          if (!detail.namespaceId) {
+            return;
+          }
+
+          if (!variantsMap[detail.namespaceId]) {
+            variantsMap[detail.namespaceId] = {
+              capacities: new Set<string>(),
+              colors: new Set<string>(),
+            };
+          }
+
+          if (detail.capacity) {
+            variantsMap[detail.namespaceId].capacities.add(detail.capacity);
+          }
+          (detail.capacityAvailable || [])
+            .filter(Boolean)
+            .forEach((capacity) => variantsMap[detail.namespaceId].capacities.add(capacity));
+
+          if (detail.color) {
+            variantsMap[detail.namespaceId].colors.add(detail.color);
+          }
+          (detail.colorsAvailable || [])
+            .filter(Boolean)
+            .forEach((color) => variantsMap[detail.namespaceId].colors.add(color));
+        });
+
+        const normalizedVariants = Object.entries(variantsMap).reduce<
+          Record<string, NamespaceVariants>
+        >((acc, [namespace, data]) => {
+          acc[namespace] = {
+            capacities: Array.from(data.capacities).sort((a, b) => a.localeCompare(b)),
+            colors: Array.from(data.colors).sort((a, b) => a.localeCompare(b)),
+          };
+          return acc;
+        }, {});
+
+        setNamespaceVariants(normalizedVariants);
       } catch (error) {
         console.error('Failed to load namespaces:', error);
         setNamespaceOptions([]);
+        setNamespaceVariants({});
       } finally {
         setNamespaceLoading(false);
       }
@@ -120,6 +186,80 @@ export const Prisma = () => {
 
     loadNamespaces();
   }, []);
+
+  const syncVariantModesByNamespace = useCallback(
+    (namespaceId: string) => {
+      const variants = namespaceVariants[namespaceId];
+
+      if (!namespaceId || !variants) {
+        setCapacityMode('new');
+        setColorMode('new');
+        return;
+      }
+
+      // XOR mode: only one of (capacity/color) can be "existing" at a time.
+      if (variants.capacities.length) {
+        setCapacityMode('existing');
+        setColorMode('new');
+        return;
+      }
+
+      if (variants.colors.length) {
+        setCapacityMode('new');
+        setColorMode('existing');
+        return;
+      }
+
+      setCapacityMode('new');
+      setColorMode('new');
+    },
+    [namespaceVariants],
+  );
+
+  const handleCapacityModeChange = (mode: 'existing' | 'new') => {
+    setForm((prev) => ({ ...prev, capacity: '' }));
+
+    if (mode === 'existing') {
+      setCapacityMode('existing');
+      setColorMode('new');
+      return;
+    }
+
+    setCapacityMode('new');
+  };
+
+  const handleColorModeChange = (mode: 'existing' | 'new') => {
+    setForm((prev) => ({ ...prev, color: '' }));
+
+    if (mode === 'existing') {
+      setColorMode('existing');
+      setCapacityMode('new');
+      return;
+    }
+
+    setColorMode('new');
+  };
+
+  const handleNamespaceChange = (value: string) => {
+    setForm((prev) => ({ ...prev, namespaceId: value }));
+    syncVariantModesByNamespace(value);
+  };
+
+  const selectedVariants = namespaceVariants[form.namespaceId];
+  const capacityOptions = Array.from(
+    new Set([...(selectedVariants?.capacities || []), form.capacity].filter(Boolean)),
+  );
+  const colorOptions = Array.from(
+    new Set([...(selectedVariants?.colors || []), form.color].filter(Boolean)),
+  );
+
+  useEffect(() => {
+    if (!form.namespaceId) {
+      return;
+    }
+
+    syncVariantModesByNamespace(form.namespaceId);
+  }, [form.namespaceId, syncVariantModesByNamespace]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -217,6 +357,8 @@ export const Prisma = () => {
 
       setForm({ ...startForm });
       setSelectedFile(null);
+      setCapacityMode('new');
+      setColorMode('new');
     } catch (err) {
       console.error('Error creating product:', err);
     } finally {
@@ -257,6 +399,8 @@ export const Prisma = () => {
       description: details?.description || [],
       namespaceId: details?.namespaceId || '',
     });
+    setNamespaceMode('existing');
+    syncVariantModesByNamespace(details?.namespaceId || '');
 
     const formSection = document.getElementById('admin-form');
     if (formSection) {
@@ -349,32 +493,45 @@ export const Prisma = () => {
     }
   };
 
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    window.location.href = '/prisma/login';
+  };
+
   return (
     <>
       <Head>
         <link rel='stylesheet' href='/admin.css' />
       </Head>
-      <div className='container' id='admin-root'>
-        <Breadcrumbs />
+      <div className='admin-shell' id='admin-root'>
+        <div className='container admin-inner'>
+          <Breadcrumbs />
 
-        <div className='mb-6 flex flex-wrap gap-3'>
-          <a
-            href='/prisma'
-            className='px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors text-sm font-medium border border-blue-500'
-          >
-            Товари
-          </a>
-          <a
-            href='/prisma/orders'
-            className='px-4 py-2 bg-[#2A2F3E] text-white rounded-lg hover:bg-[#3E455B] transition-colors text-sm font-medium border border-[#3E455B]'
-          >
-            Замовлення
-          </a>
-        </div>
+          <header className='admin-panel p-5 mb-6'>
+            <div className='flex flex-wrap items-center justify-between gap-4'>
+              <div>
+                <h1 className='admin-title text-white text-2xl'>Керування товарами</h1>
+                <p className='admin-subtitle text-sm mt-1'>
+                  Додавай товари, варіації кольорів та фасувань у єдиному інтерфейсі.
+                </p>
+              </div>
+              <div className='admin-topbar mb-0'>
+                <a href='/prisma' className='admin-nav-link active'>
+                  Товари
+                </a>
+                <a href='/prisma/orders' className='admin-nav-link'>
+                  Замовлення
+                </a>
+                <button type='button' onClick={handleLogout} className='admin-nav-link danger'>
+                  Вийти
+                </button>
+              </div>
+            </div>
+          </header>
 
-        <div className='mb-8'>
+          <div className='mb-8 admin-panel p-5'>
           {/* --- БЛОК ПОШУКУ ТА ЗАГОЛОВКА (Dark Style) --- */}
-          <div className='flex flex-col md:flex-row justify-between items-center gap-4 mb-6 p-5 rounded-xl shadow-lg'>
+          <div className='flex flex-col md:flex-row justify-between items-center gap-4 mb-6 p-4 rounded-xl border border-[#2b3a57] bg-[#0d1422]/80'>
             {/* Лічильник товарів */}
             <h2 className='text-xl font-bold text-white flex items-center gap-3'>
               Список товарів
@@ -405,17 +562,13 @@ export const Prisma = () => {
                 placeholder='Пошук...'
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className='block w-full pl-10 pr-10 py-2.5 
-                           bg-[#0B0E14] border border-[#2E3345] rounded-lg 
-                           text-white placeholder-gray-500 
-                           focus:outline-none focus:border-[#9353d3] focus:ring-1 focus:ring-[#9353d3] 
-                           transition-all duration-200 sm:text-sm shadow-inner border-solid'
+                className='admin-input admin-input-icon block w-full py-2.5 sm:text-sm shadow-inner'
               />
 
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className='absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-white transition-colors bg-transparent border-none focus:outline-none'
+                  className='admin-clear-btn absolute inset-y-0 right-0 pr-3 flex items-center border-none focus:outline-none'
                 >
                   <svg
                     className='h-5 w-5'
@@ -439,16 +592,29 @@ export const Prisma = () => {
             {loading ? (
               <Loader />
             ) : filteredProducts.length > 0 ? (
-              <ProductsList
-                isAdmin
-                products={filteredProducts}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-                onToggleActive={handleToggleActive}
-              />
+              <>
+                <ProductsList
+                  isAdmin
+                  products={visibleProducts}
+                  onEdit={handleEdit}
+                  onDelete={handleDelete}
+                  onToggleActive={handleToggleActive}
+                />
+                {hasMoreProducts && (
+                  <div className='mt-5 flex justify-center'>
+                    <button
+                      type='button'
+                      onClick={() => setVisibleProductsCount((prev) => prev + 5)}
+                      className='admin-nav-link'
+                    >
+                      Показати ще ({filteredProducts.length - visibleProductsCount})
+                    </button>
+                  </div>
+                )}
+              </>
             ) : (
               // --- БЛОК "НІЧОГО НЕ ЗНАЙДЕНО" ---
-              <div className='flex flex-col items-center justify-center py-12 px-4 rounded-xl border-2 border-dashed border-[#2E3345] bg-[#151925]/50'>
+              <div className='flex flex-col items-center justify-center py-12 px-4 rounded-xl border-2 border-dashed border-[#2E3345] bg-[#0d1422]/70'>
                 {/* Іконка */}
                 <svg
                   className='h-16 w-16 text-[#2E3345] mb-4'
@@ -482,16 +648,25 @@ export const Prisma = () => {
               </div>
             )}
           </div>
-        </div>
+          </div>
 
-        <section className='section'>
-          <form id='admin-form' onSubmit={handleSubmit} className='space-y-6 text-gray-200 py-10'>
+          <section className='section'>
+          <form id='admin-form' onSubmit={handleSubmit} className='space-y-6 text-gray-200 py-6 pb-20'>
+            <div className='admin-panel p-4'>
+              <p className='text-sm text-[#d2def6]'>
+                Швидкий сценарій: 1) Обери namespace, 2) задай фасування/колір, 3) додай фото, 4)
+                натисни зберегти.
+              </p>
+            </div>
             {/* --- Основна інформація --- */}
 
             <div className={sectionClass}>
               <h3 className='text-lg font-semibold mb-4 border-b border-[#2E3345] pb-2 text-white'>
                 Основна інформація
               </h3>
+              <p className='admin-form-hint mb-4'>
+                Ці поля визначають картку товару в каталозі та звʼязок варіацій.
+              </p>
 
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-4'>
                 <div>
@@ -507,49 +682,56 @@ export const Prisma = () => {
                 </div>
                 <div>
                   <label className={labelClass}>Namespace ID</label>
-                  <div className='flex gap-2 mb-2'>
-                    <button
-                      type='button'
-                      className={`${btnSecondary} ${namespaceMode === 'existing' ? 'ring-1 ring-blue-500' : ''}`}
-                      onClick={() => setNamespaceMode('existing')}
-                    >
-                      Існуючий
-                    </button>
-                    <button
-                      type='button'
-                      className={`${btnSecondary} ${namespaceMode === 'new' ? 'ring-1 ring-blue-500' : ''}`}
-                      onClick={() => setNamespaceMode('new')}
-                    >
-                      Новий
-                    </button>
-                  </div>
-                  {namespaceMode === 'existing' ? (
-                    <select
-                      name='namespaceId'
-                      value={form.namespaceId}
-                      onChange={handleChange}
-                      className={inputClass}
-                    >
-                      <option value=''>
-                        {namespaceLoading ? 'Завантаження...' : 'Оберіть namespace'}
-                      </option>
-                      {!namespaceLoading &&
-                        namespaceOptions.map((namespace) => (
-                          <option key={namespace} value={namespace}>
-                            {namespace}
+                  <div className='admin-mode-row'>
+                    <div className='admin-mode-group'>
+                      <button
+                        type='button'
+                        className={`admin-mode-btn ${namespaceMode === 'existing' ? 'active' : ''}`}
+                        onClick={() => setNamespaceMode('existing')}
+                      >
+                        Існуючий
+                      </button>
+                      <button
+                        type='button'
+                        className={`admin-mode-btn ${namespaceMode === 'new' ? 'active' : ''}`}
+                        onClick={() => setNamespaceMode('new')}
+                      >
+                        Новий
+                      </button>
+                    </div>
+                    <div className='flex-1'>
+                      {namespaceMode === 'existing' ? (
+                        <select
+                          name='namespaceId'
+                          value={form.namespaceId}
+                          onChange={(event) => handleNamespaceChange(event.target.value)}
+                          className={inputClass}
+                        >
+                          <option value=''>
+                            {namespaceLoading ? 'Завантаження...' : 'Оберіть namespace'}
                           </option>
-                        ))}
-                    </select>
-                  ) : (
-                    <input
-                      name='namespaceId'
-                      placeholder='ex. decors'
-                      value={form.namespaceId}
-                      onChange={handleChange}
-                      required
-                      className={inputClass}
-                    />
-                  )}
+                          {!namespaceLoading &&
+                            namespaceOptions.map((namespace) => (
+                              <option key={namespace} value={namespace}>
+                                {namespace}
+                              </option>
+                            ))}
+                        </select>
+                      ) : (
+                        <input
+                          name='namespaceId'
+                          placeholder='ex. decors'
+                          value={form.namespaceId}
+                          onChange={(event) => handleNamespaceChange(event.target.value)}
+                          required
+                          className={inputClass}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <p className='admin-form-hint mt-2'>
+                    Один namespace обʼєднує всі кольори та фасування одного товару.
+                  </p>
                 </div>
               </div>
 
@@ -643,6 +825,9 @@ export const Prisma = () => {
               <h3 className='text-lg font-semibold text-white mb-4 border-b border-[#2E3345] pb-2'>
                 Характеристики
               </h3>
+              <p className='admin-form-hint mb-4'>
+                Заповнюй тільки релевантні характеристики, інші можна залишити порожніми.
+              </p>
               <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                 {[
                   { key: 'screen', label: 'Час роботи', placeholder: 'Напр., 60 хв' },
@@ -651,8 +836,6 @@ export const Prisma = () => {
                   { key: 'ram', label: 'Витрата', placeholder: 'Напр., 1.5 кг/м²' },
                   { key: 'camera', label: 'Фактура', placeholder: 'Напр., камінцева' },
                   { key: 'zoom', label: 'Застосування', placeholder: 'Внутрішні/зовнішні' },
-                  { key: 'capacity', label: 'Фасування', placeholder: 'Напр., 15 кг' },
-                  { key: 'color', label: 'Колір', placeholder: 'Напр., білий' },
                 ].map(({ key, label, placeholder }) => (
                   <div key={key}>
                     <label className={labelClass}>{label}</label>
@@ -665,6 +848,110 @@ export const Prisma = () => {
                     />
                   </div>
                 ))}
+
+                <div>
+                  <label className={labelClass}>Фасування</label>
+                  <div className='admin-mode-row'>
+                    <div className='admin-mode-group'>
+                      <button
+                        type='button'
+                        className={`admin-mode-btn ${capacityMode === 'existing' ? 'active' : ''}`}
+                        onClick={() => handleCapacityModeChange('existing')}
+                        disabled={!capacityOptions.length}
+                      >
+                        Існуюче
+                      </button>
+                      <button
+                        type='button'
+                        className={`admin-mode-btn ${capacityMode === 'new' ? 'active' : ''}`}
+                        onClick={() => handleCapacityModeChange('new')}
+                      >
+                        Нове
+                      </button>
+                    </div>
+                    <div className='flex-1'>
+                      {capacityMode === 'existing' ? (
+                        <select
+                          name='capacity'
+                          value={form.capacity}
+                          onChange={handleChange}
+                          className={inputClass}
+                          disabled={!capacityOptions.length}
+                        >
+                          <option value=''>
+                            {capacityOptions.length
+                              ? 'Оберіть фасування'
+                              : 'Немає фасувань для namespace'}
+                          </option>
+                          {capacityOptions.map((capacity) => (
+                            <option key={capacity} value={capacity}>
+                              {capacity}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        <input
+                          name='capacity'
+                          placeholder='Напр., 15 кг'
+                          value={form.capacity}
+                          onChange={handleChange}
+                          className={inputClass}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className={labelClass}>Колір</label>
+                  <div className='admin-mode-row'>
+                    <div className='admin-mode-group'>
+                      <button
+                        type='button'
+                        className={`admin-mode-btn ${colorMode === 'existing' ? 'active' : ''}`}
+                        onClick={() => handleColorModeChange('existing')}
+                        disabled={!colorOptions.length}
+                      >
+                        Існуючий
+                      </button>
+                      <button
+                        type='button'
+                        className={`admin-mode-btn ${colorMode === 'new' ? 'active' : ''}`}
+                        onClick={() => handleColorModeChange('new')}
+                      >
+                        Новий
+                      </button>
+                    </div>
+                    <div className='flex-1'>
+                      {colorMode === 'existing' ? (
+                        <select
+                          name='color'
+                          value={form.color}
+                          onChange={handleChange}
+                          className={inputClass}
+                          disabled={!colorOptions.length}
+                        >
+                          <option value=''>
+                            {colorOptions.length ? 'Оберіть колір' : 'Немає кольорів для namespace'}
+                          </option>
+                          {colorOptions.map((color) => (
+                            <option key={color} value={color}>
+                              {color}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        <input
+                          name='color'
+                          placeholder='Напр., білий'
+                          value={form.color}
+                          onChange={handleChange}
+                          className={inputClass}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -822,11 +1109,13 @@ export const Prisma = () => {
             </div>
 
             {/* --- Footer buttons --- */}
-            <div className='flex justify-end gap-4'>
+            <div className='admin-sticky-actions flex justify-end gap-4'>
               <button
                 type='button'
                 onClick={() => {
                   setForm(startForm);
+                  setCapacityMode('new');
+                  setColorMode('new');
                 }}
                 className='px-6 py-3 bg-[#2A2F3E] text-white border border-[#3E455B] font-semibold rounded-lg hover:bg-[#3E455B] transition-all'
               >
@@ -840,10 +1129,24 @@ export const Prisma = () => {
               </button>
             </div>
           </form>
-        </section>
+          </section>
+        </div>
       </div>
     </>
   );
 };
 
 export default Prisma;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  if (isAdminAuthenticated(context.req)) {
+    return { props: {} };
+  }
+
+  return {
+    redirect: {
+      destination: `/prisma/login?next=${encodeURIComponent(context.resolvedUrl || '/prisma')}`,
+      permanent: false,
+    },
+  };
+};

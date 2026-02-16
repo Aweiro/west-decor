@@ -1,6 +1,6 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/pages/prisma/orders.js")
 R.c("server/chunks/ssr/node_modules_next_232d7914._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__478494d8._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__d2b2187f._.js")
 R.c("server/chunks/ssr/node_modules_186c80ea._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__e6a4d965._.js")
 R.c("server/chunks/ssr/node_modules_2fba675b._.js")

@@ -641,9 +641,11 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/src/pages/prisma/orders.tsx [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.s([
+/* eslint-disable react-refresh/only-export-components */ __turbopack_context__.s([
     "OrdersPage",
     ()=>OrdersPage,
+    "__N_SSP",
+    ()=>__N_SSP,
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
@@ -660,7 +662,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const sectionClass = 'bg-gradient-to-br from-[#171C29] to-[#0B0E14] p-6 rounded-2xl shadow-xl shadow-black/20 border border-[#2E3345]';
+const sectionClass = 'admin-panel p-6 lg:p-7 transition-colors hover:border-[#3f5278]';
 const statusLabels = {
     new: 'Нове',
     in_progress: 'В роботі',
@@ -684,6 +686,7 @@ const normalizeImageSrc = (src)=>{
     if (src.startsWith('http') || src.startsWith('/')) return src;
     return `/${src}`;
 };
+var __N_SSP = true;
 const OrdersPage = ()=>{
     _s();
     const [orders, setOrders] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -755,6 +758,12 @@ const OrdersPage = ()=>{
         }
         setOpenStatusId((prev)=>prev === orderId ? null : prev);
     };
+    const handleLogout = async ()=>{
+        await fetch('/api/admin/logout', {
+            method: 'POST'
+        });
+        window.location.href = '/prisma/login';
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$head$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -763,454 +772,511 @@ const OrdersPage = ()=>{
                     href: "/admin.css"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/prisma/orders.tsx",
-                    lineNumber: 130,
+                    lineNumber: 138,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/pages/prisma/orders.tsx",
-                lineNumber: 129,
+                lineNumber: 137,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "container",
+                className: "admin-shell",
                 id: "admin-root",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Breadcrumbs"], {}, void 0, false, {
-                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                        lineNumber: 133,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-6 flex flex-wrap gap-3",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: "/prisma",
-                                className: "px-4 py-2 bg-[#2A2F3E] text-white rounded-lg hover:bg-[#3E455B] transition-colors text-sm font-medium border border-[#3E455B]",
-                                children: "Товари"
-                            }, void 0, false, {
-                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                lineNumber: 136,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: "/prisma/orders",
-                                className: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors text-sm font-medium border border-blue-500",
-                                children: "Замовлення"
-                            }, void 0, false, {
-                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                lineNumber: 142,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                        lineNumber: 135,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
-                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                        lineNumber: 151,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-red-400",
-                        children: error
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                        lineNumber: 153,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)) : orders.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-gray-400",
-                        children: "Немає замовлень"
-                    }, void 0, false, {
-                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                        lineNumber: 155,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "space-y-6",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex flex-wrap items-center gap-2",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "container admin-inner",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Breadcrumbs$2f$Breadcrumbs$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Breadcrumbs"], {}, void 0, false, {
+                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                            lineNumber: 142,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+                            className: "admin-panel p-5 mb-6",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-wrap items-center justify-between gap-4",
                                 children: [
-                                    {
-                                        key: 'all',
-                                        label: `Усі (${orders.length})`
-                                    },
-                                    {
-                                        key: 'new',
-                                        label: `Нові (${orders.filter((o)=>o.status === 'new').length})`
-                                    },
-                                    {
-                                        key: 'in_progress',
-                                        label: `В роботі (${orders.filter((o)=>o.status === 'in_progress').length})`
-                                    },
-                                    {
-                                        key: 'done',
-                                        label: `Виконані (${orders.filter((o)=>o.status === 'done').length})`
-                                    },
-                                    {
-                                        key: 'canceled',
-                                        label: `Скасовані (${orders.filter((o)=>o.status === 'canceled').length})`
-                                    }
-                                ].map((tab)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        type: "button",
-                                        onClick: ()=>setActiveStatus(tab.key),
-                                        className: `px-3 py-1.5 rounded-full text-xs border transition-all ${activeStatus === tab.key ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white border-blue-500 shadow-sm shadow-blue-900/30' : 'bg-[#0B0E14] text-gray-300 border-[#2E3345] hover:border-[#3E455B] hover:bg-[#151925]'}`,
-                                        children: tab.label
-                                    }, tab.key, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                                className: "admin-title text-white text-2xl",
+                                                children: "Керування замовленнями"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 147,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "admin-subtitle text-sm mt-1",
+                                                children: "Відстежуй нові заявки та змінюй статуси в один клік."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 148,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/src/pages/prisma/orders.tsx",
-                                        lineNumber: 178,
-                                        columnNumber: 17
-                                    }, ("TURBOPACK compile-time value", void 0)))
-                            }, void 0, false, {
+                                        lineNumber: 146,
+                                        columnNumber: 15
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "admin-topbar mb-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "/prisma",
+                                                className: "admin-nav-link",
+                                                children: "Товари"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 153,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "/prisma/orders",
+                                                className: "admin-nav-link active",
+                                                children: "Замовлення"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 156,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                type: "button",
+                                                onClick: handleLogout,
+                                                className: "admin-nav-link danger",
+                                                children: "Вийти"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 159,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                        lineNumber: 152,
+                                        columnNumber: 15
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/pages/prisma/orders.tsx",
-                                lineNumber: 158,
+                                lineNumber: 145,
                                 columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            (activeStatus === 'all' ? orders : orders.filter((order)=>order.status === activeStatus)).map((order)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: sectionClass,
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                            lineNumber: 144,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Loader$2f$Loader$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Loader"], {}, void 0, false, {
+                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                            lineNumber: 167,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-red-300",
+                            children: error
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                            lineNumber: 169,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)) : orders.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "admin-panel p-8 text-center text-gray-300",
+                            children: "Немає замовлень"
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                            lineNumber: 173,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "space-y-6",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex flex-wrap items-center gap-2",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex flex-wrap items-start justify-between gap-4 border-b border-[#2E3345] pb-4 mb-4",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "text-white font-semibold text-lg tracking-wide",
-                                                            children: [
-                                                                "Замовлення #",
-                                                                order.id
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 200,
-                                                            columnNumber: 21
-                                                        }, ("TURBOPACK compile-time value", void 0)),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "text-gray-400 text-sm",
-                                                            children: new Date(order.createdAt).toLocaleString()
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 203,
-                                                            columnNumber: 21
-                                                        }, ("TURBOPACK compile-time value", void 0))
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                    lineNumber: 199,
-                                                    columnNumber: 19
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "text-right space-y-2",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "bg-[#0B0E14] border border-[#2E3345] rounded-xl px-3 py-2",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-gray-200 font-medium",
-                                                                    children: order.name
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 209,
-                                                                    columnNumber: 23
-                                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-gray-400 text-sm",
-                                                                    children: order.phone
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 210,
-                                                                    columnNumber: 23
-                                                                }, ("TURBOPACK compile-time value", void 0))
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 208,
-                                                            columnNumber: 21
-                                                        }, ("TURBOPACK compile-time value", void 0)),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex items-center justify-end gap-3",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "relative",
-                                                                tabIndex: 0,
-                                                                onBlur: (event)=>handleStatusBlur(event, order.id),
+                                        {
+                                            key: 'all',
+                                            label: `Усі (${orders.length})`
+                                        },
+                                        {
+                                            key: 'new',
+                                            label: `Нові (${orders.filter((o)=>o.status === 'new').length})`
+                                        },
+                                        {
+                                            key: 'in_progress',
+                                            label: `В роботі (${orders.filter((o)=>o.status === 'in_progress').length})`
+                                        },
+                                        {
+                                            key: 'done',
+                                            label: `Виконані (${orders.filter((o)=>o.status === 'done').length})`
+                                        },
+                                        {
+                                            key: 'canceled',
+                                            label: `Скасовані (${orders.filter((o)=>o.status === 'canceled').length})`
+                                        }
+                                    ].map((tab)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            onClick: ()=>setActiveStatus(tab.key),
+                                            className: `px-3 py-1.5 rounded-full text-xs border transition-all ${activeStatus === tab.key ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white border-blue-500 shadow-sm shadow-blue-900/30' : 'bg-[#0B0E14] text-gray-300 border-[#2E3345] hover:border-[#3E455B] hover:bg-[#151925]'}`,
+                                            children: tab.label
+                                        }, tab.key, false, {
+                                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                                            lineNumber: 196,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)))
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                                    lineNumber: 176,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                (activeStatus === 'all' ? orders : orders.filter((order)=>order.status === activeStatus)).map((order)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: sectionClass,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-wrap items-start justify-between gap-4 border-b border-[#2E3345] pb-4 mb-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "text-white font-semibold text-lg tracking-wide",
                                                                 children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                        type: "button",
-                                                                        disabled: updatingId === order.id,
-                                                                        onClick: ()=>toggleStatusMenu(order.id),
-                                                                        className: `inline-flex items-center gap-2 border text-xs px-3 py-1 rounded-full transition-all disabled:opacity-60 cursor-pointer hover:shadow-sm hover:shadow-black/30 ${statusStyles[order.status] || 'border-[#2E3345] text-gray-300'}`,
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: `h-2 w-2 rounded-full ${statusDots[order.status] || 'bg-gray-400'}`
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                lineNumber: 226,
-                                                                                columnNumber: 27
-                                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                children: statusLabels[order.status] || order.status
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                lineNumber: 229,
-                                                                                columnNumber: 27
-                                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "text-[10px] text-gray-400",
-                                                                                children: "▼"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                lineNumber: 230,
-                                                                                columnNumber: 27
-                                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                        lineNumber: 218,
-                                                                        columnNumber: 25
-                                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                                    openStatusId === order.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "absolute right-0 mt-2 w-44 rounded-xl border border-[#2E3345] bg-[#0B0E14] shadow-lg shadow-black/40 z-10",
-                                                                        children: Object.keys(statusLabels).map((statusKey)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                type: "button",
-                                                                                onClick: ()=>{
-                                                                                    setOpenStatusId(null);
-                                                                                    handleStatusChange(order.id, statusKey);
-                                                                                },
-                                                                                className: `w-full text-left px-3 py-2 text-xs transition-colors bg-transparent ${order.status === statusKey ? 'bg-[#151925] text-white' : 'text-gray-300 hover:bg-[#151925] hover:text-white'}`,
-                                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                    className: "inline-flex items-center gap-2 w-full",
-                                                                                    children: [
-                                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                            className: `h-2 w-2 rounded-full ${statusDots[statusKey] || 'bg-gray-400'}`
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                            lineNumber: 249,
-                                                                                            columnNumber: 35
-                                                                                        }, ("TURBOPACK compile-time value", void 0)),
-                                                                                        statusLabels[statusKey],
-                                                                                        order.status === statusKey && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                            className: "ml-auto text-xs text-gray-400",
-                                                                                            children: "✓"
-                                                                                        }, void 0, false, {
-                                                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                            lineNumber: 254,
-                                                                                            columnNumber: 37
-                                                                                        }, ("TURBOPACK compile-time value", void 0))
-                                                                                    ]
-                                                                                }, void 0, true, {
-                                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                    lineNumber: 248,
-                                                                                    columnNumber: 33
-                                                                                }, ("TURBOPACK compile-time value", void 0))
-                                                                            }, statusKey, false, {
-                                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                                lineNumber: 235,
-                                                                                columnNumber: 31
-                                                                            }, ("TURBOPACK compile-time value", void 0)))
+                                                                    "Замовлення #",
+                                                                    order.id
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                lineNumber: 218,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0)),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "text-gray-400 text-sm",
+                                                                children: new Date(order.createdAt).toLocaleString()
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                lineNumber: 221,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0))
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                        lineNumber: 217,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "text-right space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-[#0B0E14] border border-[#2E3345] rounded-xl px-3 py-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-gray-200 font-medium",
+                                                                        children: order.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                        lineNumber: 233,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 227,
+                                                                        columnNumber: 23
+                                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-gray-400 text-sm",
+                                                                        children: order.phone
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                        lineNumber: 228,
+                                                                        columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                lineNumber: 213,
-                                                                columnNumber: 23
-                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 212,
-                                                            columnNumber: 21
-                                                        }, ("TURBOPACK compile-time value", void 0))
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                    lineNumber: 207,
-                                                    columnNumber: 19
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                            lineNumber: 198,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        order.comment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "mb-4 text-sm text-gray-300 bg-[#0B0E14] border border-[#2E3345] rounded-xl px-3 py-2",
-                                            children: [
-                                                "Коментар: ",
-                                                order.comment
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                            lineNumber: 267,
-                                            columnNumber: 19
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "grid grid-cols-1 gap-3",
-                                            children: Array.isArray(order.items) && order.items.map((item, index)=>{
-                                                const imageSrc = normalizeImageSrc(item.image);
-                                                const itemHref = item.category && item.itemId ? `/${item.category}/${item.itemId}` : '';
-                                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: itemHref || undefined,
-                                                    className: "group flex flex-wrap items-center gap-4 bg-[#0B0E14] border border-[#2E3345] rounded-2xl px-4 py-3 text-sm text-gray-200 hover:border-[#4B5369] hover:bg-[#101521] transition-all",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "w-16 h-16 rounded-xl overflow-hidden border border-[#2E3345] bg-[#151925] flex items-center justify-center",
-                                                            children: imageSrc ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                                src: imageSrc,
-                                                                alt: item.name,
-                                                                className: "w-full h-full object-contain group-hover:scale-105 transition-transform"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                lineNumber: 289,
-                                                                columnNumber: 31
-                                                            }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                className: "text-xs text-gray-500",
-                                                                children: "No image"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                lineNumber: 295,
-                                                                columnNumber: 31
-                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 287,
-                                                            columnNumber: 27
-                                                        }, ("TURBOPACK compile-time value", void 0)),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex-1 min-w-[180px]",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "font-semibold text-white",
+                                                                lineNumber: 226,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0)),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex items-center justify-end gap-3",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "relative",
+                                                                    tabIndex: 0,
+                                                                    onBlur: (event)=>handleStatusBlur(event, order.id),
                                                                     children: [
-                                                                        index + 1,
-                                                                        ". ",
-                                                                        item.name
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                            type: "button",
+                                                                            disabled: updatingId === order.id,
+                                                                            onClick: ()=>toggleStatusMenu(order.id),
+                                                                            className: `inline-flex items-center gap-2 border text-xs px-3 py-1 rounded-full transition-all disabled:opacity-60 cursor-pointer hover:shadow-sm hover:shadow-black/30 ${statusStyles[order.status] || 'border-[#2E3345] text-gray-300'}`,
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: `h-2 w-2 rounded-full ${statusDots[order.status] || 'bg-gray-400'}`
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                    lineNumber: 244,
+                                                                                    columnNumber: 27
+                                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    children: statusLabels[order.status] || order.status
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                    lineNumber: 247,
+                                                                                    columnNumber: 27
+                                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "text-[10px] text-gray-400",
+                                                                                    children: "▼"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                    lineNumber: 248,
+                                                                                    columnNumber: 27
+                                                                                }, ("TURBOPACK compile-time value", void 0))
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                            lineNumber: 236,
+                                                                            columnNumber: 25
+                                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                                        openStatusId === order.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "absolute right-0 mt-2 w-44 rounded-xl border border-[#2E3345] bg-[#0B0E14] shadow-lg shadow-black/40 z-10",
+                                                                            children: Object.keys(statusLabels).map((statusKey)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                                    type: "button",
+                                                                                    onClick: ()=>{
+                                                                                        setOpenStatusId(null);
+                                                                                        handleStatusChange(order.id, statusKey);
+                                                                                    },
+                                                                                    className: `w-full text-left px-3 py-2 text-xs transition-colors bg-transparent ${order.status === statusKey ? 'bg-[#151925] text-white' : 'text-gray-300 hover:bg-[#151925] hover:text-white'}`,
+                                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                        className: "inline-flex items-center gap-2 w-full",
+                                                                                        children: [
+                                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                                className: `h-2 w-2 rounded-full ${statusDots[statusKey] || 'bg-gray-400'}`
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                                lineNumber: 267,
+                                                                                                columnNumber: 35
+                                                                                            }, ("TURBOPACK compile-time value", void 0)),
+                                                                                            statusLabels[statusKey],
+                                                                                            order.status === statusKey && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                                className: "ml-auto text-xs text-gray-400",
+                                                                                                children: "✓"
+                                                                                            }, void 0, false, {
+                                                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                                lineNumber: 272,
+                                                                                                columnNumber: 37
+                                                                                            }, ("TURBOPACK compile-time value", void 0))
+                                                                                        ]
+                                                                                    }, void 0, true, {
+                                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                        lineNumber: 266,
+                                                                                        columnNumber: 33
+                                                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                                                }, statusKey, false, {
+                                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                                    lineNumber: 253,
+                                                                                    columnNumber: 31
+                                                                                }, ("TURBOPACK compile-time value", void 0)))
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                            lineNumber: 251,
+                                                                            columnNumber: 27
+                                                                        }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 299,
-                                                                    columnNumber: 29
-                                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-xs text-gray-400",
-                                                                    children: [
-                                                                        "ID: ",
-                                                                        item.itemId
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 302,
-                                                                    columnNumber: 29
-                                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                                !itemHref && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-xs text-gray-500",
-                                                                    children: "Посилання недоступне"
+                                                                    lineNumber: 231,
+                                                                    columnNumber: 23
+                                                                }, ("TURBOPACK compile-time value", void 0))
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                lineNumber: 230,
+                                                                columnNumber: 21
+                                                            }, ("TURBOPACK compile-time value", void 0))
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                        lineNumber: 225,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 216,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            order.comment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mb-4 text-sm text-gray-300 bg-[#0B0E14] border border-[#2E3345] rounded-xl px-3 py-2",
+                                                children: [
+                                                    "Коментар: ",
+                                                    order.comment
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 285,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "grid grid-cols-1 gap-3",
+                                                children: Array.isArray(order.items) && order.items.map((item, index)=>{
+                                                    const imageSrc = normalizeImageSrc(item.image);
+                                                    const itemHref = item.category && item.itemId ? `/${item.category}/${item.itemId}` : '';
+                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: itemHref || undefined,
+                                                        className: "group flex flex-wrap items-center gap-4 bg-[#0B0E14] border border-[#2E3345] rounded-2xl px-4 py-3 text-sm text-gray-200 hover:border-[#4B5369] hover:bg-[#101521] transition-all",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-16 h-16 rounded-xl overflow-hidden border border-[#2E3345] bg-[#151925] flex items-center justify-center",
+                                                                children: imageSrc ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                                    src: imageSrc,
+                                                                    alt: item.name,
+                                                                    className: "w-full h-full object-contain group-hover:scale-105 transition-transform"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 304,
+                                                                    lineNumber: 307,
+                                                                    columnNumber: 31
+                                                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-xs text-gray-500",
+                                                                    children: "No image"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                    lineNumber: 313,
                                                                     columnNumber: 31
                                                                 }, ("TURBOPACK compile-time value", void 0))
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 298,
-                                                            columnNumber: 27
-                                                        }, ("TURBOPACK compile-time value", void 0)),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "text-right min-w-[120px]",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-gray-300",
-                                                                    children: [
-                                                                        item.quantity,
-                                                                        " x ",
-                                                                        item.price,
-                                                                        " грн"
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 308,
-                                                                    columnNumber: 29
-                                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "text-white font-semibold",
-                                                                    children: [
-                                                                        item.sum,
-                                                                        " грн"
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                                    lineNumber: 311,
-                                                                    columnNumber: 29
-                                                                }, ("TURBOPACK compile-time value", void 0))
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                            lineNumber: 307,
-                                                            columnNumber: 27
-                                                        }, ("TURBOPACK compile-time value", void 0))
-                                                    ]
-                                                }, `${order.id}-${item.itemId}-${index}`, true, {
-                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                    lineNumber: 282,
-                                                    columnNumber: 25
-                                                }, ("TURBOPACK compile-time value", void 0));
-                                            })
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                            lineNumber: 272,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-gray-300",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "px-3 py-1 rounded-full border border-[#2E3345] bg-[#0B0E14]",
-                                                    children: [
-                                                        "Позицій: ",
-                                                        order.items?.length ?? 0
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                    lineNumber: 319,
-                                                    columnNumber: 19
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold shadow-sm shadow-blue-900/30",
-                                                    children: [
-                                                        "Сума: ",
-                                                        order.total,
-                                                        " грн"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                                    lineNumber: 322,
-                                                    columnNumber: 19
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/pages/prisma/orders.tsx",
-                                            lineNumber: 318,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0))
-                                    ]
-                                }, order.id, true, {
-                                    fileName: "[project]/src/pages/prisma/orders.tsx",
-                                    lineNumber: 197,
-                                    columnNumber: 15
-                                }, ("TURBOPACK compile-time value", void 0)))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/pages/prisma/orders.tsx",
-                        lineNumber: 157,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, void 0, true, {
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                lineNumber: 305,
+                                                                columnNumber: 27
+                                                            }, ("TURBOPACK compile-time value", void 0)),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex-1 min-w-[180px]",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "font-semibold text-white",
+                                                                        children: [
+                                                                            index + 1,
+                                                                            ". ",
+                                                                            item.name
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                        lineNumber: 317,
+                                                                        columnNumber: 29
+                                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-xs text-gray-400",
+                                                                        children: [
+                                                                            "ID: ",
+                                                                            item.itemId
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                        lineNumber: 320,
+                                                                        columnNumber: 29
+                                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                                    !itemHref && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-xs text-gray-500",
+                                                                        children: "Посилання недоступне"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                        lineNumber: 322,
+                                                                        columnNumber: 31
+                                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                lineNumber: 316,
+                                                                columnNumber: 27
+                                                            }, ("TURBOPACK compile-time value", void 0)),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "text-right min-w-[120px]",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-gray-300",
+                                                                        children: [
+                                                                            item.quantity,
+                                                                            " x ",
+                                                                            item.price,
+                                                                            " грн"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                        lineNumber: 326,
+                                                                        columnNumber: 29
+                                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-white font-semibold",
+                                                                        children: [
+                                                                            item.sum,
+                                                                            " грн"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                        lineNumber: 329,
+                                                                        columnNumber: 29
+                                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                                lineNumber: 325,
+                                                                columnNumber: 27
+                                                            }, ("TURBOPACK compile-time value", void 0))
+                                                        ]
+                                                    }, `${order.id}-${item.itemId}-${index}`, true, {
+                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                        lineNumber: 300,
+                                                        columnNumber: 25
+                                                    }, ("TURBOPACK compile-time value", void 0));
+                                                })
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 290,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-gray-300",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "px-3 py-1 rounded-full border border-[#2E3345] bg-[#0B0E14]",
+                                                        children: [
+                                                            "Позицій: ",
+                                                            order.items?.length ?? 0
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                        lineNumber: 337,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold shadow-sm shadow-blue-900/30",
+                                                        children: [
+                                                            "Сума: ",
+                                                            order.total,
+                                                            " грн"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                        lineNumber: 340,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/pages/prisma/orders.tsx",
+                                                lineNumber: 336,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, order.id, true, {
+                                        fileName: "[project]/src/pages/prisma/orders.tsx",
+                                        lineNumber: 215,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0)))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/pages/prisma/orders.tsx",
+                            lineNumber: 175,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/pages/prisma/orders.tsx",
+                    lineNumber: 141,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
                 fileName: "[project]/src/pages/prisma/orders.tsx",
-                lineNumber: 132,
+                lineNumber: 140,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]

@@ -1,7 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
+import type { GetServerSideProps } from 'next';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Loader } from '@/components/Loader';
+import { isAdminAuthenticated } from '@/lib/adminAuth';
 
 type OrderItem = {
   itemId: string;
@@ -25,7 +28,7 @@ type Order = {
 };
 
 const sectionClass =
-  'bg-gradient-to-br from-[#171C29] to-[#0B0E14] p-6 rounded-2xl shadow-xl shadow-black/20 border border-[#2E3345]';
+  'admin-panel p-6 lg:p-7 transition-colors hover:border-[#3f5278]';
 const statusLabels: Record<string, string> = {
   new: 'Нове',
   in_progress: 'В роботі',
@@ -124,37 +127,52 @@ export const OrdersPage = () => {
     setOpenStatusId((prev) => (prev === orderId ? null : prev));
   };
 
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    window.location.href = '/prisma/login';
+  };
+
   return (
     <>
       <Head>
         <link rel='stylesheet' href='/admin.css' />
       </Head>
-      <div className='container' id='admin-root'>
-        <Breadcrumbs />
+      <div className='admin-shell' id='admin-root'>
+        <div className='container admin-inner'>
+          <Breadcrumbs />
 
-        <div className='mb-6 flex flex-wrap gap-3'>
-          <a
-            href='/prisma'
-            className='px-4 py-2 bg-[#2A2F3E] text-white rounded-lg hover:bg-[#3E455B] transition-colors text-sm font-medium border border-[#3E455B]'
-          >
-            Товари
-          </a>
-          <a
-            href='/prisma/orders'
-            className='px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors text-sm font-medium border border-blue-500'
-          >
-            Замовлення
-          </a>
-        </div>
+          <header className='admin-panel p-5 mb-6'>
+            <div className='flex flex-wrap items-center justify-between gap-4'>
+              <div>
+                <h1 className='admin-title text-white text-2xl'>Керування замовленнями</h1>
+                <p className='admin-subtitle text-sm mt-1'>
+                  Відстежуй нові заявки та змінюй статуси в один клік.
+                </p>
+              </div>
+              <div className='admin-topbar mb-0'>
+                <a href='/prisma' className='admin-nav-link'>
+                  Товари
+                </a>
+                <a href='/prisma/orders' className='admin-nav-link active'>
+                  Замовлення
+                </a>
+                <button type='button' onClick={handleLogout} className='admin-nav-link danger'>
+                  Вийти
+                </button>
+              </div>
+            </div>
+          </header>
 
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <div className='text-red-400'>{error}</div>
-        ) : orders.length === 0 ? (
-          <div className='text-gray-400'>Немає замовлень</div>
-        ) : (
-          <div className='space-y-6'>
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <div className='rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-red-300'>
+              {error}
+            </div>
+          ) : orders.length === 0 ? (
+            <div className='admin-panel p-8 text-center text-gray-300'>Немає замовлень</div>
+          ) : (
+            <div className='space-y-6'>
             <div className='flex flex-wrap items-center gap-2'>
               {[
                 { key: 'all', label: `Усі (${orders.length})` },
@@ -190,11 +208,11 @@ export const OrdersPage = () => {
               ))}
             </div>
 
-            {(activeStatus === 'all'
-              ? orders
-              : orders.filter((order) => order.status === activeStatus)
-            ).map((order) => (
-              <div key={order.id} className={sectionClass}>
+              {(activeStatus === 'all'
+                ? orders
+                : orders.filter((order) => order.status === activeStatus)
+              ).map((order) => (
+                <div key={order.id} className={sectionClass}>
                 <div className='flex flex-wrap items-start justify-between gap-4 border-b border-[#2E3345] pb-4 mb-4'>
                   <div>
                     <div className='text-white font-semibold text-lg tracking-wide'>
@@ -323,13 +341,27 @@ export const OrdersPage = () => {
                     Сума: {order.total} грн
                   </span>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
 };
 
 export default OrdersPage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  if (isAdminAuthenticated(context.req)) {
+    return { props: {} };
+  }
+
+  return {
+    redirect: {
+      destination: `/prisma/login?next=${encodeURIComponent(context.resolvedUrl || '/prisma/orders')}`,
+      permanent: false,
+    },
+  };
+};

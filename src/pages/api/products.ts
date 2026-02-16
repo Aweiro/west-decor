@@ -1,8 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/app/services/prismaClient';
+import { requireAdminApiAuth } from '@/lib/adminAuth';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
+    const method = req.method as string;
+    const writeMethods = ['POST', 'PUT', 'PATCH', 'DELETE'];
+
+    if (writeMethods.includes(method) && !requireAdminApiAuth(req, res)) {
+      return;
+    }
+
     //
     // ---------------------- CREATE PRODUCT ----------------------
     //
@@ -172,6 +180,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //
     if (req.method === 'GET') {
       const { category, admin } = req.query;
+
+      if (admin === 'true' && !requireAdminApiAuth(req, res)) {
+        return;
+      }
 
       // Return all products
       if (!category || category === 'products') {

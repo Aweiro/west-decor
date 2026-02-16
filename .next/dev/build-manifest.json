@@ -59,34 +59,6 @@
       "static/chunks/src_pages__app_2da965e7._.js",
       "static/chunks/turbopack-src_pages__app_03a9f8e7._.js"
     ],
-    "/cart": [
-      "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_4677c81f._.js",
-      "static/chunks/node_modules_next_dist_client_9ad483b7._.js",
-      "static/chunks/node_modules_next_dist_ec0ff3d3._.js",
-      "static/chunks/node_modules_next_eb5b9d22._.js",
-      "static/chunks/node_modules_react-dom_4411d9bd._.js",
-      "static/chunks/node_modules_@reduxjs_toolkit_dist_07271a13._.js",
-      "static/chunks/node_modules_6a34a125._.js",
-      "static/chunks/[root-of-the-server]__b50d1cfd._.js",
-      "static/chunks/src_1c1356e6._.css",
-      "static/chunks/src_pages_cart_index_tsx_2da965e7._.js",
-      "static/chunks/turbopack-src_pages_cart_index_tsx_3a06627d._.js"
-    ],
-    "/favorites": [
-      "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
-      "static/chunks/node_modules_next_dist_shared_lib_32850b1c._.js",
-      "static/chunks/node_modules_next_dist_client_56ad6e05._.js",
-      "static/chunks/node_modules_next_dist_ec0ff3d3._.js",
-      "static/chunks/node_modules_next_0cf809a8._.js",
-      "static/chunks/node_modules_react-dom_4411d9bd._.js",
-      "static/chunks/node_modules_@reduxjs_toolkit_dist_07271a13._.js",
-      "static/chunks/node_modules_ed82cea9._.js",
-      "static/chunks/[root-of-the-server]__72d3da40._.js",
-      "static/chunks/src_f048c242._.css",
-      "static/chunks/src_pages_favorites_index_tsx_2da965e7._.js",
-      "static/chunks/turbopack-src_pages_favorites_index_tsx_970f2d4e._.js"
-    ],
     "/prisma": [
       "static/chunks/[root-of-the-server]__bece9358._.js",
       "static/chunks/node_modules_next_dist_compiled_4501ac73._.js",
@@ -99,6 +71,18 @@
       "static/chunks/src_components_df5a6a78._.css",
       "static/chunks/src_pages_prisma_index_tsx_2da965e7._.js",
       "static/chunks/turbopack-src_pages_prisma_index_tsx_288abbc0._.js"
+    ],
+    "/prisma/login": [
+      "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
+      "static/chunks/node_modules_next_dist_shared_lib_cf5b50a6._.js",
+      "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
+      "static/chunks/node_modules_next_dist_6024eba3._.js",
+      "static/chunks/node_modules_next_cfb04b16._.js",
+      "static/chunks/node_modules_react-dom_4411d9bd._.js",
+      "static/chunks/node_modules_f1be3ba2._.js",
+      "static/chunks/[root-of-the-server]__5ac727a9._.js",
+      "static/chunks/src_pages_prisma_login_tsx_2da965e7._.js",
+      "static/chunks/turbopack-src_pages_prisma_login_tsx_6561007b._.js"
     ],
     "/prisma/orders": [
       "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",

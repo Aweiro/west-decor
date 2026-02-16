@@ -36,7 +36,26 @@ export const ProductDetailsPage = () => {
     return products.find((el) => el.productId === productId);
   }, [products, productId]);
 
-	console.log(product);
+  const namespaceVariants = useMemo(() => {
+    if (!product?.namespaceId) {
+      return [];
+    }
+
+    const byNamespace = products.filter(
+      (item) => item.namespaceId && item.namespaceId === product.namespaceId,
+    );
+
+    // While active products are loading, avoid empty/flickering options.
+    if (allProductsLoading || allProductsError) {
+      return byNamespace;
+    }
+
+    const activeProductIds = new Set(
+      allProducts.filter((item) => item.isActive).map((item) => item.itemId),
+    );
+
+    return byNamespace.filter((item) => activeProductIds.has(item.productId));
+  }, [product?.namespaceId, products, allProducts, allProductsLoading, allProductsError]);
 
   const [currentPhoto, setCurrentPhoto] = useState<string | undefined>(undefined);
 
@@ -149,16 +168,29 @@ export const ProductDetailsPage = () => {
   };
 
   const handleVariantChange = (key: VariantChangeType, value: string) => {
-    const currentProduct =
-      products.find(
-        (findItem) =>
-          findItem.namespaceId === product.namespaceId &&
-          findItem[key] === value &&
-          findItem.color === (key === VariantChangeType.VariantCapacity ? product.color : value) &&
-          findItem.capacity === (key === VariantChangeType.VariantColor ? product.capacity : value),
-      ) || product;
+    if (!namespaceVariants.length) {
+      return;
+    }
 
-    router.push(`/${category}/${currentProduct.productId}`, undefined, { scroll: false });
+    let targetVariant;
+
+    if (key === VariantChangeType.VariantColor) {
+      targetVariant =
+        namespaceVariants.find(
+          (item) => item.color === value && item.capacity === product.capacity,
+        ) || namespaceVariants.find((item) => item.color === value);
+    } else {
+      targetVariant =
+        namespaceVariants.find(
+          (item) => item.capacity === value && item.color === product.color,
+        ) || namespaceVariants.find((item) => item.capacity === value);
+    }
+
+    if (!targetVariant || targetVariant.productId === product.productId) {
+      return;
+    }
+
+    router.push(`/${category}/${targetVariant.productId}`, undefined, { scroll: false });
   };
 
   const ChangeOptionsBlock = ({
@@ -168,17 +200,36 @@ export const ProductDetailsPage = () => {
     variantChange: VariantChangeType;
     title: string;
   }) => {
-    const normalizedItems = [];
+    const normalizedItems: string[] = [];
 
     switch (variantChange) {
       case VariantChangeType.VariantColor:
-        normalizedItems.push(...product.colorsAvailable);
+        normalizedItems.push(
+          ...new Set(
+            namespaceVariants.length
+              ? namespaceVariants.map((item) => item.color).filter(Boolean)
+              : product.colorsAvailable,
+          ),
+        );
         break;
       case VariantChangeType.VariantCapacity:
-        normalizedItems.push(...product.capacityAvailable);
+        normalizedItems.push(
+          ...new Set(
+            namespaceVariants.length
+              ? namespaceVariants.map((item) => item.capacity).filter(Boolean)
+              : product.capacityAvailable,
+          ),
+        );
         break;
       default:
         return;
+    }
+
+    const uniqueItems = Array.from(new Set(normalizedItems.filter(Boolean)));
+    const hasSwitchableOptions = uniqueItems.length > 1;
+
+    if (!hasSwitchableOptions) {
+      return null;
     }
 
     return (
@@ -186,9 +237,21 @@ export const ProductDetailsPage = () => {
         <div className={`small-text ${styles['product-details__options-block']}`}>
           <p className={`small-text ${styles['product-details__options-title']}`}>{title}</p>
           <div className={styles['product-details__options-buttons']}>
-            {normalizedItems.map((el) => {
+            {uniqueItems.map((el) => {
               const normalizedColor = el.split(' ').join('');
               const color = productColors[normalizedColor as keyof ProductColorsType] || el;
+              const isCurrent = product[variantChange] === el;
+              const isAvailableForCurrentPair = namespaceVariants.some((item) =>
+                variantChange === VariantChangeType.VariantColor
+                  ? item.color === el && item.capacity === product.capacity
+                  : item.capacity === el && item.color === product.color,
+              );
+              const hasAnyVariant = namespaceVariants.some((item) =>
+                variantChange === VariantChangeType.VariantColor
+                  ? item.color === el
+                  : item.capacity === el,
+              );
+              const isDisabled = isCurrent || !hasAnyVariant;
 
               return (
                 <Button
@@ -197,10 +260,11 @@ export const ProductDetailsPage = () => {
                   isCapacity={variantChange === VariantChangeType.VariantCapacity}
                   isRatio={variantChange === VariantChangeType.VariantColor}
                   isCircle={variantChange === VariantChangeType.VariantColor}
-                  isSelected={product[variantChange] === el}
-                  disabled={product[variantChange] === el}
+                  isSelected={isCurrent}
+                  disabled={isDisabled}
                   style={{
-                    color: variantChange === VariantChangeType.VariantColor ? color : '',
+                    color: variantChange === VariantChangeType.VariantColor ? color : undefined,
+                    opacity: !isCurrent && !isAvailableForCurrentPair ? 0.6 : 1,
                   }}
                   onClick={() => handleVariantChange(variantChange, el)}
                 >

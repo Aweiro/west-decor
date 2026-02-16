@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/app/services/prismaClient';
+import { requireAdminApiAuth } from '@/lib/adminAuth';
 
 type OrderItem = {
   itemId: string;
@@ -115,6 +116,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (admin !== 'true') {
         return res.status(403).json({ error: 'Forbidden' });
       }
+      if (!requireAdminApiAuth(req, res)) {
+        return;
+      }
 
       const orders = await prisma.order.findMany({
         orderBy: { createdAt: 'desc' },
@@ -124,6 +128,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (req.method === 'PATCH') {
+      if (!requireAdminApiAuth(req, res)) {
+        return;
+      }
+
       const { id, status } = req.body as { id?: number; status?: OrderStatus };
 
       if (!id || !status || !allowedStatuses.includes(status)) {

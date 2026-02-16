@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { requireAdminApiAuth } from '@/lib/adminAuth';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -11,6 +12,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Only POST allowed' });
+    }
+    if (!requireAdminApiAuth(req, res)) {
+      return;
     }
 
     const { file } = req.body;
