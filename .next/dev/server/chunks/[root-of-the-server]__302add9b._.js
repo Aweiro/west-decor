@@ -166,7 +166,7 @@ const requireAdminApiAuth = (req, res)=>{
         return true;
     }
     res.status(401).json({
-        error: 'Unauthorized'
+        error: 'Неавторизовано'
     });
     return false;
 };
@@ -208,19 +208,19 @@ async function handler(req, res) {
             'POST'
         ]);
         return res.status(405).json({
-            error: 'Method not allowed'
+            error: 'Метод не дозволений'
         });
     }
     const { username, password } = req.body;
     if (!username || !password) {
         return res.status(400).json({
-            error: 'Username and password are required'
+            error: "Логін і пароль обов'язкові"
         });
     }
     const isValid = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$adminAuth$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["validateAdminCredentials"])(username, password);
     if (!isValid) {
         return res.status(401).json({
-            error: 'Invalid credentials'
+            error: 'Невірний логін або пароль'
         });
     }
     const token = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$adminAuth$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["createAdminSessionToken"])(username);

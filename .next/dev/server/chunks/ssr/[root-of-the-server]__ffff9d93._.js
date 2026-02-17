@@ -541,7 +541,7 @@ const Navigation = ()=>{
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Header$2f$components$2f$Navigation$2f$NavItem$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
                         to: "/",
-                        children: "Home"
+                        children: "Головна"
                     }, void 0, false, {
                         fileName: "[project]/src/modules/shared/layout/Header/components/Navigation/Navigation.tsx",
                         lineNumber: 25,
@@ -549,7 +549,7 @@ const Navigation = ()=>{
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Header$2f$components$2f$Navigation$2f$NavItem$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
                         to: "/decors",
-                        children: "Decors"
+                        children: "Декори"
                     }, void 0, false, {
                         fileName: "[project]/src/modules/shared/layout/Header/components/Navigation/Navigation.tsx",
                         lineNumber: 26,
@@ -557,7 +557,7 @@ const Navigation = ()=>{
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Header$2f$components$2f$Navigation$2f$NavItem$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
                         to: "/materials",
-                        children: "Materials"
+                        children: "Матеріали"
                     }, void 0, false, {
                         fileName: "[project]/src/modules/shared/layout/Header/components/Navigation/Navigation.tsx",
                         lineNumber: 27,
@@ -565,7 +565,7 @@ const Navigation = ()=>{
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Header$2f$components$2f$Navigation$2f$NavItem$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["NavItem"], {
                         to: "/accessories",
-                        children: "Accessoires"
+                        children: "Аксесуари"
                     }, void 0, false, {
                         fileName: "[project]/src/modules/shared/layout/Header/components/Navigation/Navigation.tsx",
                         lineNumber: 28,
@@ -1116,7 +1116,7 @@ const Footer = ()=>{
                                 target: "_blank",
                                 rel: "noopener noreferrer",
                                 className: `uppercase-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].footer__link}`,
-                                children: "Github"
+                                children: "GitHub"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
                                 lineNumber: 24,
@@ -1126,16 +1126,17 @@ const Footer = ()=>{
                                 href: "https://www.linkedin.com/in/arsen-bogak/",
                                 target: "_blank",
                                 className: `uppercase-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].footer__link}`,
-                                children: "Contacts"
+                                children: "Контакти"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
                                 lineNumber: 32,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/",
+                                href: "https://t.me/sarmat_1997",
+                                target: "_blank",
                                 className: `uppercase-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].footer__link}`,
-                                children: "Rights"
+                                children: "Telegram"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
                                 lineNumber: 39,
@@ -1152,7 +1153,7 @@ const Footer = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                 className: `small-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$modules$2f$shared$2f$layout$2f$Footer$2f$Footer$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['footer__button-top-text']}`,
-                                children: "Back to top"
+                                children: "Наверх"
                             }, void 0, false, {
                                 fileName: "[project]/src/modules/shared/layout/Footer/Footer.tsx",
                                 lineNumber: 45,

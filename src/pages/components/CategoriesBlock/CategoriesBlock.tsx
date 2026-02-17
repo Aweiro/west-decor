@@ -12,6 +12,8 @@ interface Props {
 
 export const CategoriesBlock: React.FC<Props> = ({ categories }) => {
   const CategorieCard = ({ categorie }: { categorie: CategoryType }) => {
+    const imageSrc = categorie.photo.startsWith('/') ? categorie.photo : `/${categorie.photo}`;
+
     return (
       <div className={styles.categories__card}>
         <Link
@@ -19,11 +21,11 @@ export const CategoriesBlock: React.FC<Props> = ({ categories }) => {
           className={styles.categories__img}
           style={{ backgroundColor: categorie.bgColor }}
         >
-          <Image width={250} height={250} src={'/' + categorie.photo} alt={categorie.title} />
+          <Image width={250} height={250} src={imageSrc} alt={categorie.title} />
         </Link>
         <div className={styles.categories__details}>
           <h4 className={styles.categories__name}>{categorie.title}</h4>
-          <p className={`body-text ${styles.categories__description}`}>{categorie.count} models</p>
+          <p className={`body-text ${styles.categories__description}`}>{categorie.count} моделей</p>
         </div>
       </div>
     );
@@ -31,7 +33,7 @@ export const CategoriesBlock: React.FC<Props> = ({ categories }) => {
 
   return (
     <>
-      <h2>Shop by category</h2>
+      <h2>Обирай за категорією</h2>
       <div className={styles.categories}>
         {categories?.map((categorie) => (
           <CategorieCard key={categorie.title} categorie={categorie} />

@@ -67,7 +67,7 @@ const BackLink = ({ category = '/' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                children: "Back"
+                children: "Назад"
             }, void 0, false, {
                 fileName: "[project]/src/components/BackLink/BackLink.tsx",
                 lineNumber: 26,
@@ -452,7 +452,7 @@ function CartPage() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                        children: "Cart"
+                        children: "Кошик"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/cart/index.tsx",
                         lineNumber: 155,
@@ -483,7 +483,7 @@ function CartPage() {
                 fileName: "[project]/src/pages/cart/index.tsx",
                 lineNumber: 163,
                 columnNumber: 9
-            }, this) : error ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+            }, this) : error ? 'Сталася помилка' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
                         className: `section ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"].cart__block}`,
@@ -518,9 +518,9 @@ function CartPage() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                         className: `body-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart__total-count']}`,
                                         children: [
-                                            "Total for ",
+                                            "Разом за ",
                                             allCartQuantity,
-                                            " items"
+                                            " товарів"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
@@ -537,7 +537,7 @@ function CartPage() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Button$2f$Button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
                                         className: `button-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f$cart$2f$CartPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['cart__total-checkout']}`,
                                         onClick: ()=>setShowModalCheckout(true),
-                                        children: "Checkout"
+                                        children: "Оформити замовлення"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/cart/index.tsx",
                                         lineNumber: 180,

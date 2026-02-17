@@ -33,7 +33,7 @@ const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive }: AdminPro
           {product.image ? (
             <img src={product.image} alt={product.name} className='h-full object-cover' />
           ) : (
-            <span className='text-xs text-gray-600'>No img</span>
+            <span className='text-xs text-gray-600'>Без фото</span>
           )}
         </Link>
       </div>
@@ -73,7 +73,7 @@ const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive }: AdminPro
         {/* ACTIVE SWITCH */}
         <label className='flex items-center gap-2 text-sm cursor-pointer'>
           <span className={product.isActive ? 'text-green-400' : 'text-gray-500'}>
-            {product.isActive ? 'Active' : 'Hidden'}
+            {product.isActive ? 'Активний' : 'Прихований'}
           </span>
 
           <input
@@ -116,7 +116,7 @@ const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive }: AdminPro
               d='M11 5H6a2 2 0 00-2 2v11a2 2 0 00 2 2h11a2 2 0 00 2-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'
             />
           </svg>
-          <span className='hidden sm:inline'>Edit</span>
+          <span className='hidden sm:inline'>Редагувати</span>
         </button>
 
         {/* DELETE */}
@@ -139,7 +139,7 @@ const AdminProductRow = ({ product, onEdit, onDelete, onToggleActive }: AdminPro
               d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
             />
           </svg>
-          <span className='hidden sm:inline'>Delete</span>
+          <span className='hidden sm:inline'>Видалити</span>
         </button>
       </div>
     </div>

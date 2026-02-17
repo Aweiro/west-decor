@@ -521,7 +521,7 @@ const LoginPage = ({ nextPath })=>{
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$head$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("title", {
-                        children: "Prisma Login"
+                        children: "Вхід в адмін панель"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/prisma/login.tsx",
                         lineNumber: 52,
@@ -556,7 +556,7 @@ const LoginPage = ({ nextPath })=>{
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "inline-flex items-center rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-xs uppercase tracking-wider text-sky-200",
-                                                children: "Prisma Admin"
+                                                children: "Адмін-панель"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/prisma/login.tsx",
                                                 lineNumber: 60,

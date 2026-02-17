@@ -30,7 +30,7 @@ export const PaymentsButtons = ({
         className={`button-text ${styles['payments__buttons-add']}`}
         onClick={() => dispatch(toggleCart(product))}
       >
-        {isActiveCart ? 'Added to cart' : 'Add to cart'}
+        {isActiveCart ? 'Додано в кошик' : 'Додати в кошик'}
       </Button>
 
       <Button

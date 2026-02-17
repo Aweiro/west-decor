@@ -23,7 +23,7 @@ export const BackLink = ({ category = '/' }: Props) => {
   return (
     <Link href={backHref} className={`small-text ${styles['back-link']}`}>
       <span className="icon icon--arrow-left" />
-      <p>Back</p>
+      <p>Назад</p>
     </Link>
   );
 };

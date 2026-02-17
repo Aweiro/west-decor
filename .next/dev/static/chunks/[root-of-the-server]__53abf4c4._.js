@@ -501,9 +501,9 @@ const Breadcrumbs = ({ lastTitle })=>{
         ...pathname.split('/').filter((el)=>el)
     ];
     const categoryLabels = {
-        decors: 'Decors',
-        materials: 'Materials',
-        accessories: 'Accessoires'
+        decors: 'Декори',
+        materials: 'Матеріали',
+        accessories: 'Аксесуари'
     };
     if (lastTitle) {
         pathnameArr.pop();
@@ -705,7 +705,7 @@ const OrdersPage = ()=>{
                         const response = await fetch('/api/orders?admin=true');
                         const data = await response.json();
                         if (!response.ok) {
-                            throw new Error(data?.error || 'Failed to fetch orders');
+                            throw new Error(data?.error || 'Не вдалося завантажити замовлення');
                         }
                         setOrders(Array.isArray(data) ? data : []);
                     } catch (err) {
@@ -1128,7 +1128,7 @@ const OrdersPage = ()=>{
                                                                     columnNumber: 31
                                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     className: "text-xs text-gray-500",
-                                                                    children: "No image"
+                                                                    children: "Без фото"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/pages/prisma/orders.tsx",
                                                                     lineNumber: 313,

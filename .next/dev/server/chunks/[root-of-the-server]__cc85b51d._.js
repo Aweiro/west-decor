@@ -185,7 +185,7 @@ const requireAdminApiAuth = (req, res)=>{
         return true;
     }
     res.status(401).json({
-        error: 'Unauthorized'
+        error: 'Неавторизовано'
     });
     return false;
 };
@@ -269,12 +269,12 @@ async function handler(req, res) {
             const { name, phone, comment, items, total } = req.body;
             if (!name || !phone) {
                 return res.status(400).json({
-                    error: 'Name and phone are required.'
+                    error: "Ім'я та номер телефону обов'язкові."
                 });
             }
             if (!Array.isArray(items) || items.length === 0) {
                 return res.status(400).json({
-                    error: 'Order items are required.'
+                    error: 'Позиції замовлення обовʼязкові.'
                 });
             }
             const order = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].order.create({
@@ -306,7 +306,7 @@ async function handler(req, res) {
             const { admin } = req.query;
             if (admin !== 'true') {
                 return res.status(403).json({
-                    error: 'Forbidden'
+                    error: 'Доступ заборонено'
                 });
             }
             if (!(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$adminAuth$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["requireAdminApiAuth"])(req, res)) {
@@ -326,7 +326,7 @@ async function handler(req, res) {
             const { id, status } = req.body;
             if (!id || !status || !allowedStatuses.includes(status)) {
                 return res.status(400).json({
-                    error: 'Invalid status update.'
+                    error: 'Некоректне оновлення статусу.'
                 });
             }
             const updated = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].order.update({
@@ -340,12 +340,12 @@ async function handler(req, res) {
             return res.status(200).json(updated);
         }
         return res.status(405).json({
-            error: 'Method not allowed'
+            error: 'Метод не дозволений'
         });
     } catch (error) {
         console.error('Orders API error:', error);
         return res.status(500).json({
-            error: 'Internal server error'
+            error: 'Внутрішня помилка сервера'
         });
     }
 }

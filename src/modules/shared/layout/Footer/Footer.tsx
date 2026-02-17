@@ -27,22 +27,22 @@ export const Footer = () => {
               rel='noopener noreferrer'
               className={`uppercase-text ${styles.footer__link}`}
             >
-              Github
+              GitHub
             </Link>
             <Link
               href='https://www.linkedin.com/in/arsen-bogak/'
               target='_blank'
               className={`uppercase-text ${styles.footer__link}`}
             >
-              Contacts
+              Контакти
             </Link>
-            <Link href='/' className={`uppercase-text ${styles.footer__link}`}>
-              Rights
+            <Link href='https://t.me/sarmat_1997' target='_blank' className={`uppercase-text ${styles.footer__link}`}>
+              Telegram
             </Link>
           </div>
 
           <div className={styles['footer__button-top']}>
-            <p className={`small-text ${styles['footer__button-top-text']}`}>Back to top</p>
+            <p className={`small-text ${styles['footer__button-top-text']}`}>Наверх</p>
             <Button
               icon={ButtonType.Top}
               isRatio={true}

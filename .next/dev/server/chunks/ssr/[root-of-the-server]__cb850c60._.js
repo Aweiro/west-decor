@@ -87,9 +87,9 @@ const Breadcrumbs = ({ lastTitle })=>{
         ...pathname.split('/').filter((el)=>el)
     ];
     const categoryLabels = {
-        decors: 'Decors',
-        materials: 'Materials',
-        accessories: 'Accessoires'
+        decors: 'Декори',
+        materials: 'Матеріали',
+        accessories: 'Аксесуари'
     };
     if (lastTitle) {
         pathnameArr.pop();
@@ -297,7 +297,7 @@ const PaymentsButtons = ({ isPage = false, product })=>{
                 isSelected: isActiveCart,
                 className: `button-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PaymentsButtons$2f$PaymentsButtons$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['payments__buttons-add']}`,
                 onClick: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$features$2f$cart$2f$cartSlice$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["toggleCart"])(product)),
-                children: isActiveCart ? 'Added to cart' : 'Add to cart'
+                children: isActiveCart ? 'Додано в кошик' : 'Додати в кошик'
             }, void 0, false, {
                 fileName: "[project]/src/components/PaymentsButtons/PaymentsButtons.tsx",
                 lineNumber: 28,
@@ -424,7 +424,7 @@ const ProductCard = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$externals$5
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(LinkDetails, {
                 linkClassName: `body-text ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductCard$2f$ProductCard$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-card__title']}`,
-                children: product?.name || 'unknown'
+                children: product?.name || 'Невідомо'
             }, void 0, false, {
                 fileName: "[project]/src/components/ProductCard/ProductCard.tsx",
                 lineNumber: 75,
@@ -808,7 +808,7 @@ const BackLink = ({ category = '/' })=>{
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                children: "Back"
+                children: "Назад"
             }, void 0, false, {
                 fileName: "[project]/src/components/BackLink/BackLink.tsx",
                 lineNumber: 26,
@@ -1043,7 +1043,7 @@ const ProductDetailsPage = ()=>{
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$ProductDetailsPage$2f$ProductDetailsPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-details__not-found-title'],
-                    children: "Product was not found"
+                    children: "Товар не знайдено"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/[category]/ProductDetailsPage/ProductDetailsPage.tsx",
                     lineNumber: 120,
@@ -1058,35 +1058,35 @@ const ProductDetailsPage = ()=>{
     }
     const descriptionItems = [
         {
-            title: 'Screen',
+            title: 'Час роботи',
             value: product.screen
         },
         {
-            title: 'Resolution',
+            title: 'Фракція',
             value: product.resolution
         },
         {
-            title: 'Processor',
+            title: 'Країна виробник',
             value: product.processor
         },
         {
-            title: 'RAM',
+            title: 'Витрата',
             value: product.ram
         },
         {
-            title: 'Built in memory',
+            title: 'Фасування',
             value: product.capacity
         },
         {
-            title: 'Camera',
+            title: 'Фактура',
             value: product.camera
         },
         {
-            title: 'Zoom',
+            title: 'Застосування',
             value: product.zoom
         },
         {
-            title: 'Cell',
+            title: 'Рекомендовані поверхні',
             value: product.cell.join(', ')
         }
     ];
@@ -1350,7 +1350,7 @@ const ProductDetailsPage = ()=>{
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$ProductDetailsPage$2f$ProductDetailsPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-details__controls'],
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(ChangeOptionsBlock, {
-                                title: 'Available colors',
+                                title: 'Доступні кольори',
                                 variantChange: "color"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/[category]/ProductDetailsPage/ProductDetailsPage.tsx",
@@ -1358,7 +1358,7 @@ const ProductDetailsPage = ()=>{
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(ChangeOptionsBlock, {
-                                title: 'Select capacity',
+                                title: 'Оберіть фасування',
                                 variantChange: "capacity"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/[category]/ProductDetailsPage/ProductDetailsPage.tsx",
@@ -1435,7 +1435,7 @@ const ProductDetailsPage = ()=>{
                 className: `section ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$ProductDetailsPage$2f$ProductDetailsPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-details__description']}`,
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(DescriptionBlock, {
-                        title: "About",
+                        title: "Опис",
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$ProductDetailsPage$2f$ProductDetailsPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-details__description-block--left'],
                         children: product.description.map((el, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$ProductDetailsPage$2f$ProductDetailsPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-details__description-content'],
@@ -1467,7 +1467,7 @@ const ProductDetailsPage = ()=>{
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(DescriptionBlock, {
-                        title: "Tech specs",
+                        title: "Характеристики",
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$pages$2f5b$category$5d2f$ProductDetailsPage$2f$ProductDetailsPage$2e$module$2e$scss__$5b$ssr$5d$__$28$css__module$29$__["default"]['product-details__description-block--right'],
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(InfoBlock, {}, void 0, false, {
                             fileName: "[project]/src/pages/[category]/ProductDetailsPage/ProductDetailsPage.tsx",
@@ -1489,10 +1489,10 @@ const ProductDetailsPage = ()=>{
                 fileName: "[project]/src/pages/[category]/ProductDetailsPage/ProductDetailsPage.tsx",
                 lineNumber: 387,
                 columnNumber: 9
-            }, ("TURBOPACK compile-time value", void 0)) : allProductsError ? 'error' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
+            }, ("TURBOPACK compile-time value", void 0)) : allProductsError ? 'Сталася помилка' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
                 className: "section",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ProductsSlider$2f$ProductsSlider$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["ProductsSlider"], {
-                    title: 'You may also like',
+                    title: 'Вам також може сподобатися',
                     products: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$getSuggestedProducts$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["getSuggestedProducts"])(product, allProducts)
                 }, void 0, false, {
                     fileName: "[project]/src/pages/[category]/ProductDetailsPage/ProductDetailsPage.tsx",

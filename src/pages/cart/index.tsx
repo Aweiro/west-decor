@@ -152,7 +152,7 @@ export default function CartPage() {
     <div className='container'>
       <div className={styles.cart__info}>
         <BackLink />
-        <h1>Cart</h1>
+        <h1>Кошик</h1>
       </div>
 
       {cartIds.length === 0 ? (
@@ -162,7 +162,7 @@ export default function CartPage() {
       ) : loading ? (
         <Loader />
       ) : error ? (
-        'error'
+        'Сталася помилка'
       ) : (
         <>
           <section className={`section ${styles.cart__block}`}>
@@ -174,14 +174,14 @@ export default function CartPage() {
             <div className={styles.cart__total}>
               <h2>${allPrice}</h2>
               <p className={`body-text ${styles['cart__total-count']}`}>
-                Total for {allCartQuantity} items
+                Разом за {allCartQuantity} товарів
               </p>
               <hr className={styles['cart__total-line']} />
               <Button
                 className={`button-text ${styles['cart__total-checkout']}`}
                 onClick={() => setShowModalCheckout(true)}
               >
-                Checkout
+                Оформити замовлення
               </Button>
             </div>
           </section>

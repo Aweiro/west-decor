@@ -49,7 +49,7 @@ const LoginPage = ({ nextPath }: LoginPageProps) => {
   return (
     <>
       <Head>
-        <title>Prisma Login</title>
+        <title>Вхід в адмін панель</title>
         <link rel='stylesheet' href='/admin.css' />
       </Head>
       <div className='admin-shell' id='admin-root'>
@@ -58,7 +58,7 @@ const LoginPage = ({ nextPath }: LoginPageProps) => {
             <section className='admin-panel p-8 lg:p-10 flex flex-col justify-between'>
               <div>
                 <span className='inline-flex items-center rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-xs uppercase tracking-wider text-sky-200'>
-                  Prisma Admin
+                  Адмін-панель
                 </span>
                 <h1 className='admin-title text-4xl text-white mt-4'>Вхід в адмін панель</h1>
                 <p className='admin-subtitle text-base mt-3 max-w-md'>

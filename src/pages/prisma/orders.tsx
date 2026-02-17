@@ -71,7 +71,7 @@ export const OrdersPage = () => {
         const data = await response.json();
 
         if (!response.ok) {
-          throw new Error(data?.error || 'Failed to fetch orders');
+          throw new Error(data?.error || 'Не вдалося завантажити замовлення');
         }
 
         setOrders(Array.isArray(data) ? data : []);
@@ -310,7 +310,7 @@ export const OrdersPage = () => {
                                 className='w-full h-full object-contain group-hover:scale-105 transition-transform'
                               />
                             ) : (
-                              <span className='text-xs text-gray-500'>No image</span>
+                              <span className='text-xs text-gray-500'>Без фото</span>
                             )}
                           </div>
                           <div className='flex-1 min-w-[180px]'>

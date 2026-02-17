@@ -161,7 +161,7 @@ export const requireAdminApiAuth = (req: NextApiRequest, res: NextApiResponse) =
     return true;
   }
 
-  res.status(401).json({ error: 'Unauthorized' });
+  res.status(401).json({ error: 'Неавторизовано' });
   return false;
 };
 

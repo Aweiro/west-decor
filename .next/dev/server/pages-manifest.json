@@ -1,14 +1,16 @@
 {
   "/": "pages/index.js",
+  "/[...all]": "pages/[...all].js",
   "/[category]": "pages/[category].js",
   "/[category]/[productId]": "pages/[category]/[productId].js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
   "/api/admin/login": "pages/api/admin/login.js",
-  "/api/admin/logout": "pages/api/admin/logout.js",
   "/api/orders": "pages/api/orders.js",
   "/api/products": "pages/api/products.js",
-  "/api/upload": "pages/api/upload.js",
+  "/cart": "pages/cart.js",
+  "/favorites": "pages/favorites.js",
   "/prisma": "pages/prisma.js",
   "/prisma/login": "pages/prisma/login.js",
   "/prisma/orders": "pages/prisma/orders.js"

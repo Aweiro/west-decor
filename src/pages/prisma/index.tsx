@@ -11,7 +11,6 @@ import { Loader } from '@/components/Loader';
 import { ProductPayload } from '@/types/ProductPayload';
 import { ProductForm } from '@/types/ProductForm';
 import { isAdminAuthenticated } from '@/lib/adminAuth';
-// import './styles/admin.css';
 
 const sectionClass =
   'admin-panel p-6 lg:p-7';
@@ -456,7 +455,7 @@ export const Prisma = () => {
             });
 
             if (!res.ok) {
-              reject(`Upload failed for ${file.name}`);
+              reject(`Не вдалося завантажити файл ${file.name}`);
               return;
             }
 
@@ -670,10 +669,10 @@ export const Prisma = () => {
 
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-4'>
                 <div>
-                  <label className={labelClass}>Item ID</label>
+                  <label className={labelClass}>ID товару</label>
                   <input
                     name='itemId'
-                    placeholder='ex. 12345'
+                    placeholder='Напр., 12345'
                     value={form.itemId}
                     onChange={handleChange}
                     required
@@ -681,7 +680,7 @@ export const Prisma = () => {
                   />
                 </div>
                 <div>
-                  <label className={labelClass}>Namespace ID</label>
+                  <label className={labelClass}>ID моделі (namespace)</label>
                   <div className='admin-mode-row'>
                     <div className='admin-mode-group'>
                       <button
@@ -708,7 +707,7 @@ export const Prisma = () => {
                           className={inputClass}
                         >
                           <option value=''>
-                            {namespaceLoading ? 'Завантаження...' : 'Оберіть namespace'}
+                            {namespaceLoading ? 'Завантаження...' : 'Оберіть ID моделі'}
                           </option>
                           {!namespaceLoading &&
                             namespaceOptions.map((namespace) => (
@@ -720,7 +719,7 @@ export const Prisma = () => {
                       ) : (
                         <input
                           name='namespaceId'
-                          placeholder='ex. decors'
+                          placeholder='Напр., decor-series-a'
                           value={form.namespaceId}
                           onChange={(event) => handleNamespaceChange(event.target.value)}
                           required
@@ -736,10 +735,10 @@ export const Prisma = () => {
               </div>
 
               <div className='mb-4'>
-                <label className={labelClass}>Назва товару</label>
-                <input
-                  name='name'
-                  placeholder='Apple iPhone 15'
+                  <label className={labelClass}>Назва товару</label>
+                  <input
+                    name='name'
+                    placeholder='Напр., Marmorino Fine'
                   value={form.name}
                   onChange={handleChange}
                   className={inputClass}
@@ -780,9 +779,9 @@ export const Prisma = () => {
                     <option value='' disabled>
                       Оберіть категорію
                     </option>
-                    <option value='decors'>Decors</option>
-                    <option value='materials'>Materials</option>
-                    <option value='accessories'>Accessoires</option>
+                    <option value='decors'>Декори</option>
+                    <option value='materials'>Матеріали</option>
+                    <option value='accessories'>Аксесуари</option>
                   </select>
                 </div>
 
@@ -881,7 +880,7 @@ export const Prisma = () => {
                           <option value=''>
                             {capacityOptions.length
                               ? 'Оберіть фасування'
-                              : 'Немає фасувань для namespace'}
+                              : 'Немає фасувань для цієї моделі'}
                           </option>
                           {capacityOptions.map((capacity) => (
                             <option key={capacity} value={capacity}>
@@ -932,7 +931,9 @@ export const Prisma = () => {
                           disabled={!colorOptions.length}
                         >
                           <option value=''>
-                            {colorOptions.length ? 'Оберіть колір' : 'Немає кольорів для namespace'}
+                            {colorOptions.length
+                              ? 'Оберіть колір'
+                              : 'Немає кольорів для цієї моделі'}
                           </option>
                           {colorOptions.map((color) => (
                             <option key={color} value={color}>
@@ -1020,7 +1021,7 @@ export const Prisma = () => {
                     })
                   }
                 >
-                  + Add block
+                  + Додати блок
                 </button>
               </div>
 
@@ -1041,14 +1042,14 @@ export const Prisma = () => {
                       }
                       className='absolute top-2 right-2 text-xs text-red-400 hover:text-red-300 bg-[#2A2F3E] px-2 py-1 rounded border border-[#3E455B] hover:bg-[#3E455B] shadow-sm transition-colors'
                     >
-                      Delete Block
+                      Видалити блок
                     </button>
 
                     <div className='mb-4 pr-24'>
-                      <label className={labelClass}>Block Title</label>
+                      <label className={labelClass}>Заголовок блоку</label>
                       <input
                         type='text'
-                        placeholder='e.g. "In the box"'
+                        placeholder='Напр., "Сфера застосування"'
                         value={block.title}
                         onChange={(e) => {
                           const updated = [...form.description];
@@ -1063,11 +1064,11 @@ export const Prisma = () => {
                       {block.text.map((textItem, textIndex) => (
                         <div key={textIndex} className='flex items-end gap-2'>
                           <div className='flex-1'>
-                            <label className={labelClass}>Text item {textIndex + 1}</label>
+                            <label className={labelClass}>Текст {textIndex + 1}</label>
                             <input
                               type='text'
                               value={textItem}
-                              placeholder='Description line...'
+                              placeholder='Рядок опису...'
                               onChange={(e) => {
                                 const updated = [...form.description];
                                 updated[blockIndex].text[textIndex] = e.target.value;
@@ -1100,7 +1101,7 @@ export const Prisma = () => {
                         }}
                         className='text-sm text-[#9353d3] hover:text-[#a86ae8] hover:underline mt-2 flex items-center gap-1 font-medium'
                       >
-                        <span>+</span> Add text row
+                        <span>+</span> Додати рядок тексту
                       </button>
                     </div>
                   </div>
@@ -1119,7 +1120,7 @@ export const Prisma = () => {
                 }}
                 className='px-6 py-3 bg-[#2A2F3E] text-white border border-[#3E455B] font-semibold rounded-lg hover:bg-[#3E455B] transition-all'
               >
-                Cancel
+                Скасувати
               </button>
               <button
                 type='submit'

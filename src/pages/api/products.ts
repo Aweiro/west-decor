@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       } = req.body;
 
       if (!itemId) {
-        return res.status(400).json({ error: 'itemId is required' });
+        return res.status(400).json({ error: "itemId обов'язковий" });
       }
 
       // Check duplicate
@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       if (existing) {
-        return res.status(400).json({ error: 'Product with this itemId already exists' });
+        return res.status(400).json({ error: 'Товар з таким itemId вже існує' });
       }
 
       // Create main product
@@ -130,14 +130,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           }
         } catch (err: unknown) {
           console.error('ProductDetails creation error:', err);
-          let message = 'Unknown server error';
+          let message = 'Невідома помилка сервера';
 
           if (err instanceof Error) {
             message = err.message;
           }
 
           return res.status(500).json({
-            error: 'Failed to create ProductDetails',
+            error: 'Не вдалося створити ProductDetails',
             message,
           });
         }
@@ -224,10 +224,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         isActive,
       } = req.body;
 
-      if (!itemId) return res.status(400).json({ error: 'itemId is required for update' });
+      if (!itemId) return res.status(400).json({ error: "Для оновлення потрібен itemId" });
 
       const existing = await prisma.product.findUnique({ where: { itemId } });
-      if (!existing) return res.status(404).json({ error: 'Product not found' });
+      if (!existing) return res.status(404).json({ error: 'Товар не знайдено' });
 
       const updatedProduct = await prisma.product.update({
         where: { itemId },
@@ -360,7 +360,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
 
       return res.status(200).json({
-        message: 'Product updated successfully',
+        message: 'Товар успішно оновлено',
         product: updatedProduct,
         details: updatedDetails,
       });
@@ -373,13 +373,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const { itemId } = req.query; // або req.body
 
       if (!itemId) {
-        return res.status(400).json({ error: 'itemId is required for deletion' });
+        return res.status(400).json({ error: "Для видалення потрібен itemId" });
       }
 
       // 1) Знаходимо продукт
       const existing = await prisma.product.findUnique({ where: { itemId: itemId as string } });
       if (!existing) {
-        return res.status(404).json({ error: 'Product not found' });
+        return res.status(404).json({ error: 'Товар не знайдено' });
       }
 
       // 2) Дістаємо пов’язаний namespaceId і колір
@@ -439,14 +439,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
       }
 
-      return res.status(200).json({ message: 'Product deleted successfully' });
+      return res.status(200).json({ message: 'Товар успішно видалено' });
     }
 
     if (req.method === 'PATCH') {
       const { itemId, isActive } = req.body;
 
       if (!itemId || typeof isActive !== 'boolean') {
-        return res.status(400).json({ error: 'itemId and isActive required' });
+        return res.status(400).json({ error: "Потрібні itemId та isActive" });
       }
 
       const product = await prisma.product.update({
@@ -467,7 +467,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch (error: unknown) {
     console.error('API ERROR FULL:', error);
 
-    let message = 'Unknown error';
+    let message = 'Невідома помилка';
     let stack = undefined;
 
     if (error instanceof Error) {
@@ -476,7 +476,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     return res.status(500).json({
-      error: 'Server error',
+      error: 'Помилка сервера',
       message,
       stack,
     });

@@ -185,7 +185,7 @@ const requireAdminApiAuth = (req, res)=>{
         return true;
     }
     res.status(401).json({
-        error: 'Unauthorized'
+        error: 'Неавторизовано'
     });
     return false;
 };
@@ -243,7 +243,7 @@ async function handler(req, res) {
             details, isActive } = req.body;
             if (!itemId) {
                 return res.status(400).json({
-                    error: 'itemId is required'
+                    error: "itemId обов'язковий"
                 });
             }
             // Check duplicate
@@ -254,7 +254,7 @@ async function handler(req, res) {
             });
             if (existing) {
                 return res.status(400).json({
-                    error: 'Product with this itemId already exists'
+                    error: 'Товар з таким itemId вже існує'
                 });
             }
             // Create main product
@@ -338,12 +338,12 @@ async function handler(req, res) {
                     }
                 } catch (err) {
                     console.error('ProductDetails creation error:', err);
-                    let message = 'Unknown server error';
+                    let message = 'Невідома помилка сервера';
                     if (err instanceof Error) {
                         message = err.message;
                     }
                     return res.status(500).json({
-                        error: 'Failed to create ProductDetails',
+                        error: 'Не вдалося створити ProductDetails',
                         message
                     });
                 }
@@ -414,7 +414,7 @@ async function handler(req, res) {
         if (req.method === 'PUT') {
             const { name, screen, price, fullPrice, capacity, color, ram, image, year, category, itemId, details, isActive } = req.body;
             if (!itemId) return res.status(400).json({
-                error: 'itemId is required for update'
+                error: "Для оновлення потрібен itemId"
             });
             const existing = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].product.findUnique({
                 where: {
@@ -422,7 +422,7 @@ async function handler(req, res) {
                 }
             });
             if (!existing) return res.status(404).json({
-                error: 'Product not found'
+                error: 'Товар не знайдено'
             });
             const updatedProduct = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].product.update({
                 where: {
@@ -559,7 +559,7 @@ async function handler(req, res) {
                 }
             }
             return res.status(200).json({
-                message: 'Product updated successfully',
+                message: 'Товар успішно оновлено',
                 product: updatedProduct,
                 details: updatedDetails
             });
@@ -571,7 +571,7 @@ async function handler(req, res) {
             const { itemId } = req.query; // або req.body
             if (!itemId) {
                 return res.status(400).json({
-                    error: 'itemId is required for deletion'
+                    error: "Для видалення потрібен itemId"
                 });
             }
             // 1) Знаходимо продукт
@@ -582,7 +582,7 @@ async function handler(req, res) {
             });
             if (!existing) {
                 return res.status(404).json({
-                    error: 'Product not found'
+                    error: 'Товар не знайдено'
                 });
             }
             // 2) Дістаємо пов’язаний namespaceId і колір
@@ -654,14 +654,14 @@ async function handler(req, res) {
                 });
             }
             return res.status(200).json({
-                message: 'Product deleted successfully'
+                message: 'Товар успішно видалено'
             });
         }
         if (req.method === 'PATCH') {
             const { itemId, isActive } = req.body;
             if (!itemId || typeof isActive !== 'boolean') {
                 return res.status(400).json({
-                    error: 'itemId and isActive required'
+                    error: "Потрібні itemId та isActive"
                 });
             }
             const product = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$services$2f$prismaClient$2e$ts__$5b$api$5d$__$28$ecmascript$29$__["default"].product.update({
@@ -697,14 +697,14 @@ async function handler(req, res) {
         }
     } catch (error) {
         console.error('API ERROR FULL:', error);
-        let message = 'Unknown error';
+        let message = 'Невідома помилка';
         let stack = undefined;
         if (error instanceof Error) {
             message = error.message;
             stack = error.stack;
         }
         return res.status(500).json({
-            error: 'Server error',
+            error: 'Помилка сервера',
             message,
             stack
         });

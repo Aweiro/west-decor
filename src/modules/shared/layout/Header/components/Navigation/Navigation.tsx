@@ -22,10 +22,10 @@ export const Navigation = () => {
   return (
     <nav className={styles.nav}>
       <ul className={styles.nav__links}>
-        <NavItem to='/'>Home</NavItem>
-        <NavItem to='/decors'>Decors</NavItem>
-        <NavItem to='/materials'>Materials</NavItem>
-        <NavItem to='/accessories'>Accessoires</NavItem>
+        <NavItem to='/'>Головна</NavItem>
+        <NavItem to='/decors'>Декори</NavItem>
+        <NavItem to='/materials'>Матеріали</NavItem>
+        <NavItem to='/accessories'>Аксесуари</NavItem>
       </ul>
       <ul className={styles.nav__buttons}>
         <NavButton to='/favorites'>

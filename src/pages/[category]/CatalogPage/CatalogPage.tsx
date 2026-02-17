@@ -19,7 +19,7 @@ enum SortByValue {
   Cheapest = 'price',
 }
 type SortableKeys = 'name' | 'price' | 'year';
-type VisibleItemsType = 'All' | '4' | '8' | '16';
+type VisibleItemsType = 'Усі' | '4' | '8' | '16';
 
 export const CatalogPage = () => {
   const { categorie: products, loading, error } = useCategoriesRTK(ProductsType.Products);
@@ -27,12 +27,18 @@ export const CatalogPage = () => {
   const { category } = router.query;
 
   const searchParams = useSearchParams();
-  const sortOptions = Object.keys(SortByValue) as (keyof typeof SortByValue)[];
-  const visibleItemsOptions: VisibleItemsType[] = ['All', '4', '8', '16'];
-  const visibleItems = searchParams?.get('perPage') ?? 'All';
+  const sortOptions = ['Найновіші', 'За назвою', 'Спочатку дешевші'] as const;
+  const visibleItemsOptions: VisibleItemsType[] = ['Усі', '4', '8', '16'];
+  const rawVisibleItems = searchParams?.get('perPage');
+  const visibleItems = rawVisibleItems === 'All' ? 'Усі' : rawVisibleItems ?? 'Усі';
   const activePage = searchParams?.get('page') ?? 1;
-  const sortParams = (SortByValue[searchParams?.get('sort') as keyof typeof SortByValue] ??
-    SortByValue[sortOptions[0]]) as SortableKeys;
+  const sortParamToKey: Record<(typeof sortOptions)[number], SortableKeys> = {
+    Найновіші: SortByValue.Newest,
+    'За назвою': SortByValue.Alphabetically,
+    'Спочатку дешевші': SortByValue.Cheapest,
+  };
+  const rawSort = searchParams?.get('sort') as (typeof sortOptions)[number] | null;
+  const sortParams = sortParamToKey[rawSort || 'Найновіші'] ?? SortByValue.Newest;
 
   const filteredProducts = useMemo(() => {
     return [...products].filter((product) => product.category === category);
@@ -52,7 +58,7 @@ export const CatalogPage = () => {
       }
     });
 
-    if (visibleItems === 'All') {
+    if (visibleItems === 'Усі') {
       return sortedProducts;
     }
 
@@ -63,9 +69,9 @@ export const CatalogPage = () => {
   }, [filteredProducts, visibleItems, activePage, sortParams]);
 
   const categoryTitles: Record<string, string> = {
-    [ProductsType.Phones]: 'Decors',
-    [ProductsType.Tablets]: 'Materials',
-    [ProductsType.Accessories]: 'Accessoires',
+    [ProductsType.Phones]: 'Декори',
+    [ProductsType.Tablets]: 'Матеріали',
+    [ProductsType.Accessories]: 'Аксесуари',
   };
 
   const categoryParam = Array.isArray(category) ? category[0] : category;
@@ -81,7 +87,7 @@ export const CatalogPage = () => {
         <div className={styles.catalog__dropdowns}>
           <Dropdown
             className={styles['catalog__dropdowns-sort-by']}
-            title={'Sort by'}
+            title={'Сортувати за'}
             values={sortOptions}
             defaultValue={sortOptions[0]}
             searchLabel={SearchLabelsType.Sort}
@@ -89,17 +95,17 @@ export const CatalogPage = () => {
 
           <Dropdown
             className={styles['catalog__dropdowns-items-per-page']}
-            title={'Items per page'}
+            title={'Товарів на сторінці'}
             values={visibleItemsOptions}
             defaultValue={visibleItemsOptions[0]}
             searchLabel={SearchLabelsType.ItemsPerPage}
           />
         </div>
         <div className={styles.catalog__cards}>
-          {loading ? <Loader /> : error ? 'error' : <ProductsList products={currentProducts} />}
+          {loading ? <Loader /> : error ? 'Сталася помилка' : <ProductsList products={currentProducts} />}
         </div>
 
-        {!loading && visibleItems !== 'All' && (
+        {!loading && visibleItems !== 'Усі' && (
           <div className={styles.catalog__pagination}>
             <Pagination
               items={filteredProducts.length}

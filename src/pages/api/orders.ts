@@ -75,11 +75,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       };
 
       if (!name || !phone) {
-        return res.status(400).json({ error: 'Name and phone are required.' });
+        return res.status(400).json({ error: "Ім'я та номер телефону обов'язкові." });
       }
 
       if (!Array.isArray(items) || items.length === 0) {
-        return res.status(400).json({ error: 'Order items are required.' });
+        return res.status(400).json({ error: 'Позиції замовлення обовʼязкові.' });
       }
 
       const order = await prisma.order.create({
@@ -114,7 +114,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const { admin } = req.query;
 
       if (admin !== 'true') {
-        return res.status(403).json({ error: 'Forbidden' });
+        return res.status(403).json({ error: 'Доступ заборонено' });
       }
       if (!requireAdminApiAuth(req, res)) {
         return;
@@ -135,7 +135,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const { id, status } = req.body as { id?: number; status?: OrderStatus };
 
       if (!id || !status || !allowedStatuses.includes(status)) {
-        return res.status(400).json({ error: 'Invalid status update.' });
+        return res.status(400).json({ error: 'Некоректне оновлення статусу.' });
       }
 
       const updated = await prisma.order.update({
@@ -146,9 +146,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(200).json(updated);
     }
 
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Метод не дозволений' });
   } catch (error) {
     console.error('Orders API error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ error: 'Внутрішня помилка сервера' });
   }
 }

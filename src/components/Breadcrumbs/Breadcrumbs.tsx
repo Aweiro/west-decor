@@ -14,9 +14,9 @@ export const Breadcrumbs = ({ lastTitle }: Props) => {
   const pathname = usePathname() || '/';
   const pathnameArr = ['/', ...pathname.split('/').filter((el) => el)];
   const categoryLabels: Record<string, string> = {
-    decors: 'Decors',
-    materials: 'Materials',
-    accessories: 'Accessoires',
+    decors: 'Декори',
+    materials: 'Матеріали',
+    accessories: 'Аксесуари',
   };
 
   if (lastTitle) {

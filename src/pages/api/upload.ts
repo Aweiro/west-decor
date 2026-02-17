@@ -11,7 +11,7 @@ cloudinary.config({
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method !== 'POST') {
-      return res.status(405).json({ error: 'Only POST allowed' });
+      return res.status(405).json({ error: 'Дозволено лише POST' });
     }
     if (!requireAdminApiAuth(req, res)) {
       return;
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { file } = req.body;
 
     if (!file) {
-      return res.status(400).json({ error: 'No file provided' });
+      return res.status(400).json({ error: 'Файл не надано' });
     }
 
     // Завантаження
@@ -32,6 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch (err: unknown) {
     console.error(err);
     const message = err instanceof Error ? err.message : String(err);
-    res.status(500).json({ error: 'Upload failed', message });
+    res.status(500).json({ error: 'Помилка завантаження', message });
   }
 }

@@ -26,21 +26,21 @@ button {
 
 @font-face {
   font-family: Mont;
-  src: url("/fonts/Mont-Bold.otf") format("opentype");
+  src: url("../media/Mont-Bold.e2f77f41.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: Mont;
-  src: url("/fonts/Mont-SemiBold.otf") format("opentype");
+  src: url("../media/Mont-SemiBold.655e27d8.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: Mont;
-  src: url("/fonts/Mont-Regular.otf") format("opentype");
+  src: url("../media/Mont-Regular.e0651b1c.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }

@@ -29,17 +29,17 @@ export const FavoritesPage = () => {
   if (!mounted) return null;
 
   return (
-    <div className='container'>
-      <Breadcrumbs />
-      <PageInfo title='Favourites' count={favorites.length} />
+      <div className='container'>
+        <Breadcrumbs />
+      <PageInfo title='Вподобане' count={favorites.length} />
 
       <section className='section'>
         {favorites.length === 0 ? (
-          <h3 className={styles.favorites__empty}>The list of favorite products is empty.</h3>
+          <h3 className={styles.favorites__empty}>Список обраних товарів порожній.</h3>
         ) : loading ? (
           <Loader />
         ) : error ? (
-          'error'
+          'Сталася помилка'
         ) : (
           <ProductsList products={currentProducts} />
         )}

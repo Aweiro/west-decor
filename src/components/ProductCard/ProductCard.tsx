@@ -73,7 +73,7 @@ export const ProductCard: React.FC<Props> = React.memo(({ product, className, ch
       </LinkDetails>
 
       <LinkDetails linkClassName={`body-text ${styles['product-card__title']}`}>
-        {product?.name || 'unknown'}
+        {product?.name || 'Невідомо'}
       </LinkDetails>
 
       <div className={styles['product-card__price-row']}>

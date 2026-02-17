@@ -13,9 +13,9 @@ export const NotFoundPage = () => {
 				width={100}
 				height={100}
       />
-      <h1 className={styles['not-found__title']}>Page not found</h1>
+      <h1 className={styles['not-found__title']}>Сторінку не знайдено</h1>
       <Link className={styles['not-found__link']} href={'/'}>
-        Go to home
+        На головну
       </Link>
     </div>
   );
