@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation';
 interface Props<T extends string> {
   className?: string;
   title: string;
-  values: T[];
+  values: readonly T[];
   searchLabel: SearchLabelsType;
   defaultValue?: T;
 }
